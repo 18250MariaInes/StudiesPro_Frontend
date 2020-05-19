@@ -98,4 +98,4 @@ export const getIsAuthenticating = state => state.isAuthenticating;
 export const getAuthenticatingError = state => state.error;
 export const getAuthUserID = state => state.decoded ? state.decoded.user_id : null;
 export const getAuthExpiration = state => state.decoded ? state.decoded.exp : null;
-export const getAuthName = state => state.decoded ? state.decoded.name : null;
+export const getAuthUsername = state => state.decoded ? state.decoded.username : null;

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import React, { useState, Fragment } from 'react';
+import React, {Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 
 import * as selectors from '../../reducers';
@@ -8,18 +8,14 @@ import * as actions from '../../actions/auth';
 
 const LoginForm = ({
   onSubmit,
-  isLoading,
+  isLoading=false,
   error = null,
   isAuthenticated = false,
-  authName = '',
+  authUsername = '',
 }) => {
-  if (isAuthenticated) {
-    return (
-      <h1>{`Bienvenido ${authName} nuevamente!`}</h1>
-    );
-  }
+  
 
-  const [email, changeEmail] = useState('');
+  const [username, changeUsername] = useState('');
   const [password, changePassword] = useState('');
   return (
     <Fragment>
@@ -34,8 +30,8 @@ const LoginForm = ({
         <input
           type="text"
           placeholder="email"
-          value={email}
-          onChange={e => changeEmail(e.target.value)}
+          value={username}
+          onChange={e => changeUsername(e.target.value)}
         />
       </p>
       <p>
@@ -52,7 +48,7 @@ const LoginForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             <button type="submit" onClick={
-              () => onSubmit(email, password)
+              () => onSubmit(username, password)
             }>
               {'Enviar'}
             </button>
@@ -69,11 +65,11 @@ export default connect(
     isLoading: selectors.getIsAuthenticating(state),
     error: selectors.getAuthenticatingError(state),
     isAuthenticated: selectors.isAuthenticated(state),
-    authName: selectors.getAuthName(state),
+    authUsername: selectors.getAuthUsername(state),
   }),
   dispatch => ({
-    onSubmit(email, password) {
-      dispatch(actions.startLogin(email, password));
+    onSubmit(username, password) {
+      dispatch(actions.startLogin(username, password));
     },
   }),
 )(LoginForm);
