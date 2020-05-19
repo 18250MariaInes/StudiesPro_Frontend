@@ -4,21 +4,21 @@ import { connect } from 'react-redux';
 
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/auth';
-
+import './styles.css';
 
 const LoginForm = ({
   onSubmit,
-  isLoading=false,
+  isLoading = false,
   error = null,
   isAuthenticated = false,
-  authUsername = '',
-}) => {
-  
+  authName = '',
+}) => {  
 
   const [username, changeUsername] = useState('');
   const [password, changePassword] = useState('');
   return (
     <Fragment>
+      
       {
         error && (
           <p>
@@ -28,14 +28,16 @@ const LoginForm = ({
       }
       <p>
         <input
+          className="FormField_Input"
           type="text"
-          placeholder="email"
+          placeholder="Email"
           value={username}
           onChange={e => changeUsername(e.target.value)}
         />
       </p>
       <p>
         <input
+          className="FormField_Input"
           type="password"
           placeholder="Password"
           value={password}
@@ -47,7 +49,7 @@ const LoginForm = ({
           isLoading ? (
             <strong>{'Cargando...'}</strong>
           ) : (
-            <button type="submit" onClick={
+            <button className="SubmitButton" type="submit" onClick={
               () => onSubmit(username, password)
             }>
               {'Enviar'}
@@ -55,8 +57,10 @@ const LoginForm = ({
           )
         }
       </p>
+
+      <h1>{`Bienvenido ${authName} nuevamente!`}</h1>
     </Fragment>
-  );
+  ); 
 } 
 
 
@@ -65,7 +69,7 @@ export default connect(
     isLoading: selectors.getIsAuthenticating(state),
     error: selectors.getAuthenticatingError(state),
     isAuthenticated: selectors.isAuthenticated(state),
-    authUsername: selectors.getAuthUsername(state),
+    authName: selectors.getAuthName(state),
   }),
   dispatch => ({
     onSubmit(username, password) {
