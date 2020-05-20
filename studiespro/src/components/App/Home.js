@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import LoginForm from '../LoginForm';
+import AddTeacherForm from '../AddTeacherForm';
 
 
 function Home(){
@@ -13,6 +13,7 @@ function Home(){
     }
     return (
         <div >
+            <AddTeacherForm/>
             <h1 className="home-title">Studies Pro</h1>
             <img 
             src="https://i.redd.it/1procftja2s21.jpg"
