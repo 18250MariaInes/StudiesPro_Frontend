@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/auth';
 import './styles.css';
+import LogoutButton from '../LogoutButton';
 
 const LoginForm = ({
   onSubmit,
@@ -63,6 +64,7 @@ const LoginForm = ({
           )
         }
       </p>
+      
 
       <h1>{`Bienvenido ${authName} nuevamente!`}</h1>
     </Fragment>

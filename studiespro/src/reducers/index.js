@@ -22,7 +22,7 @@ export const getAuthUserID = state => authSelectors.getAuthUserID(state.auth);
 export const getAuthExpiration = state => authSelectors.getAuthExpiration(state.auth);
 export const getAuthName = state => authSelectors.getAuthName(state.auth);
 
-export const getTeacher = (state, id) => teachersSelectors.getTeacher(state.Teachers, id);
-export const getTeachers = state => teachersSelectors.getTeachers(state.Teachers);
-export const isFetchingTeachers = state => teachersSelectors.isFetchingTeachers(state.Teachers);
-export const getFetchingTeachersError = state => teachersSelectors.getFetchingTeachersError(state.Teachers);
+export const getTeacher = (state, id) => teachersSelectors.getTeacher(state.teachers, id);
+export const getTeachers = state => teachersSelectors.getTeachers(state.teachers);
+export const isFetchingTeachers = state => teachersSelectors.isFetchingTeachers(state.teachers);
+export const getFetchingTeachersError = state => teachersSelectors.getFetchingTeachersError(state.teachers);

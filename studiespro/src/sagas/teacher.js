@@ -19,6 +19,7 @@ import {
   
   
   function* fetchteachers(action) {
+    const { student } = action.payload
     try {
       const isAuth = yield select(selectors.isAuthenticated);
   
@@ -26,7 +27,7 @@ import {
         const token = yield select(selectors.getAuthToken);
         const response = yield call(
           fetch,
-          `${API_BASE_URL}/teacher/`,
+          `${API_BASE_URL}/students/${action.payload.student}/teachers/`,
           {
             method: 'GET',
             headers:{
@@ -44,7 +45,7 @@ import {
           } = normalize(jsonResult, schemas.teachers);
   
           yield put(
-            actions.completeFetchingTeacher(
+            actions.completeFetchingTeachers(
               teachers,
               result,
             ),

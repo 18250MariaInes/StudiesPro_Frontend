@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import AddTeacherForm from '../AddTeacherForm';
+import TeacherList from '../TeacherList';
 
 
 function Home(){
@@ -15,10 +16,7 @@ function Home(){
         <div >
             <AddTeacherForm/>
             <h1 className="home-title">Studies Pro</h1>
-            <img 
-            src="https://i.redd.it/1procftja2s21.jpg"
-            alt="new" className="foto-home"
-            />
+            
         </div>
     )
 }

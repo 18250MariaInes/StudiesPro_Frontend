@@ -1,17 +1,17 @@
 import * as types from '../types/teachers';
 
 
-export const startFetchingTeacher = () => ({
+export const startFetchingTeachers = () => ({
   type: types.TEACHER_FETCH_STARTED,
 });
-export const completeFetchingTeacher = (entities, order) => ({
+export const completeFetchingTeachers = (entities, order) => ({
   type: types.TEACHER_FETCH_COMPLETED,
   payload: {
     entities,
     order,
   },
 });
-export const failFetchingTeacher = error => ({
+export const failFetchingTeachers = error => ({
   type: types.TEACHER_FETCH_FAILED,
   payload: {
     error,
