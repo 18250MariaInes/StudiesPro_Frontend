@@ -10,12 +10,18 @@ const LoginForm = ({
   onSubmit,
   isLoading = false,
   error = null,
-  isAuthenticated = false,
+  isAuthenticated= false,
   authName = '',
 }) => {  
-
   const [username, changeUsername] = useState('');
   const [password, changePassword] = useState('');
+  if (isAuthenticated) {
+    return (
+      <h1>{`Bienvenido ${authName}!`}</h1>
+    );
+  }
+
+  
   return (
     <Fragment>
       

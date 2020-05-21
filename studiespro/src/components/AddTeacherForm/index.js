@@ -9,14 +9,14 @@ import * as actions from '../../actions/teachers';
 const TeacherForm = ({
   onSubmit,
   isLoading,
-  studentID,
+  student,
 }) => {
   const [name, changeName] = useState('');
   const [lastname, changeLastName] = useState('');
   const [email, changeEmail] = useState('');
   return (
     <div>
-      <h2>{'Crear un nuevo pet owner:'}</h2>
+      <h2>{'Crear un nuevo catedratico:'}</h2>
       <p>
         <input
           type="text"
@@ -48,8 +48,8 @@ const TeacherForm = ({
           ) : (
             <button type="submit" onClick={
               () => {
-                onSubmit(name, lastname, email,studentID);
-                console.log(studentID);
+                onSubmit(name, lastname, email,student);
+                console.log(student);
                 //changeName('');
                 //changeLastName('');
                 //changeEmail('');
@@ -68,21 +68,21 @@ const TeacherForm = ({
 export default connect(
   state => ({
     isLoading: false,
-    studentID: selectors.getAuthUserID(state),
+    student: selectors.getAuthUserID(state),
   }),
   dispatch => ({
-    onSubmit(name,lastname,email, studentID) {
-      console.log(studentID);
+    onSubmit(name,lastname,email, student) {
+      console.log(student);
       dispatch(
         actions.startAddingTeacher({
           id: uuidv4(),
           name,
           lastname,
           email,
-          studentID,
+          student,
         }),
       );
-      console.log(studentID);
+      console.log(student);
     },
   }),
 )(TeacherForm);
