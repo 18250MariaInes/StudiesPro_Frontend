@@ -7,12 +7,12 @@ import * as actions from '../../actions/teachers';
 import TeacherRow from '../TeacherRow';
 
 
-const TeacherList = ({ teachers, isLoading, onLoad }) => {
+const TeacherList = ({ teacher, isLoading, onLoad }) => {
   useEffect(onLoad, []);
   return (
     <Fragment>
       {
-        teachers.length === 0 && !isLoading && (
+        teacher.length === 0 && !isLoading && (
           <p>{'No hay catedráticos registrados'}</p>
         )
       }
@@ -22,11 +22,11 @@ const TeacherList = ({ teachers, isLoading, onLoad }) => {
         )
       }
       {
-        teachers.length > 0 && !isLoading && (
+        teacher.length > 0 && !isLoading && (
           <table>
             <tbody>
               {
-                teachers.map(({ id }) => <TeacherRow key={id} id={id} />)
+                teacher.map(({ id }) => <TeacherRow key={id} id={id} />)
               }
             </tbody>
           </table>

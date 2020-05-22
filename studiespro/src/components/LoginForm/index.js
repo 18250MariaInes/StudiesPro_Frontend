@@ -74,7 +74,7 @@ const LoginForm = ({
 
 export default connect(
   state => ({
-    isLoading: selectors.getIsAuthenticating(state),
+    isLoading: false/*selectors.getIsAuthenticating(state)*/,
     error: selectors.getAuthenticatingError(state),
     isAuthenticated: selectors.isAuthenticated(state),
     authName: selectors.getAuthName(state),
