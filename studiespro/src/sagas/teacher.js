@@ -19,15 +19,16 @@ import {
   
   
   function* fetchteachers(action) {
-    const { student } = action.payload
+    //const { student } = action.payload
     try {
       const isAuth = yield select(selectors.isAuthenticated);
   
       if (isAuth) {
         const token = yield select(selectors.getAuthToken);
+        const student = yield select(selectors.getAuthUserID)
         const response = yield call(
           fetch,
-          `${API_BASE_URL}/students/${action.payload.student}/teachers/`,
+          `${API_BASE_URL}/students/${student}/teachers/`,
           {
             method: 'GET',
             headers:{

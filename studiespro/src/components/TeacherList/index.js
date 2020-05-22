@@ -16,6 +16,7 @@ const TeacherList = ({ teacher, isLoading, onLoad }) => {
           <p>{'No hay catedráticos registrados'}</p>
         )
       }
+      
       {
         isLoading && (
           <p>{'Cargando...'}</p>
@@ -23,6 +24,9 @@ const TeacherList = ({ teacher, isLoading, onLoad }) => {
       }
       {
         teacher.length > 0 && !isLoading && (
+          <div>
+          <p>{'CATEDRATICOS REGISTRADOS:'}
+          </p>
           <table>
             <tbody>
               {
@@ -30,6 +34,7 @@ const TeacherList = ({ teacher, isLoading, onLoad }) => {
               }
             </tbody>
           </table>
+          </div>
         )
       }
     </Fragment>
