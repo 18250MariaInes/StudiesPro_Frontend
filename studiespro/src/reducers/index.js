@@ -7,7 +7,7 @@ import books, * as bookssSelectors from './books';
 import providers, * as providersSelectors from './providers';
 import sshipevents, * as sshipeventsSelectors from './sshipevents';
 import semesters, * as semestersSelectors from './semesters';
-
+import selectedTeacher, * as selectedTeacherSelectors from './selectedTeacher';
 
 const reducer = combineReducers({
   auth,
@@ -17,6 +17,7 @@ const reducer = combineReducers({
   providers,
   sshipevents,
   semesters,
+  selectedTeacher,
 });
 
 
@@ -62,3 +63,5 @@ export const getSemester = (state, id) => semestersSelectors.getSemester(state.s
 export const getSemesters = state => semestersSelectors.getSemesters(state.semesters);
 export const isFetchingSemesters = state => semestersSelectors.isFetchingSemesters(state.semesters);
 export const getFetchingSemestersError = state => semestersSelectors.getFetchingSemestersError(state.semesters);
+
+export const getSelectedTeacher = (state) => selectedTeacherSelectors.getSelectedTeacher(state.selectedTeacher)

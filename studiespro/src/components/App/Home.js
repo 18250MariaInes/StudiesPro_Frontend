@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import AddTeacherForm from '../AddTeacherForm';
-import TeacherList from '../TeacherList';
+import Teachers from '../Teachers';
 
 
 function Home(){
@@ -16,7 +16,7 @@ function Home(){
         <div >
             <AddTeacherForm/>
             <h1 className="home-title">Studies Pro</h1>
-            <TeacherList/>
+            <Teachers/>
         </div>
     )
 }

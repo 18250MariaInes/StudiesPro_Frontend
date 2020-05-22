@@ -16,6 +16,7 @@ const TeacherForm = ({
   const [email, changeEmail] = useState('');
   return (
     <div>
+      <LogoutButton/>
       <h2>{'Crear un nuevo catedratico:'}</h2>
       <p>
         <input
@@ -60,7 +61,7 @@ const TeacherForm = ({
           )
         }
       </p>
-      <LogoutButton/>
+      
     </div>
   );
 } 

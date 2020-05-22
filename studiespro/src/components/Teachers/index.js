@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 // import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/teachers';
-import TeacherRow from '../TeacherRow';
+import Teacher from '../Teacher';
 
 
-const TeacherList = ({ teacher, isLoading, onLoad }) => {
+const Teachers = ({ teacher, isLoading, onLoad }) => {
   useEffect(onLoad, []);
   return (
-    <Fragment>
+    /*<Fragment>
       {
         teacher.length === 0 && !isLoading && (
           <p>{'No hay catedráticos registrados'}</p>
@@ -27,17 +27,42 @@ const TeacherList = ({ teacher, isLoading, onLoad }) => {
           <div>
           <p>{'CATEDRATICOS REGISTRADOS:'}
           </p>
-          <table>
-            <tbody>
               {
-                teacher.map(({ id }) => <TeacherRow key={id} id={id} />)
+                teacher.map(index => <Teacher key={index}
+                index={index}/>)
               }
-            </tbody>
-          </table>
           </div>
         )
       }
-    </Fragment>
+    </Fragment>*/
+    <div className="thingy-wrapper">
+    <div className="teachers">
+    
+      {
+        teacher.length === 0 && !isLoading && (
+          <p>{'No hay catedráticos registrados'}</p>
+        )
+      }
+      
+      {
+        isLoading && (
+          <p>{'Cargando...'}</p>
+        )
+      }
+      {
+        teacher.length > 0 && !isLoading && (
+          <div>
+          <p>{'CATEDRATICOS REGISTRADOS:'}
+          </p>
+              {
+                teacher.map(id => <Teacher key={id}
+                id={id}/>)
+              }
+          </div>
+        )
+      }
+    </div>
+  </div>
   );
 };
 
@@ -51,4 +76,4 @@ export default connect(
       dispatch(actions.startFetchingTeachers());
     },
   }),
-)(TeacherList);
+)(Teachers);

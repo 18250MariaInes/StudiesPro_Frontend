@@ -1,0 +1,41 @@
+  
+.pet-owner-row--pending {
+    opacity: 0.5;
+}
+.teacher-wrapper {
+    display: flex;
+    flex-direction: row;
+    max-height: 120px;
+    transition: 0.25s;
+    
+}
+
+.teacher {
+    background:papayawhip;
+    float: left;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 67px;
+    width: 240px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    font-style: normal;
+}
+
+.teacher--selected {
+    transform: scale(0.9);
+}
+
+.h1{
+    background-color: rebeccapurple;
+}
+
+.h3{
+    display: flex;
+    flex-direction: column;
+}
+.teacher_name{
+    font-size: 1.5rem;
+}
