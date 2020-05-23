@@ -1,6 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
 import React, {Fragment, useState } from 'react';
 import { connect } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/auth';
@@ -18,7 +27,7 @@ const LoginForm = ({
   const [password, changePassword] = useState('');
   if (isAuthenticated) {
     return (
-      <h1>{`Bienvenido ${authName}!`}</h1>
+      <Redirect to='/Home' />
     );
   }
 

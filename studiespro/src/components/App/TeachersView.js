@@ -3,7 +3,7 @@ import AddTeacherForm from '../AddTeacherForm';
 import Teachers from '../Teachers';
 import AddTeacherButton from '../AddTeacherButton';
 
-function Home(){
+function TeachersView(){
     useEffect(() => {
         fetchItems();
     }, []);
@@ -14,10 +14,11 @@ function Home(){
     }
     return (
         <div >
-           
-            <h1 className="home-title-home">Studies Pro</h1>
-            
+            {/*<AddTeacherForm/>*/}
+            <AddTeacherButton/>
+            <h1 className="home-title">Studies Pro</h1>
+            <Teachers/>
         </div>
     )
 }
-export default Home;
+export default TeachersView;

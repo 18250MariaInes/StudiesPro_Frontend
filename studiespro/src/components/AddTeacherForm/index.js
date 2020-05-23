@@ -1,7 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/teachers';
 import LogoutButton from '../LogoutButton';
@@ -47,17 +55,19 @@ const TeacherForm = ({
           isLoading ? (
             <strong>{'Cargando...'}</strong>
           ) : (
-            <button type="submit" onClick={
-              () => {
-                onSubmit(name, lastname, email,student);
-                console.log(student);
-                //changeName('');
-                //changeLastName('');
-                //changeEmail('');
-              }
-            }>
-              {'Agregar'}
-            </button>
+            <Link to='/Teachers'> 
+              <button type="submit" onClick={
+                () => {
+                  onSubmit(name, lastname, email,student);
+                  console.log(student);
+                  //changeName('');
+                  //changeLastName('');
+                  //changeEmail('');
+                }
+              }>
+                {'Agregar'}
+              </button>
+            </Link>
           )
         }
       </p>

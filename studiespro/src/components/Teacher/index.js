@@ -39,7 +39,10 @@ const Teacher = ({
         <div className="teacher">
             <div className="teacher_name">
                 Nombre: {(Object.entries(Object.entries(teacher)[1])[1]).slice(1)}
-                
+                <br></br>
+                Apellido: {(Object.entries(Object.entries(teacher)[2])[1]).slice(1)}
+                <br></br>
+                Correo: {(Object.entries(Object.entries(teacher)[3])[1]).slice(1)}
             </div>
         </div>
       </div>
