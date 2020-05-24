@@ -5,6 +5,8 @@ import { configureStore } from '../../store';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { routerActions } from 'react-router-redux';
 import LoginForm from '../LoginForm';
+import SignUpForm from '../SignUpForm';
+
 import Nav from './Nav';
 import Home from './Home';
 import AddTeacherForm from '../AddTeacherForm';
@@ -44,6 +46,11 @@ const routes = [
       exact: true,
       component: LoginForm,
   },
+  {
+    path: '/Signup',
+    exact: true,
+    component: SignUpForm,
+},
   {
       path: '/Teachers',
       exact: true,

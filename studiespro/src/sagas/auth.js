@@ -48,4 +48,36 @@ import {
       login,
     );
   }
+
+  function* signup(action) {
+    try {
+      const response = yield call(
+        fetch,
+        `${API_BASE_URL}/students/`,
+        {
+          method: 'POST',
+          body: JSON.stringify(action.payload),
+          headers:{
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+  
+      if (response.status === 201) {
+        yield put(actions.completeRegistration());
+      } else {
+        const { non_field_errors } = yield response.json();
+        yield put(actions.failRegistration(non_field_errors[0]));
+      }
+    } catch (error) {
+      yield put(actions.failRegistration('Falló horrible la conexión mano'));
+    }
+  }
+  
+  export function* watchSignupStarted() {
+    yield takeEvery(
+      types.REGISTRATION_STARTED,
+      signup,
+    );
+  }
   

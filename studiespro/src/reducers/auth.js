@@ -82,11 +82,45 @@ const error = (state = null, action) => {
 
 };
 
+const isRegistrating = (state = false, action) => {
+  switch(action.type) {
+    case types.REGISTRATION_STARTED: {
+      return true;
+    }
+    case types.REGISTRATION_COMPLETED: {
+      return false;
+    }
+    case types.REGISTRATION_FAILED: {
+      return false;
+    }
+  }
+
+  return state;
+};
+
+const error_register = (state = null, action) => {
+  switch(action.type) {
+    case types.REGISTRATION_STARTED: {
+      return null;
+    }
+    case types.REGISTRATION_COMPLETED: {
+      return null;
+    }
+    case types.REGISTRATION_FAILED: {
+      return action.payload.error;
+    }
+  }
+
+  return state;
+};
+
 const auth = combineReducers({
   token,
   decoded,
   isAuthenticating,
   error,
+  isRegistrating,
+  error_register,
 });
 
 
@@ -99,3 +133,5 @@ export const getAuthenticatingError = state => state.error;
 export const getAuthUserID = state => state.decoded ? state.decoded.user_id : null;
 export const getAuthExpiration = state => state.decoded ? state.decoded.exp : null;
 export const getAuthName = state => state.decoded ? state.decoded.username : null;
+export const getIsRegistrating = state => state.isRegistrating;
+export const getRegistratingError = state => state.error_register;

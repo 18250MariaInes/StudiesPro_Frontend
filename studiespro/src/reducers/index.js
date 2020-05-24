@@ -28,7 +28,7 @@ const reducer = combineReducers({
 export default reducer;
 
 
-
+//student
 export const getAuthToken = state => authSelectors.getAuthToken(state.auth);
 export const getIsAuthenticating = state => authSelectors.getIsAuthenticating(state.auth);
 export const getAuthenticatingError = state => authSelectors.getAuthenticatingError(state.auth);
@@ -36,6 +36,8 @@ export const isAuthenticated = state => getAuthToken(state) != null;
 export const getAuthUserID = state => authSelectors.getAuthUserID(state.auth);
 export const getAuthExpiration = state => authSelectors.getAuthExpiration(state.auth);
 export const getAuthName = state => authSelectors.getAuthName(state.auth);
+export const getIsRegistrating = state => authSelectors.getIsRegistrating(state.auth);
+export const getRegistratingError = state => authSelectors.getRegistratingError(state.auth);
 //teacher
 //cambiar de teachers a teacher porque en el estado esta en singular
 export const getTeacher = (state, id) => teachersSelectors.getTeacher(state.teacher, id);

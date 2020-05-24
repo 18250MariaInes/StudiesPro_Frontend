@@ -49,8 +49,8 @@
     margin-bottom:  10px;
     margin-left: 50px;
     display: block;
-    color: black;
-    font-size: 1rem;
+    color: white;
+    font-size: 2rem;
     font-family: 'Tahoma';
     text-transform: uppercase;
 }
@@ -74,5 +74,7 @@
 
 .App {
     background-color: #030315;
+    min-width: 60rem;
+    min-height: 60rem;
 }
 
