@@ -32,7 +32,7 @@ export default connect(
   (state, { id }) => ({
     ...selectors.getSshipevent(state, id),
     sshipevent: id,
-    isSelected: selectors.getSelectedSshipevent(state) === id,
+    //isSelected: selectors.getSelectedSshipevent(state) === id,
   }),
   (dispatch, {id}) => ({
     onDelete() {

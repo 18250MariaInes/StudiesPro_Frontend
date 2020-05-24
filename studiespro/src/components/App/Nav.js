@@ -24,6 +24,18 @@ const Nav = ({
             <Link to='/Teachers'>
                 <h1 className="home-title">Teachers</h1>
             </Link>
+            <Link to='/Books'>
+                <h1 className="home-title">Books</h1>
+            </Link>
+            <Link to='/Delvas'>
+                <h1 className="home-title">Delvass</h1>
+            </Link>
+            <Link to='/Providers'>
+                <h1 className="home-title">Providers</h1>
+            </Link>
+            <Link to='/Sshipevents'>
+                <h1 className="home-title">Events</h1>
+            </Link>
         </ul>
     ) : (<></>)
     }

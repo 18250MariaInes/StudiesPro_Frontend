@@ -1,7 +1,7 @@
 import * as types from '../types/selectedProvider';
 
 
-export const selectedTeacher = index => ({
-  type: types.Provider_SELECTED,
+export const selectedProvider = index => ({
+  type: types.PROVIDER_SELECTED,
   payload: index, 
 });

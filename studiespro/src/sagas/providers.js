@@ -45,7 +45,7 @@ import {
           } = normalize(jsonResult, schemas.providers);
   
           yield put(
-            actions.completeFetchingproviders(
+            actions.completeFetchingProviders(
               providers,
               result,
             ),

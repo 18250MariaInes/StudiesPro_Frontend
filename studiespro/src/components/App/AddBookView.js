@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-//import AddProviderForm from '../AddProviderForm';
-import Providers from '../Providers';
-import AddProviderButton from '../AddProviderButton';
+import AddBookForm from '../AddBookForm';
+import Books from '../Books';
+import AddBookButton from '../AddBookButton';
 
-function ProvidersView(){
+function AddBookView(){
     useEffect(() => {
         fetchItems();
     }, []);
@@ -13,11 +13,12 @@ function ProvidersView(){
         console.log(items);
     }
     return (
-        <div>
-            {/*<AddProviderForm/>*/}
-            <AddProviderButton/>
-            <Providers/>
+        <div >
+            <AddBookForm/>
+           
+            <h1 className="home-title">Studies Pro</h1>
+            
         </div>
     )
 }
-export default ProvidersView;
+export default AddBookView;

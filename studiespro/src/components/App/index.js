@@ -17,6 +17,18 @@ import LogoutButton from '../LogoutButton';
 import TeachersView from './TeachersView';
 import AddTeacherView from './AddTeacherView';
 
+import BooksView from './BooksView';
+import AddBookView from './AddBookView';
+
+import DelvasView from './DelvasView';
+import AddDelvaView from './AddDelvaView';
+
+import ProvidersView from './ProvidersView';
+import AddProviderView from './AddProviderView';
+
+import SshipeventsView from './SshipeventsView';
+import AddSshipeventView from './AddSshipeventView';
+
 
 
 const { store, persistor } = configureStore();
@@ -46,6 +58,46 @@ const routes = [
     path: '/Add-teacher',
     exact: true,
     component: UserIsAuthenticated(AddTeacherView),
+  },
+  {
+    path: '/Books',
+    exact: true,
+    component: UserIsAuthenticated(BooksView),
+  },
+  {
+    path: '/Add-book',
+    exact: true,
+    component: UserIsAuthenticated(AddBookView),
+  },
+  {
+    path: '/Delvas',
+    exact: true,
+    component: UserIsAuthenticated(DelvasView),
+  },
+  {
+    path: '/Add-delva',
+    exact: true,
+    component: UserIsAuthenticated(AddDelvaView),
+  },
+  {
+    path: '/Providers',
+    exact: true,
+    component: UserIsAuthenticated(ProvidersView),
+  },
+  {
+    path: '/Add-provider',
+    exact: true,
+    component: UserIsAuthenticated(AddProviderView),
+  },
+  {
+    path: '/Sshipevents',
+    exact: true,
+    component: UserIsAuthenticated(SshipeventsView),
+  },
+  {
+    path: '/Add-sshipevent',
+    exact: true,
+    component: UserIsAuthenticated(AddSshipeventView),
   },
 ];
 const App = () => (

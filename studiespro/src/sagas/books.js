@@ -12,7 +12,7 @@ import {
   import * as selectors from '../reducers';
   import * as actions from '../actions/books';
   import * as types from '../types/books';
-  import * as schemas from '../schemas/delvas';
+  import * as schemas from '../schemas/books';
   
   
   const API_BASE_URL = 'http://localhost:8000/api/v1';
@@ -64,7 +64,7 @@ import {
   
   export function* watchbooksFetch() {
     yield takeEvery(
-      types.BOOK_FETCH_STARTED,
+      types.BOOKS_FETCH_STARTED,
       fetchbooks,
     );
   }

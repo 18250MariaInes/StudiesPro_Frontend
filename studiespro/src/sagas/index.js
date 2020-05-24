@@ -17,7 +17,7 @@ import {
   watchAddDelva,
   watchdelvasFetch,
   watchRemoveDelva
-} from './Delvas';
+} from './delvas';
 
 import {
   watchAddProvider,

@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-//import AddProviderForm from '../AddProviderForm';
-import Providers from '../Providers';
-import AddProviderButton from '../AddProviderButton';
+import AddDelvaForm from '../AddDelvaForm';
+import Delvas from '../Delvas';
+import AddDelvaButton from '../AddDelvaButton';
 
-function ProvidersView(){
+function AddDelvaView(){
     useEffect(() => {
         fetchItems();
     }, []);
@@ -13,11 +13,12 @@ function ProvidersView(){
         console.log(items);
     }
     return (
-        <div>
-            {/*<AddProviderForm/>*/}
-            <AddProviderButton/>
-            <Providers/>
+        <div >
+            <AddDelvaForm/>
+           
+            <h1 className="home-title">DELVAS</h1>
+            
         </div>
     )
 }
-export default ProvidersView;
+export default AddDelvaView;

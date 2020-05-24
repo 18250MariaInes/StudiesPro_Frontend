@@ -64,7 +64,7 @@ import {
   
   export function* watchdelvasFetch() {
     yield takeEvery(
-      types.DELVA_FETCH_STARTED,
+      types.DELVAS_FETCH_STARTED,
       fetchdelvas,
     );
   }
