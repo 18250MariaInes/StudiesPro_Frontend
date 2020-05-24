@@ -10,31 +10,6 @@ import Teacher from '../Teacher';
 const Teachers = ({ teacher, isLoading, onLoad }) => {
   useEffect(onLoad, []);
   return (
-    /*<Fragment>
-      {
-        teacher.length === 0 && !isLoading && (
-          <p>{'No hay catedráticos registrados'}</p>
-        )
-      }
-      
-      {
-        isLoading && (
-          <p>{'Cargando...'}</p>
-        )
-      }
-      {
-        teacher.length > 0 && !isLoading && (
-          <div>
-          <p>{'CATEDRATICOS REGISTRADOS:'}
-          </p>
-              {
-                teacher.map(index => <Teacher key={index}
-                index={index}/>)
-              }
-          </div>
-        )
-      }
-    </Fragment>*/
   <div className="teachers">
     
       {

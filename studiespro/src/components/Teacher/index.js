@@ -15,19 +15,6 @@ const Teacher = ({
   onClick,
   onDelete,
 }) => (
-  /*<div
-  className={
-    `
-      Teacher-wrapper
-      ${isSelected ? 'Teacher--selected' : ''}
-    `
-  }
-  onClick={onClick}
-  >
-  <tr className={!isConfirmed ? 'pet-owner-row--pending' : ''}>
-    <td>{ name }</td>
-  </tr>
-  </div>*/
   <div
         className={
           `

@@ -1,0 +1,13 @@
+.sshipevents {
+    margin-left: 350px;
+    margin-right: 350px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: stretch;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+}

@@ -1,0 +1,13 @@
+.addsshipevent-button {
+    background: rebeccapurple;
+    border-radius: 10px;
+    top: 150px;
+    color: white;
+    font-size: 5px;
+    height: 70px;
+    position: fixed;
+    right: 20px;
+    width: 70px;
+    z-index: 2;
+}
+
