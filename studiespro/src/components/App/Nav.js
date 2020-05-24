@@ -21,19 +21,19 @@ const Nav = ({
         
     { isAuthenticated? (
         <ul className="nav-links">
-            <Link to='/Teachers'>
+            <Link className="nav-link" to='/Teachers'>
                 <h1 className="home-title">Teachers</h1>
             </Link>
-            <Link to='/Books'>
+            <Link className="nav-link" to='/Books'>
                 <h1 className="home-title">Books</h1>
             </Link>
-            <Link to='/Delvas'>
-                <h1 className="home-title">Delvass</h1>
+            <Link className="nav-link" to='/Delvas'>
+                <h1 className="home-title">Delvas</h1>
             </Link>
-            <Link to='/Providers'>
+            <Link className="nav-link" to='/Providers'>
                 <h1 className="home-title">Providers</h1>
             </Link>
-            <Link to='/Sshipevents'>
+            <Link className="nav-link" to='/Sshipevents'>
                 <h1 className="home-title">Events</h1>
             </Link>
         </ul>

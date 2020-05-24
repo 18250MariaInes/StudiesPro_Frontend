@@ -31,6 +31,7 @@ import AddProviderView from './AddProviderView';
 import SshipeventsView from './SshipeventsView';
 import AddSshipeventView from './AddSshipeventView';
 
+import TokenRefresh from '../TokenRefresh';
 
 
 const { store, persistor } = configureStore();
@@ -125,7 +126,8 @@ const App = () => (
             ))
         }
         </Switch>   
-        <LogoutButton/>  
+        <LogoutButton/> 
+        <TokenRefresh reviewTime={3600000} /> 
       </div>
     </Router>
     </PersistGate>

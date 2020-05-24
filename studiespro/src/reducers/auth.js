@@ -18,6 +18,9 @@ const token = (state = null, action) => {
     case types.AUTHENTICATION_IDENTITY_CLEARED: {
       return null;
     }
+    case types.TOKEN_REFRESH_COMPLETED: {
+      return action.payload.newToken;
+    }
     default: {
         return state;
     }
@@ -38,6 +41,10 @@ const decoded = (state = null, action) => {
     }
     case types.AUTHENTICATION_IDENTITY_CLEARED: {
       return null;
+    }
+    case types.TOKEN_REFRESH_COMPLETED: {
+      console.log("SI LLEGA?", jwtDecode(action.payload.newToken))
+      return jwtDecode(action.payload.newToken);
     }
     default: {
         return state;
@@ -114,6 +121,38 @@ const error_register = (state = null, action) => {
   return state;
 };
 
+const isRefreshing = (state = false, action) => {
+  switch(action.type) {
+    case types.TOKEN_REFRESH_STARTED: {
+      return true;
+    }
+    case types.TOKEN_REFRESH_COMPLETED: {
+      return false;
+    }
+    case types.TOKEN_REFRESH_FAILED: {
+      return false;
+    }
+  }
+
+  return state;
+};
+
+const refreshingError = (state = null, action) => {
+  switch(action.type) {
+    case types.TOKEN_REFRESH_STARTED: {
+      return null;
+    }
+    case types.TOKEN_REFRESH_COMPLETED: {
+      return null;
+    }
+    case types.TOKEN_REFRESH_FAILED: {
+      return action.payload.error;
+    }
+  }
+
+  return state;
+};
+
 const auth = combineReducers({
   token,
   decoded,
@@ -121,6 +160,8 @@ const auth = combineReducers({
   error,
   isRegistrating,
   error_register,
+  isRefreshing,
+  refreshingError
 });
 
 
@@ -135,3 +176,5 @@ export const getAuthExpiration = state => state.decoded ? state.decoded.exp : nu
 export const getAuthName = state => state.decoded ? state.decoded.username : null;
 export const getIsRegistrating = state => state.isRegistrating;
 export const getRegistratingError = state => state.error_register;
+export const getIsRefreshingToken = state => state.isRefreshing;
+export const getRefreshingError = state => state.refreshingError;
