@@ -134,7 +134,7 @@ import {
         const token = yield select(selectors.getAuthToken);
         const response = yield call(
           fetch,
-          `${API_BASE_URL}/teacher/${action.payload.id}/`,
+          `${API_BASE_URL}/teacher/${action.payload.id.id}/`,
           {
             method: 'DELETE',
             headers:{
@@ -146,6 +146,7 @@ import {
   
         if (response.status === 200) {
           yield put(actions.completeRemovingTeacher());
+          console.log("Entro 204");
           // const {
           //   entities: { teachers },
           //   result,

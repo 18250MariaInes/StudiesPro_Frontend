@@ -13,6 +13,7 @@ const Teacher = ({
   isConfirmed = false,
   isSelected = false,
   onClick,
+  onDelete,
 }) => (
   /*<div
   className={
@@ -37,15 +38,19 @@ const Teacher = ({
         onClick={onClick}
       >
         <div className="teacher">
-            <div className="teacher_name">
-                Nombre: {(Object.entries(Object.entries(teacher)[1])[1]).slice(1)}
-                <br></br>
-                Apellido: {(Object.entries(Object.entries(teacher)[2])[1]).slice(1)}
-                <br></br>
-                Correo: {(Object.entries(Object.entries(teacher)[3])[1]).slice(1)}
-            </div>
+          <button className="delete_teacher"
+            onClick={onDelete}>
+             &times;
+          </button>
+          <div className="teacher_name">
+              Nombre: {(Object.entries(Object.entries(teacher)[1])[1]).slice(1)}
+              <br></br>
+              Apellido: {(Object.entries(Object.entries(teacher)[2])[1]).slice(1)}
+              <br></br>
+              Correo: {(Object.entries(Object.entries(teacher)[3])[1]).slice(1)}
+          </div>
         </div>
-      </div>
+     </div>
 );
 
 export default connect(
@@ -55,14 +60,16 @@ export default connect(
     isSelected: selectors.getSelectedTeacher(state) === id/*index*/,
     /*isSelected: selectors.getSelectedTeacher(state) === index,*/
   }),
-  (dispatch, { id , index}) => ({
+  (dispatch, {id}) => ({
     onClick() {
-      dispatch(selectedActions.selectedTeacher(id/*index*/));
-      console.log(selectedActions.selectedTeacher(id/*index*/));
+      dispatch(selectedActions.selectedTeacher(id));
+      console.log(selectedActions.selectedTeacher(id));
     },
-    /*
+    
     onDelete() {
-      dispatch(actions.startRemovingPetOwner(id));
-    }*/
+      dispatch(actions.startRemovingTeacher(id));
+      console.log(id);
+      console.log("Hola");
+    }
   }),
 )(Teacher);

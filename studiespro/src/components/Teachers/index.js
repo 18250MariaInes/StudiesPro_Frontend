@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-// import './styles.css';
+import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/teachers';
 import Teacher from '../Teacher';
@@ -35,8 +35,7 @@ const Teachers = ({ teacher, isLoading, onLoad }) => {
         )
       }
     </Fragment>*/
-    <div className="thingy-wrapper">
-    <div className="teachers">
+  <div className="teachers">
     
       {
         teacher.length === 0 && !isLoading && (
@@ -62,7 +61,6 @@ const Teachers = ({ teacher, isLoading, onLoad }) => {
         )
       }
     </div>
-  </div>
   );
 };
 

@@ -13,10 +13,9 @@ function TeachersView(){
         console.log(items);
     }
     return (
-        <div >
+        <div>
             {/*<AddTeacherForm/>*/}
             <AddTeacherButton/>
-            <h1 className="home-title">Studies Pro</h1>
             <Teachers/>
         </div>
     )
