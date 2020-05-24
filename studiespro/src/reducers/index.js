@@ -9,6 +9,7 @@ import sshipevents, * as sshipeventsSelectors from './sshipevents';
 import semesters, * as semestersSelectors from './semesters';
 import selectedTeacher, * as selectedTeacherSelectors from './selectedTeacher';
 import selectedProvider, * as selectedProviderSelectors from './selectedProvider';
+import {reducer as formReducer} from 'redux-form';
 
 const reducer = combineReducers({
   auth,
@@ -20,6 +21,7 @@ const reducer = combineReducers({
   semesters,
   selectedTeacher,
   selectedProvider,
+  form: formReducer,
 });
 
 
