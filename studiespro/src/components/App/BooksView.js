@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Books from '../Books';
 import AddBookButton from '../AddBookButton';
-
+import './styles.css';
 function BooksView(){
     useEffect(() => {
         fetchItems();
@@ -12,7 +12,7 @@ function BooksView(){
         console.log(items);
     }
     return (
-        <div>
+        <div className="book-view">
             {/*<AddBookForm/>*/}
             <AddBookButton/>
             <Books/>

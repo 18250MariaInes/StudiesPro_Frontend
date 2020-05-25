@@ -16,7 +16,7 @@ function AddBookView(){
         <div >
             <AddBookForm/>
            
-            <h1 className="home-title">Studies Pro</h1>
+           
             
         </div>
     )

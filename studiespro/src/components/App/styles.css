@@ -92,3 +92,8 @@
     
 }
 
+.book-view{
+    display: flex;
+    direction: row;
+    align-items:center;
+}

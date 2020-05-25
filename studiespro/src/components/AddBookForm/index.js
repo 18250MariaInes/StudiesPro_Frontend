@@ -13,7 +13,7 @@ import {
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/books';
 import LogoutButton from '../LogoutButton';
-
+import './styles.css';
 const BookForm = ({
   onSubmit,
   isLoading,
@@ -23,11 +23,11 @@ const BookForm = ({
   const [description, changeDescription] = useState('');
   const [date, changeDate] = useState('');
   return (
-    <div>
+    <div className="formT">
       <LogoutButton/>
-      <h2>{'Crear un nuevo Libro:'}</h2>
+      <h2 className="tituloform">{'Crear un nuevo Libro'}</h2>
       <p>
-        <input
+        <input className="inputBook"
           type="text"
           placeholder="Nombre del libro"
           value={title}
@@ -35,7 +35,7 @@ const BookForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputBook"
           type="text"
           placeholder="Descripción"
           value={description}
@@ -43,7 +43,7 @@ const BookForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputBook"
           type="text"
           placeholder="Fecha de entrega"
           value={date}
@@ -56,7 +56,7 @@ const BookForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             <Link to='/Books'> {/*CAMBIAR RUTA*/}
-              <button type="submit" onClick={
+              <button className="buttonTform" type="submit" onClick={
                 () => {
                   onSubmit(title, description, date,student);
                   console.log(student);
