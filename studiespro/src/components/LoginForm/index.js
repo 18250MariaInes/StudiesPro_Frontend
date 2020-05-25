@@ -42,7 +42,7 @@ const LoginForm = ({
               </p>
             )
           }
-          <h1>Bienvenido!</h1>
+          <h1>¡Bienvenido!</h1>
           <p>
             <input
               className="FormField_Input"
@@ -74,7 +74,7 @@ const LoginForm = ({
               )
             }
           </p>
-          <Link to='/Signup' className="signup-link" >Eres nuevo? Crea una cuenta</Link>
+          <Link to='/Signup' className="signup-link" >¿Eres nuevo? Crea una cuenta</Link>
 
           {/*<h1>{`Bienvenido ${authName} nuevamente!`}</h1>*/}
           </div>

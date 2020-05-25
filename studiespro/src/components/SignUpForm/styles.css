@@ -29,3 +29,19 @@
     shape-outside: initial;
 }
 
+.signup-wrapper{
+    background-color: #D8D8D8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 400px;
+    margin-right: 400px;
+    min-width: 400px;
+    width: 400px;
+    border-radius: 30px;
+    margin-top: 5rem;
+    font-family: 'Tahoma';
+}
+
+
+

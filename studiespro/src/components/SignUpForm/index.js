@@ -32,7 +32,7 @@ const SignUpForm = ({
   
   return (
       <Fragment>
-        
+        <div className="signup-wrapper">
         {
           error && (
             <p>
@@ -40,6 +40,7 @@ const SignUpForm = ({
             </p>
           )
         }
+        <h1>Cuenta Nueva</h1>
         <p>
           <input
             className="FormField_Input"
@@ -103,12 +104,13 @@ const SignUpForm = ({
                 <button className="SubmitButton" type="submit" onClick={
                       () => onSubmit(name, lastname, email, carne, sship, password)
                     }>
-                      {'Enviar'}
+                      {'Crear'}
                 </button>
               </Link>
             )
           }
         </p>
+        </div>
       </Fragment>
   ); 
 } 

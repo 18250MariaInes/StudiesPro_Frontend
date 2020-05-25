@@ -15,6 +15,7 @@ import materials, * as materialsSelectors from './materials';
 import selectedTeacher, * as selectedTeacherSelectors from './selectedTeacher';
 import selectedProvider, * as selectedProviderSelectors from './selectedProvider';
 import selectedCourse, * as selectedCourseSelectors from './selectedCourse';
+import selectedSemester, * as selectedSemesterSelectors from './selectedSemester';
 
 import {reducer as formReducer} from 'redux-form';
 
@@ -33,7 +34,7 @@ const reducer = combineReducers({
   courses,
   materials,
   selectedCourse,
-  
+  selectedSemester,
   form: formReducer,
 });
 
@@ -108,3 +109,5 @@ export const getSelectedTeacher = (state) => selectedTeacherSelectors.getSelecte
 export const getSelectedProvider = (state) => selectedProviderSelectors.getSelectedProvider(state.selectedProvider)
 
 export const getSelectedCourse = (state) => selectedCourseSelectors.getSelectedCourse(state.selectedCourse)
+
+export const getSelectedSemester = (state) => selectedSemesterSelectors.getSelectedSemester(state.selectedSemester)
