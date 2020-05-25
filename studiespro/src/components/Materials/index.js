@@ -15,7 +15,7 @@ const Materials = ({ material, isLoading, onLoad }) => {
     
       {
         material.length === 0 && !isLoading && (
-          <p>{'No hay materiales registradas'}</p>
+          <p>{'No hay materiales registrados'}</p>
         )
       }
       {

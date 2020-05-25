@@ -1,0 +1,14 @@
+.addmaterial-button {
+    background: red;
+    border-radius: 10px;
+    top: 230px;
+    color: #410357;
+    font-size: 5px;
+    height: 70px;
+    position: fixed;
+    right: 20px;
+    width: 70px;
+    z-index: 2;
+    border-style: none;
+}
+

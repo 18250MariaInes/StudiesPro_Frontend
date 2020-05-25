@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Providers from '../Providers';
 import Materials from '../Materials';
 import AddProviderButton from '../AddProviderButton';
+import AddMaterialButton from '../AddMaterialButton';
 
 function ProvidersView(){
     useEffect(() => {
@@ -19,6 +20,7 @@ function ProvidersView(){
             <AddProviderButton/>
             <Providers/>
             <Materials/>
+            <AddMaterialButton/>
 
         </div>
     )

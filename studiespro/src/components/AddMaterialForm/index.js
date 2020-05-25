@@ -11,25 +11,26 @@ import {
   useParams
 } from "react-router-dom";
 import * as selectors from '../../reducers';
-import * as actions from '../../actions/providers';
+import * as actions from '../../actions/materials';
 import LogoutButton from '../LogoutButton';
 import * as selectedActions from '../../actions/selectedProvider';
 import './styles.css';
-const ProviderForm = ({
+
+const AddMaterialForm = ({
   onSubmit,
   isLoading,
   student,
-  selectedP,
+  provider,
 }) => {
   const [name, changeName] = useState('');
-  const [address, changeAddress] = useState('');
-  const [email, changeEmail] = useState('');
+  const [description, changeDescription] = useState('');
+  const [price, changePrice] = useState('');
   return (
-    <div className="formP">
+    <div className="formM">
       <LogoutButton/>
-      <h2 className="tituloformp">{'Crear un nuevo provider:'}</h2>
+      <h2 className="tituloformm">{'Crear un nuevo material:'}</h2>
       <p>
-        <input className="inputProv"
+        <input className="inputMat"
           type="text"
           placeholder="Nombre"
           value={name}
@@ -37,19 +38,19 @@ const ProviderForm = ({
         />
       </p>
       <p>
-        <input className="inputProv"
+        <input className="inputMat"
           type="text"
-          placeholder="Direccion"
-          value={address}
-          onChange={e => changeAddress(e.target.value)}
+          placeholder="Description"
+          value={description}
+          onChange={e => changeDescription(e.target.value)}
         />
       </p>
       <p>
-        <input className="inputProv"
+        <input className="inputMat"
           type="text"
-          placeholder="Email"
-          value={email}
-          onChange={e => changeEmail(e.target.value)}
+          placeholder="Price"
+          value={price}
+          onChange={e => changePrice(e.target.value)}
         />
       </p>
       <p>
@@ -60,8 +61,9 @@ const ProviderForm = ({
             <Link to='/Providers'> 
               <button type="submit" className="buttonTformp" onClick={
                 () => {
-                  onSubmit(name, address, email,student, selectedP);
-                  console.log(selectedP);
+                  onSubmit(name, description, price, student, provider);
+                  console.log(student);
+                  console.log(provider);
                   //changeName('');
                   //changeaddress('');
                   //changeEmail('');
@@ -83,22 +85,22 @@ export default connect(
   state => ({
     isLoading: false,
     student: selectors.getAuthUserID(state),
-    selectedP: selectedActions.selectedProvider(state).payload.selectedProvider.id,
+    provider: selectedActions.selectedProvider(state).payload.selectedProvider.id,
   }),
   dispatch => ({
-    onSubmit(name,address,email, student,selectedP) {
-      //console.log(student);
-      console.log(selectedP);
+    onSubmit(name, description, price, student, provider) {
+      console.log(student);
       dispatch(
-        actions.startAddingProvider({
+        actions.startAddingMaterial({
           id: uuidv4(),
           name,
-          address,
-          email,
+          description, 
+          price,
           student,
+          provider,
         }),
       );
       //console.log(student);
     },
   }),
-)(ProviderForm);
+)(AddMaterialForm);

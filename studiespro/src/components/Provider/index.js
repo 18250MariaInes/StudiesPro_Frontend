@@ -58,7 +58,7 @@ export default connect(
   (dispatch, {id}) => ({
     onClick() {
       dispatch(selectedActions.selectedProvider(id));
-      console.log(selectedActions.selectedProvider(id));
+      console.log(selectedActions.selectedProvider(id).payload.id);
     },
     
     onDelete() {
