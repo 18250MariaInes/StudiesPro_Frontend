@@ -16,7 +16,7 @@ function AddProviderView(){
         <div >
             <AddProviderForm/>
            
-            <h1 className="home-title">Studies Pro</h1>
+           
             
         </div>
     )

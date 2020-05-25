@@ -13,7 +13,7 @@ import {
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/sshipevents';
 import LogoutButton from '../LogoutButton';
-
+import './styles.css';
 const SshipeventForm = ({
   onSubmit,
   isLoading,
@@ -24,11 +24,11 @@ const SshipeventForm = ({
   const [hours, changeHours] = useState('');
   const [date, changeDate] = useState('');
   return (
-    <div>
+    <div className="formHB">
       <LogoutButton/>
-      <h2>{'Crear un nuevo evento de horas beca:'}</h2>
+      <h2 className="tituloformHB">{'Crear evento de horas beca:'}</h2>
       <p>
-        <input
+        <input className="inputHB"
           type="text"
           placeholder="Nombre"
           value={name}
@@ -36,7 +36,7 @@ const SshipeventForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputHB"
           type="text"
           placeholder="Descripcion"
           value={description}
@@ -44,7 +44,7 @@ const SshipeventForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputHB"
           type="text"
           placeholder="Hours"
           value={hours}
@@ -52,7 +52,7 @@ const SshipeventForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputHB"
           type="text"
           placeholder="Date"
           value={date}
@@ -65,7 +65,7 @@ const SshipeventForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             <Link to='/Sshipevents'> 
-              <button type="submit" onClick={
+              <button className="buttonHBform" type="submit" onClick={
                 () => {
                   onSubmit(name, description, hours, date, student);
                   console.log(student);

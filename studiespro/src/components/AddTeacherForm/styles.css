@@ -1,5 +1,5 @@
-.formD{
-    background-color: #53CAC4;
+.formTeacher{
+    background-color: #F6AC6D;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,30 +12,30 @@
     
 }
 
-.tituloformD{
+.tituloformt{
     font-family: 'Tahoma';
-    color: #229993;
+    color: #C8752D;
     font-weight: bold;
 }
 
-.buttonTformD{
+.buttonTformt{
     border-radius: 5px;
     height: 35px;
     width: 70px;
-    background-color: #229993;
+    background-color: #C8752D;
     color: white;
     border-style: none;
 }
 
 
 
-.inputBookD {
+.inputTeach {
     width: 85%;
     background-color: transparent;
     border: none;
     color:white;
     outline: none;
-    border-bottom: 1px solid #229993;
+    border-bottom: 1px solid #C8752D;
     font-size: 1em;
     font-weight: 300;
     padding-bottom: 10px;
@@ -44,7 +44,7 @@
     
 }
   
-.inputBookD::placeholder {
+.inputTeach::placeholder {
     color: white;
     font-style: italic;
 }

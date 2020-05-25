@@ -44,7 +44,7 @@ export default connect(
   (dispatch, {id}) => ({
     
     onDelete() {
-      dispatch(actions.startRemovingDelva(id));
+      //dispatch(actions.startRemovingDelva(id));
       console.log(id);
       console.log("Hola soy delva");
     }

@@ -13,7 +13,7 @@ import {
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/teachers';
 import LogoutButton from '../LogoutButton';
-
+import './styles.css';
 
 const TeacherForm = ({
   onSubmit,
@@ -24,11 +24,11 @@ const TeacherForm = ({
   const [lastname, changeLastName] = useState('');
   const [email, changeEmail] = useState('');
   return (
-    <div>
+    <div className="formTeacher">
       <LogoutButton/>
-      <h2>{'Crear un nuevo catedratico:'}</h2>
+      <h2 className="tituloformt">{'Crear un nuevo catedratico:'}</h2>
       <p>
-        <input
+        <input className="inputTeach"
           type="text"
           placeholder="Nombre"
           value={name}
@@ -36,7 +36,7 @@ const TeacherForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputTeach"
           type="text"
           placeholder="Apellido"
           value={lastname}
@@ -44,7 +44,7 @@ const TeacherForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputTeach"
           type="text"
           placeholder="Email"
           value={email}
@@ -57,7 +57,7 @@ const TeacherForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             <Link to='/Teachers'> 
-              <button type="submit" onClick={
+              <button className="buttonTformt" type="submit" onClick={
                 () => {
                   onSubmit(name, lastname, email,student);
                   console.log(student);

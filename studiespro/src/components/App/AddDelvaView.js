@@ -16,7 +16,7 @@ function AddDelvaView(){
         <div >
             <AddDelvaForm/>
            
-            <h1 className="home-title">DELVAS</h1>
+            
             
         </div>
     )

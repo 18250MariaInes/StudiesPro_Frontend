@@ -13,7 +13,7 @@ import {
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/providers';
 import LogoutButton from '../LogoutButton';
-
+import './styles.css';
 const ProviderForm = ({
   onSubmit,
   isLoading,
@@ -23,11 +23,11 @@ const ProviderForm = ({
   const [address, changeAddress] = useState('');
   const [email, changeEmail] = useState('');
   return (
-    <div>
+    <div className="formP">
       <LogoutButton/>
-      <h2>{'Crear un nuevo provider:'}</h2>
+      <h2 className="tituloformp">{'Crear un nuevo provider:'}</h2>
       <p>
-        <input
+        <input className="inputProv"
           type="text"
           placeholder="Nombre"
           value={name}
@@ -35,7 +35,7 @@ const ProviderForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputProv"
           type="text"
           placeholder="Direccion"
           value={address}
@@ -43,7 +43,7 @@ const ProviderForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputProv"
           type="text"
           placeholder="Email"
           value={email}
@@ -56,7 +56,7 @@ const ProviderForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             <Link to='/Providers'> 
-              <button type="submit" onClick={
+              <button type="submit" className="buttonTformp" onClick={
                 () => {
                   onSubmit(name, address, email,student);
                   console.log(student);

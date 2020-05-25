@@ -13,7 +13,7 @@ import {
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/delvas';
 import LogoutButton from '../LogoutButton';
-
+import './styles.css';
 const DelvaForm = ({
   onSubmit,
   isLoading,
@@ -22,11 +22,11 @@ const DelvaForm = ({
   const [name, changeName] = useState('');
   const [date, changeDate] = useState('');
   return (
-    <div>
+    <div className="formD">
       <LogoutButton/>
-      <h2>{'Crear un nuevo catedratico:'}</h2>
+      <h2 className="tituloformD">{'Crear una nueva Delva:'}</h2>
       <p>
-        <input
+        <input className="inputBookD"
           type="text"
           placeholder="Nombre"
           value={name}
@@ -34,9 +34,9 @@ const DelvaForm = ({
         />
       </p>
       <p>
-        <input
+        <input className="inputBookD"
           type="text"
-          placeholder="Apellido"
+          placeholder="Fecha"
           value={date}
           onChange={e => changeDate(e.target.value)}
         />
@@ -47,7 +47,7 @@ const DelvaForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             <Link to='/Delvas'> 
-              <button type="submit" onClick={
+              <button className="buttonTformD" type="submit" onClick={
                 () => {
                   onSubmit(name, date,student);
                   console.log(student);
