@@ -29,12 +29,20 @@ const Teacher = ({
             onClick={onDelete}>
              &times;
           </button>
+
           <div className="teacher_name">
-              Nombre: {(Object.entries(Object.entries(teacher)[1])[1]).slice(1)}
-              <br></br>
-              Apellido: {(Object.entries(Object.entries(teacher)[2])[1]).slice(1)}
-              <br></br>
-              Correo: {(Object.entries(Object.entries(teacher)[3])[1]).slice(1)}
+          <p className="subtitulot">Nombre:</p>
+              <p className="contenidot">
+              {(Object.entries(Object.entries(teacher)[1])[1]).slice(1)}
+              </p>
+              <p className="subtitulot">Apellido:</p>
+              <p className="contenidot">
+              {(Object.entries(Object.entries(teacher)[2])[1]).slice(1)}
+              </p>
+              <p className="subtitulot">Correo:</p>
+              <p className="contenidot">
+              {(Object.entries(Object.entries(teacher)[3])[1]).slice(1)}
+              </p>
           </div>
         </div>
      </div>

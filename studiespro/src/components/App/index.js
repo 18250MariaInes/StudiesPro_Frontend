@@ -112,7 +112,7 @@ const App = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <Router>
-      <div className="App">
+      <div className="App" >
         <Nav />
         <Switch>
         {

@@ -19,11 +19,16 @@ const Delva = ({
             onClick={onDelete}>
              &times;
           </button>
+          
           <div className="delva_name">
-              Título: {(Object.entries(Object.entries(delva)[1])[1]).slice(1)}
-              <br></br>
-              Fecha: {(Object.entries(Object.entries(delva)[2])[1]).slice(1)}
-              <br></br>
+            <p className="subtitulo">Título:</p>
+            <p className="contenido">
+               {(Object.entries(Object.entries(delva)[1])[1]).slice(1)}
+               </p>
+             <p className="subtitulo">Fecha:</p>
+             <p className="contenido">
+               {(Object.entries(Object.entries(delva)[2])[1]).slice(1)}
+               </p>
           </div>
         </div>
      </div>

@@ -10,14 +10,18 @@ import Teacher from '../Teacher';
 const Teachers = ({ teacher, isLoading, onLoad }) => {
   useEffect(onLoad, []);
   return (
-  <div className="teachers">
+  <div >
     
       {
         teacher.length === 0 && !isLoading && (
           <p>{'No hay catedráticos registrados'}</p>
         )
       }
-      
+      {
+        teacher.length > 0 && !isLoading && (
+          <p className="titulo">{'Catedráticos Registrados'}</p>
+        )
+      }
       {
         isLoading && (
           <p>{'Cargando...'}</p>
@@ -25,9 +29,9 @@ const Teachers = ({ teacher, isLoading, onLoad }) => {
       }
       {
         teacher.length > 0 && !isLoading && (
-          <div>
-          <p>{'CATEDRATICOS REGISTRADOS:'}
-          </p>
+          <div className="teachers">
+          
+         
               {
                 teacher.map(id => <Teacher key={id}
                 id={id}/>)

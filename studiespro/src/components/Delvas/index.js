@@ -11,11 +11,16 @@ const Delvas = ({ delva, isLoading, onLoad }) => {
   useEffect(onLoad, []);
   return (
     
-  <div className="delvas">
+  <div>
     
       {
         delva.length === 0 && !isLoading && (
           <p>{'No hay delvas registradas'}</p>
+        )
+      }
+      {
+        delva.length > 0 && !isLoading && (
+          <p className="titulo">{'Charlas Delvas Registradas'}</p>
         )
       }
       
@@ -26,9 +31,9 @@ const Delvas = ({ delva, isLoading, onLoad }) => {
       }
       {
         delva.length > 0 && !isLoading && (
-          <div>
-          <p>{'Charlas Delvas Registradas:'}
-          </p>
+
+          <div className="delvas">
+          
               {
                 delva.map(id => <Delva key={id}
                 id={id}/>)

@@ -1,13 +1,20 @@
 .delvas {
-    margin-left: 350px;
-    margin-right: 350px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    justify-content: center;
+    justify-content: right;
     align-content: stretch;
-    padding-left: 30px;
+    padding-left: 60px;
     padding-right: 30px;
     padding-top: 15px;
+    min-width: 100%;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.titulo{
+    color: seashell;
+    margin-left: 40px;
+    margin-top: 30px;
+    font-family: 'Tahoma';
+    font-size: 30px;
 }

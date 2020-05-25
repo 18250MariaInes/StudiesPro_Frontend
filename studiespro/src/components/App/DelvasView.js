@@ -13,7 +13,7 @@ function DelvasView(){
         console.log(items);
     }
     return (
-        <div>
+        <div >
             {/*<AddTeacherForm/>*/}
             <AddDelvaButton/>
             <Delvas/>
