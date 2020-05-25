@@ -7,6 +7,8 @@ import books, * as bookssSelectors from './books';
 import providers, * as providersSelectors from './providers';
 import sshipevents, * as sshipeventsSelectors from './sshipevents';
 import semesters, * as semestersSelectors from './semesters';
+import exams, * as examsSelectors from './exams';
+import assignments, * as assignmentsSelectors from './assignments';
 import selectedTeacher, * as selectedTeacherSelectors from './selectedTeacher';
 import selectedProvider, * as selectedProviderSelectors from './selectedProvider';
 import {reducer as formReducer} from 'redux-form';
@@ -21,6 +23,9 @@ const reducer = combineReducers({
   semesters,
   selectedTeacher,
   selectedProvider,
+  assignments,
+  exams,
+  
   form: formReducer,
 });
 
@@ -64,6 +69,16 @@ export const getSshipevent = (state, id) => sshipeventsSelectors.getSshipevent(s
 export const getSshipevents = state => sshipeventsSelectors.getSshipevents(state.sshipevents);
 export const isFetchingSshipevents = state => sshipeventsSelectors.isFetchingSshipevents(state.sshipevents);
 export const getFetchingSshipeventsError = state => sshipeventsSelectors.getFetchingSshipeventsError(state.sshipevents);
+//exam
+export const getExam = (state, id) => examsSelectors.getExam(state.exams, id);
+export const getExams = state => examsSelectors.getExams(state.exams);
+export const isFetchingExams = state => examsSelectors.isFetchingExams(state.exams);
+export const getFetchingExamsError = state => examsSelectors.getFetchingExamsError(state.exams);
+//assignment
+export const getAssignment = (state, id) => assignmentsSelectors.getAssignment(state.assignments, id);
+export const getAssignments = state => assignmentsSelectors.getAssignments(state.assignments);
+export const isFetchingAssignments = state => assignmentsSelectors.isFetchingAssignments(state.assignments);
+export const getFetchingAssignmentsError = state => assignmentsSelectors.getFetchingAssignmentsError(state.assignments);
 //semesters
 export const getSemester = (state, id) => semestersSelectors.getSemester(state.semesters, id);
 export const getSemesters = state => semestersSelectors.getSemesters(state.semesters);
