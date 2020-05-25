@@ -1,0 +1,1 @@
+export const COURSE_SELECTED="COURSE_SELECTED";

@@ -35,6 +35,30 @@ import {
   watchRemoveSshipevent
 } from './sshipevents';
 
+import {
+  watchAddExam,
+  watchexamsFetch,
+  watchRemoveExam
+} from './exams';
+
+import {
+  watchAddAssignment,
+  watchassignmentsFetch,
+  watchRemoveAssignment
+} from './assignments';
+
+import {
+  watchAddMaterial,
+  watchmaterialsFetch,
+  watchRemoveMaterial
+} from './materials';
+
+import {
+  watchAddCourse,
+  watchcoursesFetch,
+  watchRemoveCourse
+} from './courses';
+
 
 function* mainSaga() {
   yield all([
@@ -61,6 +85,22 @@ function* mainSaga() {
     fork(watchAddSshipevent),
     fork(watchsshipeventsFetch),
     fork(watchRemoveSshipevent),
+
+    fork(watchAddExam),
+    fork(watchexamsFetch),
+    fork(watchRemoveExam),
+
+    fork(watchAddAssignment),
+    fork(watchassignmentsFetch),
+    fork(watchRemoveAssignment),
+
+    fork(watchAddMaterial),
+    fork(watchmaterialsFetch),
+    fork(watchRemoveMaterial),
+
+    fork(watchAddCourse),
+    fork(watchcoursesFetch),
+    fork(watchRemoveCourse),
   ]);
 }
 

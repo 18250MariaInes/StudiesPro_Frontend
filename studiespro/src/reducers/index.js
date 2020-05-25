@@ -9,8 +9,13 @@ import sshipevents, * as sshipeventsSelectors from './sshipevents';
 import semesters, * as semestersSelectors from './semesters';
 import exams, * as examsSelectors from './exams';
 import assignments, * as assignmentsSelectors from './assignments';
+import courses, * as coursesSelectors from './courses';
+import materials, * as materialsSelectors from './materials';
+
 import selectedTeacher, * as selectedTeacherSelectors from './selectedTeacher';
 import selectedProvider, * as selectedProviderSelectors from './selectedProvider';
+import selectedCourse, * as selectedCourseSelectors from './selectedCourse';
+
 import {reducer as formReducer} from 'redux-form';
 
 const reducer = combineReducers({
@@ -25,6 +30,9 @@ const reducer = combineReducers({
   selectedProvider,
   assignments,
   exams,
+  courses,
+  materials,
+  selectedCourse,
   
   form: formReducer,
 });
@@ -84,7 +92,19 @@ export const getSemester = (state, id) => semestersSelectors.getSemester(state.s
 export const getSemesters = state => semestersSelectors.getSemesters(state.semesters);
 export const isFetchingSemesters = state => semestersSelectors.isFetchingSemesters(state.semesters);
 export const getFetchingSemestersError = state => semestersSelectors.getFetchingSemestersError(state.semesters);
-
+//course
+export const getCourse = (state, id) => coursesSelectors.getCourse(state.courses, id);
+export const getCourses = state => coursesSelectors.getCourses(state.courses);
+export const isFetchingCourses = state => coursesSelectors.isFetchingCourses(state.courses);
+export const getFetchingCoursesError = state => coursesSelectors.getFetchingCoursesError(state.courses);
+//material
+export const getMaterial = (state, id) => materialsSelectors.getMaterial(state.materials, id);
+export const getMaterials = state => materialsSelectors.getMaterials(state.materials);
+export const isFetchingMaterials = state => materialsSelectors.isFetchingMaterials(state.materials);
+export const getFetchingMaterialsError = state => materialsSelectors.getFetchingMaterialsError(state.materials);
+//selected
 export const getSelectedTeacher = (state) => selectedTeacherSelectors.getSelectedTeacher(state.selectedTeacher)
 
 export const getSelectedProvider = (state) => selectedProviderSelectors.getSelectedProvider(state.selectedProvider)
+
+export const getSelectedCourse = (state) => selectedCourseSelectors.getSelectedCourse(state.selectedCourse)

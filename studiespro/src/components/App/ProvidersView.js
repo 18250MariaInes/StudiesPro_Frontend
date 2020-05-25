@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 //import AddProviderForm from '../AddProviderForm';
 import Providers from '../Providers';
+import Materials from '../Materials';
 import AddProviderButton from '../AddProviderButton';
 
 function ProvidersView(){
@@ -17,6 +18,8 @@ function ProvidersView(){
             {/*<AddProviderForm/>*/}
             <AddProviderButton/>
             <Providers/>
+            <Materials/>
+
         </div>
     )
 }
