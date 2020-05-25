@@ -10,11 +10,16 @@ import Sshipevent from '../Sshipevent';
 const Sshipevents = ({ sshipevent, isLoading, onLoad }) => {
   useEffect(onLoad, []);
   return (
-  <div className="sshipevents">
+  <div >
     
       {
         sshipevent.length === 0 && !isLoading && (
-          <p>{'No hay eventos de horas beca registrados'}</p>
+          <p className="titulo">{'No hay eventos de horas beca registrados'}</p>
+        )
+      }
+      {
+        sshipevent.length > 0 && !isLoading && (
+          <p className="titulo">{'Eventos de horas beca registrados'}</p>
         )
       }
       
@@ -25,9 +30,8 @@ const Sshipevents = ({ sshipevent, isLoading, onLoad }) => {
       }
       {
         sshipevent.length > 0 && !isLoading && (
-          <div>
-          <p>{'EVENTOS DE HORAS BECA REGISTRADOS:'}
-          </p>
+          <div className="sshipevents">
+          
               {
                 sshipevent.map(id => <Sshipevent key={id}
                 id={id}/>)

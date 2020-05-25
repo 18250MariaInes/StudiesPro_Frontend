@@ -6,10 +6,10 @@
 }
 
 .book {
-    background: #2B2B2C;
+    background: #EE78CE;
     padding: 10px;
-    height: 150px;
-    width: 240px;
+    height: 200px;
+    width: 260px;
     font-style: normal;
     font-size: 20px;
     color: whitesmoke;
@@ -18,23 +18,40 @@
     font-family: 'Tahoma';
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
 }
-
-
 
 .book_name{
     font-size: 1rem;
-    margin: 1px;
+    margin-top: -40px;
+}
+.subtitulob{
+    color:white;
+    margin-bottom: 0px;
+    padding: 5px;
+    margin:0;
+    margin-top: 5px;
+    margin-left: 15px;
+    font-family: 'Tahoma';
+    font-weight: 600;
+}
+
+.contenidob{
+    color:white;
+    margin:0;
+    margin-left: 40px;
+    font-family: 'Tahoma';
+    margin-bottom: 10px;
 }
 
 .delete_book {
-    background: #2B2B2C;
+    background: #EE78CE;
     border-radius: 5px;
-    color: gray;
+    color: white;
     font-size: 20px;
     height: 25px;
     width: 25px;
     border-style: none;
     margin-top: 0px;
+    align-self: flex-end;
+    margin-bottom: 20px;
 }

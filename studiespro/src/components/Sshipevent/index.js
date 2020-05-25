@@ -19,11 +19,18 @@ const Sshipevent = ({
           &times;
       </button>
       <div className="sshipevent_name">
-          Nombre: {(Object.entries(Object.entries(sshipevent)[1])[1]).slice(1)}
-          <br></br>
-          Descripcion: {(Object.entries(Object.entries(sshipevent)[2])[1]).slice(1)}
-          <br></br>
+      <p className="subtitulos">Nombre</p>
+      <p className="contenidos">
+        {(Object.entries(Object.entries(sshipevent)[1])[1]).slice(1)}
+        </p>
+        <p className="subtitulos">Descripción</p>
+        <p className="contenidos">
+          {(Object.entries(Object.entries(sshipevent)[2])[1]).slice(1)}
+          </p>
+          <p className="subtitulos">Cantidad de horas</p>
+          <p className="contenidos">
           Horas: {(Object.entries(Object.entries(sshipevent)[3])[1]).slice(1)}
+          </p>
       </div>
     </div>
 );

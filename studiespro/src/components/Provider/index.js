@@ -15,19 +15,7 @@ const Provider = ({
   onClick,
   onDelete,
 }) => (
-  /*<div
-  className={
-    `
-      Teacher-wrapper
-      ${isSelected ? 'Teacher--selected' : ''}
-    `
-  }
-  onClick={onClick}
-  >
-  <tr className={!isConfirmed ? 'pet-owner-row--pending' : ''}>
-    <td>{ name }</td>
-  </tr>
-  </div>*/
+  
   <div
         className={
           `
@@ -43,11 +31,18 @@ const Provider = ({
              &times;
           </button>
           <div className="provider_name">
-              Nombre: {(Object.entries(Object.entries(provider)[1])[1]).slice(1)}
-              <br></br>
-              Apellido: {(Object.entries(Object.entries(provider)[2])[1]).slice(1)}
-              <br></br>
-              Correo: {(Object.entries(Object.entries(provider)[3])[1]).slice(1)}
+          <p className="subtitulop">Nombre</p>
+          <p className="contenidop">
+              {(Object.entries(Object.entries(provider)[1])[1]).slice(1)}
+              </p>
+          <p className="subtitulop">Apellido</p>
+          <p className="contenidop">
+             {(Object.entries(Object.entries(provider)[2])[1]).slice(1)}
+             </p>
+             <p className="subtitulop">Email</p>
+             <p className="contenidop">
+              {(Object.entries(Object.entries(provider)[3])[1]).slice(1)}
+              </p>
           </div>
         </div>
      </div>

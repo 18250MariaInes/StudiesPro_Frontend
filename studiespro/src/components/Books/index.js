@@ -10,11 +10,16 @@ import Book from '../Book';
 const Books = ({ book, isLoading, onLoad }) => {
   useEffect(onLoad, []);
   return (
-  <div className="books">
+  <div >
     
       {
         book.length === 0 && !isLoading && (
           <p>{'No hay catedráticos registrados'}</p>
+        )
+      }
+      {
+        book.length > 0 && !isLoading && (
+          <p className="titulo">{'Libros Registrados'}</p>
         )
       }
       
@@ -25,9 +30,7 @@ const Books = ({ book, isLoading, onLoad }) => {
       }
       {
         book.length > 0 && !isLoading && (
-          <div>
-          <p>{'LIBROS REGISTRADOS:'}
-          </p>
+          <div className="books">
               {
                 book.map(id => <Book key={id}
                 id={id}/>)

@@ -19,11 +19,18 @@ const Book = ({
             &times;
         </button>
         <div className="book_name">
-            Título: {(Object.entries(Object.entries(book)[1])[1]).slice(1)}
-            <br></br>
-            Descripción: {(Object.entries(Object.entries(book)[2])[1]).slice(1)}
-            <br></br>
-            Fecha: {(Object.entries(Object.entries(book)[3])[1]).slice(1)}
+        <p className="subtitulob">Título:</p>
+        <p className="contenidob">
+            {(Object.entries(Object.entries(book)[1])[1]).slice(1)}
+            </p>
+        <p className="subtitulob">Descripción:</p>
+        <p className="contenidob">
+            {(Object.entries(Object.entries(book)[2])[1]).slice(1)}
+            </p>
+        <p className="subtitulob">Fecha:</p>
+        <p className="contenidob">
+           {(Object.entries(Object.entries(book)[3])[1]).slice(1)}
+           </p>
         </div>
     </div>
      

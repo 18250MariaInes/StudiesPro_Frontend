@@ -10,39 +10,18 @@ import Provider from '../Provider';
 const Providers = ({ provider, isLoading, onLoad }) => {
   useEffect(onLoad, []);
   return (
-    /*<Fragment>
-      {
-        teacher.length === 0 && !isLoading && (
-          <p>{'No hay catedráticos registrados'}</p>
-        )
-      }
-      
-      {
-        isLoading && (
-          <p>{'Cargando...'}</p>
-        )
-      }
-      {
-        teacher.length > 0 && !isLoading && (
-          <div>
-          <p>{'CATEDRATICOS REGISTRADOS:'}
-          </p>
-              {
-                teacher.map(index => <Teacher key={index}
-                index={index}/>)
-              }
-          </div>
-        )
-      }
-    </Fragment>*/
-  <div className="providers">
+  <div >
     
       {
         provider.length === 0 && !isLoading && (
           <p>{'No hay providers registrados'}</p>
         )
       }
-      
+      {
+        provider.length > 0 && !isLoading && (
+          <p className="titulo">{'Proveedores Registrados'}</p>
+        )
+      }
       {
         isLoading && (
           <p>{'Cargando...'}</p>
@@ -50,9 +29,7 @@ const Providers = ({ provider, isLoading, onLoad }) => {
       }
       {
         provider.length > 0 && !isLoading && (
-          <div>
-          <p>{'PROVIDERS REGISTRADOS:'}
-          </p>
+          <div className="providers">
               {
                 provider.map(id => <Provider key={id}
                 id={id}/>)
