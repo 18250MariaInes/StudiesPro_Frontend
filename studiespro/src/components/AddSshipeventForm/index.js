@@ -25,7 +25,7 @@ const SshipeventForm = ({
   const [date, changeDate] = useState('');
   return (
     <div className="formHB">
-      <LogoutButton/>
+      {/*<LogoutButton/>*/}
       <h2 className="tituloformHB">{'Crear evento de horas beca:'}</h2>
       <p>
         <input className="inputHB"

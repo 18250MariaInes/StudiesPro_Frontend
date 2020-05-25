@@ -126,7 +126,7 @@ const App = () => (
             ))
         }
         </Switch>   
-        <LogoutButton/> 
+        {/*<LogoutButton/>*/} 
         <TokenRefresh reviewTime={3600000} /> 
       </div>
     </Router>

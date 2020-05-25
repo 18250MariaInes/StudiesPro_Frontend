@@ -24,7 +24,7 @@ const BookForm = ({
   const [date, changeDate] = useState('');
   return (
     <div className="formT">
-      <LogoutButton/>
+      {/*<LogoutButton/>*/}
       <h2 className="tituloform">{'Crear un nuevo Libro'}</h2>
       <p>
         <input className="inputBook"

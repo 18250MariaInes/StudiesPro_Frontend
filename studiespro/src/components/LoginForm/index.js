@@ -34,48 +34,50 @@ const LoginForm = ({
   
   return (
       <Fragment>
-        
-        {
-          error && (
-            <p>
-              <strong>{ error }</strong>
-            </p>
-          )
-        }
-        <p>
-          <input
-            className="FormField_Input"
-            type="text"
-            placeholder="Email"
-            value={username}
-            onChange={e => changeUsername(e.target.value)}
-          />
-        </p>
-        <p>
-          <input
-            className="FormField_Input"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => changePassword(e.target.value)}
-          />
-        </p>
-        <p>
+        <div className="login-wrapper"> 
           {
-            isLoading ? (
-              <strong>{'Cargando...'}</strong>
-            ) : (
-              <button className="SubmitButton" type="submit" onClick={
-                () => onSubmit(username, password)
-              }>
-                {'Enviar'}
-              </button>
+            error && (
+              <p>
+                <strong>{ error }</strong>
+              </p>
             )
           }
-        </p>
-        <Link to='/Signup' className="signup-link" >Eres nuevo?</Link>
+          <h1>Bienvenido!</h1>
+          <p>
+            <input
+              className="FormField_Input"
+              type="text"
+              placeholder="Email"
+              value={username}
+              onChange={e => changeUsername(e.target.value)}
+            />
+          </p>
+          <p>
+            <input
+              className="FormField_Input"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => changePassword(e.target.value)}
+            />
+          </p>
+          <p>
+            {
+              isLoading ? (
+                <strong>{'Cargando...'}</strong>
+              ) : (
+                <button className="SubmitButton" type="submit" onClick={
+                  () => onSubmit(username, password)
+                }>
+                  {'Login'}
+                </button>
+              )
+            }
+          </p>
+          <Link to='/Signup' className="signup-link" >Eres nuevo? Crea una cuenta</Link>
 
-        <h1>{`Bienvenido ${authName} nuevamente!`}</h1>
+          {/*<h1>{`Bienvenido ${authName} nuevamente!`}</h1>*/}
+          </div>
       </Fragment>
   ); 
 } 

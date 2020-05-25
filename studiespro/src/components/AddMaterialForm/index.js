@@ -27,7 +27,7 @@ const AddMaterialForm = ({
   const [price, changePrice] = useState('');
   return (
     <div className="formM">
-      <LogoutButton/>
+      {/*<LogoutButton/>*/}
       <h2 className="tituloformm">{'Crear un nuevo material:'}</h2>
       <p>
         <input className="inputMat"

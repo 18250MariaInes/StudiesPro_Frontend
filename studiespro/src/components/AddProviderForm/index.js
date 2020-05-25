@@ -26,7 +26,7 @@ const ProviderForm = ({
   const [email, changeEmail] = useState('');
   return (
     <div className="formP">
-      <LogoutButton/>
+      {/*<LogoutButton/>*/}
       <h2 className="tituloformp">{'Crear un nuevo provider:'}</h2>
       <p>
         <input className="inputProv"

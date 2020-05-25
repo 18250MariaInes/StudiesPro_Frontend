@@ -16,6 +16,7 @@
     list-style: none;
     background: #292049;
     text-decoration:none;
+    margin-right: 20px;
     
 }
 
@@ -52,6 +53,7 @@
     font-size: 20px;
     text-transform: uppercase;
     text-decoration: 'none';
+    margin-right: 15px;
 }
 
 .home-title-home{
@@ -96,4 +98,10 @@
     display: flex;
     direction: row;
     align-items:center;
+}
+
+.logout-icon{
+    width: 25px;
+    height: 25px;
+    margin-right: 25px;
 }

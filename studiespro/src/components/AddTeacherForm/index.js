@@ -25,7 +25,7 @@ const TeacherForm = ({
   const [email, changeEmail] = useState('');
   return (
     <div className="formTeacher">
-      <LogoutButton/>
+      {/*<LogoutButton/>*/}
       <h2 className="tituloformt">{'Crear un nuevo catedratico:'}</h2>
       <p>
         <input className="inputTeach"

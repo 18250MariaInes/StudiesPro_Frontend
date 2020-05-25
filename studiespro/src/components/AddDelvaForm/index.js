@@ -23,7 +23,7 @@ const DelvaForm = ({
   const [date, changeDate] = useState('');
   return (
     <div className="formD">
-      <LogoutButton/>
+      {/*<LogoutButton/>*/}
       <h2 className="tituloformD">{'Crear una nueva Delva:'}</h2>
       <p>
         <input className="inputBookD"

@@ -1,10 +1,10 @@
 .FormField_Input {
     width: 85%;
-    background-color: transparent;
-    border: none;
-    color: #445366;
+    /*background-color: transparent;*/
+    border: transparent;
+    color: white;
     outline: none;
-    border-bottom: 1px solid mediumturquoise;
+    /*border-bottom: 1px solid mediumturquoise;*/
     font-size: 1em;
     font-weight: 300;
     padding-bottom: 10px;
@@ -13,7 +13,7 @@
 }
   
 .FormField_Input::placeholder {
-    color: #445366;
+    color: white;
     font-style: italic;
 }
 
@@ -30,5 +30,25 @@
 }
 
 .signup-link{
-    color: white;
+    color: #445366;
+    margin-bottom: 30px;
+}
+
+.login-wrapper{
+    background-color: #D8D8D8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 400px;
+    margin-right: 400px;
+    min-width: 400px;
+    width: 400px;
+    border-radius: 30px;
+    margin-top: 5rem;
+
+}
+
+.nombre_campo{
+    color: lightblue;
+    margin: 0px;
 }
