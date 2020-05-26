@@ -15,14 +15,14 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/auth';
 
 
-const CoursesButton = ({ onClick, isHidden = false }) => (
+const addcourse = ({ onClick, isHidden = false }) => (
   <Fragment>
     {
       !isHidden && (
-        <Link to='/Courses'>
-            <button className='course-button' onClick={onClick}>
+        <Link to='/Add-course'>
+            <button className='addcourse-button' onClick={onClick}>
           
-                <h1 >Cursos</h1>
+                <h1 >Agregar</h1>
             
             </button>
         </Link>
@@ -38,7 +38,7 @@ export default connect(
   }),
   dispatch => ({
     onClick() {
-      dispatch(<Redirect to='/Home' />);//CAMBIAR RUTA
+      dispatch(<Redirect to='/Home' />);
     },
   })
-)(CoursesButton);
+)(addcourse);

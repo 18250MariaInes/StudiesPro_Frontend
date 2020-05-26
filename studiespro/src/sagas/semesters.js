@@ -73,6 +73,7 @@ import {
       const isAuth = yield select(selectors.isAuthenticated);
       if (isAuth) {
         const token = yield select(selectors.getAuthToken);
+        console.log("Hola mundo 1");
         const response = yield call(
           fetch,
           `${API_BASE_URL}/semester/`,
@@ -88,6 +89,7 @@ import {
   
         if (response.status === 201) {
           const jsonResult = yield response.json();
+          console.log("Hola mundo 2");
           yield put(
             actions.completeAddingSemester(
               action.payload.id,

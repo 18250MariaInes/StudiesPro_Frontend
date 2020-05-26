@@ -4,6 +4,7 @@ import Semesters from '../Semesters';
 import Materials from '../Materials';
 import AddProviderButton from '../AddProviderButton';
 import AddMaterialButton from '../AddMaterialButton';
+import AddSemesterForm from '../AddSemesterForm';
 
 function SemestersView(){
     useEffect(() => {
@@ -20,6 +21,7 @@ function SemestersView(){
             {/*<AddProviderButton/ boton para agregar semestre>
             <Providers/ semestres registrados>*/}
             <Semesters/>
+            <AddSemesterForm/>
 
         </div>
     )

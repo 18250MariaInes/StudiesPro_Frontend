@@ -29,8 +29,12 @@ import AddDelvaView from './AddDelvaView';
 import ProvidersView from './ProvidersView';
 import AddProviderView from './AddProviderView';
 import AddMaterialView from './AddMaterialView';
+
 import SshipeventsView from './SshipeventsView';
 import AddSshipeventView from './AddSshipeventView';
+
+import CoursesView from './CoursesView';
+import AddCourseView from './AddCourseView';
 
 import TokenRefresh from '../TokenRefresh';
 
@@ -117,6 +121,16 @@ const routes = [
     path: '/Semesters',
     exact: true,
     component: UserIsAuthenticated(SemestersView),
+  },
+  {
+    path: '/Courses',
+    exact: true,
+    component: UserIsAuthenticated(CoursesView),
+  },
+  {
+    path: '/Add-course',
+    exact: true,
+    component: UserIsAuthenticated(AddCourseView),
   },
 ];
 const App = () => (

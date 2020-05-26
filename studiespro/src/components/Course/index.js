@@ -19,15 +19,15 @@ const course = ({
             &times;
         </button>
         <div className="course_name">
-        <p className="subtituloc">Título:</p>
+        <p className="subtituloc">Nombre:</p>
         <p className="contenidoc">
             {(Object.entries(Object.entries(course)[1])[1]).slice(1)}
             </p>
-        <p className="subtituloc">Descripción:</p>
+        <p className="subtituloc">Semestre:</p>
         <p className="contenidoc">
             {(Object.entries(Object.entries(course)[2])[1]).slice(1)}
             </p>
-        <p className="subtituloc">Fecha:</p>
+        <p className="subtituloc">Catedratico:</p>
         <p className="contenidoc">
            {(Object.entries(Object.entries(course)[3])[1]).slice(1)}
            </p>
