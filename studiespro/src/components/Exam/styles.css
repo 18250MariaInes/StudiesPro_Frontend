@@ -1,14 +1,14 @@
-.course-wrapper {
+.exam-wrapper {
     display: flex;
     flex-direction: row;
     max-height: 300px;
     transition: 0.25s;
 }
 
-.course {
-    background: #53CAC4;
+.exam {
+    background: #EE78CE;
     padding: 10px;
-    height: 150px;
+    height: 200px;
     width: 240px;
     font-style: normal;
     font-size: 20px;
@@ -18,11 +18,14 @@
     font-family: 'Tahoma';
     display: flex;
     flex-direction: column;
-    
-    
+    justify-content: space-evenly;
 }
 
-.subtituloc{
+.exam_name{
+    font-size: 1rem;
+    margin-top: -30px;
+}
+.subtituloe{
     color:white;
     margin-bottom: 0px;
     padding: 5px;
@@ -33,20 +36,16 @@
     font-weight: 600;
 }
 
-.contenidoc{
+.contenidoe{
     color:white;
     margin:0;
     margin-left: 40px;
     font-family: 'Tahoma';
     margin-bottom: 10px;
 }
-.course_name{
-    font-size: 1rem;
-    margin-top: -30px;
-}
 
-.delete_course {
-    background: #53CAC4;
+.delete_exam {
+    background: #EE78CE;
     border-radius: 5px;
     color: white;
     font-size: 20px;
@@ -55,8 +54,5 @@
     border-style: none;
     margin-top: 0px;
     align-self: flex-end;
-    
     margin-bottom: 20px;
-    
-   
 }

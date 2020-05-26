@@ -3,24 +3,24 @@ import { connect } from 'react-redux';
 
 import './styles.css';
 import * as selectors from '../../reducers';
-import * as actions from '../../actions/courses';
-import Course from '../Course';
+import * as actions from '../../actions/exams';
+import Exam from '../Exam';
 
 
-const Courses = ({ course, isLoading, onLoad }) => {
+const Exams = ({ exam, isLoading, onLoad }) => {
   useEffect(onLoad, []);
   return (
     
   <div>
     
       {
-        course.length === 0 && !isLoading && (
+        exam.length === 0 && !isLoading && (
           <p>{'No hay cursos registrados'}</p>
         )
       }
       {
-        course.length > 0 && !isLoading && (
-          <p className="tituloc">{'Cursos Registrados'}</p>
+        exam.length > 0 && !isLoading && (
+          <p className="titulo">{'Cursos Registrados'}</p>
         )
       }
       
@@ -30,12 +30,12 @@ const Courses = ({ course, isLoading, onLoad }) => {
         )
       }
       {
-        course.length > 0 && !isLoading && (
+        exam.length > 0 && !isLoading && (
 
-          <div className="courses">
+          <div className="exams">
           
               {
-                course.map(id => <Course key={id}
+                exam.map(id => <Exam key={id}
                 id={id}/>)
               }
           </div>
@@ -47,12 +47,12 @@ const Courses = ({ course, isLoading, onLoad }) => {
 
 export default connect(
   state => ({
-    course: selectors.getCourses(state),
-    isLoading: selectors.isFetchingCourses(state),
+    exam: selectors.getExams(state),
+    isLoading: selectors.isFetchingExams(state),
   }),
   dispatch => ({
     onLoad() {
-      dispatch(actions.startFetchingCourses());
+      dispatch(actions.startFetchingExams());
     },
   }),
-)(Courses);
+)(Exams);

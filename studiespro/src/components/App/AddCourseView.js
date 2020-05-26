@@ -4,7 +4,7 @@ import Semesters from '../Semesters';
 import Teachers from '../Teachers';
 import AddSshipeventButton from '../AddSshipeventButton';
 
-function AddSshipeventView(){
+function AddCourseView(){
     useEffect(() => {
         fetchItems();
     }, []);
@@ -26,4 +26,4 @@ function AddSshipeventView(){
         </div>
     )
 }
-export default AddSshipeventView;
+export default AddCourseView;

@@ -122,13 +122,3 @@
     font-family: 'Tahoma';
 }
 
-.teach-semes-wrapper{
-    display: flex;
-    flex-direction: column;
-    columns: 100px 3;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    justify-content:center;
-}

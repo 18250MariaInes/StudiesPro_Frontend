@@ -36,6 +36,9 @@ import AddSshipeventView from './AddSshipeventView';
 import CoursesView from './CoursesView';
 import AddCourseView from './AddCourseView';
 
+import ExamsView from './ExamsView';
+import AddExamView from './AddExamView';
+
 import TokenRefresh from '../TokenRefresh';
 
 
@@ -131,6 +134,16 @@ const routes = [
     path: '/Add-course',
     exact: true,
     component: UserIsAuthenticated(AddCourseView),
+  },
+  {
+    path: '/Exams',
+    exact: true,
+    component: UserIsAuthenticated(ExamsView),
+  },
+  {
+    path: '/Add-exam',
+    exact: true,
+    component: UserIsAuthenticated(AddExamView),
   },
 ];
 const App = () => (
