@@ -6,9 +6,9 @@
 }
 
 .exam {
-    background: #EE78CE;
+    background: #539CDD;
     padding: 10px;
-    height: 200px;
+    height: 240px;
     width: 240px;
     font-style: normal;
     font-size: 20px;
@@ -45,7 +45,7 @@
 }
 
 .delete_exam {
-    background: #EE78CE;
+    background: #539CDD;
     border-radius: 5px;
     color: white;
     font-size: 20px;

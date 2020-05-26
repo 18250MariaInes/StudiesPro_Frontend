@@ -1,8 +1,8 @@
 .addteacher-button {
-    background: rebeccapurple;
+    background: #F6AC6D;
     border-radius: 10px;
     top: 150px;
-    color: #410357;
+    color: rgb(148, 80, 21);
     font-size: 5px;
     height: 70px;
     position: fixed;
@@ -10,5 +10,7 @@
     width: 70px;
     z-index: 2;
     border-style: none;
+    justify-content: center;
+    display: flex;
 }
 

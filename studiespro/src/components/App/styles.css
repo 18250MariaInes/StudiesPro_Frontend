@@ -120,5 +120,11 @@
 .instrucciones{
     color: whitesmoke;
     font-family: 'Tahoma';
+    margin-left: 25px;
 }
 
+.organizador_course{
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+}

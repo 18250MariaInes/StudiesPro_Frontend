@@ -20,7 +20,7 @@ const Exams = ({ exam, isLoading, onLoad }) => {
       }
       {
         exam.length > 0 && !isLoading && (
-          <p className="titulo">{'Cursos Registrados'}</p>
+          <p className="titulo">{'Examenes Registrados'}</p>
         )
       }
       

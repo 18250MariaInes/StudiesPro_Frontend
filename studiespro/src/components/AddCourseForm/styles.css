@@ -1,5 +1,5 @@
 .formC{
-    background-color: #50C9A3;
+    background-color: #A553DD;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,12 +9,13 @@
     width: 400px;
     border-radius: 30px;
     margin-top: 5rem;
+    margin-bottom: 80px;
     
 }
 
 .tituloformc{
     font-family: 'Tahoma';
-    color: #138A65;
+    color: #692299;
     font-weight: bold;
 }
 
@@ -22,7 +23,7 @@
     border-radius: 5px;
     height: 35px;
     width: 70px;
-    background-color: #138A65;
+    background-color: #692299;
     color: white;
     border-style: none;
 }
@@ -35,7 +36,7 @@
     border: none;
     color:white;
     outline: none;
-    border-bottom: 1px solid #138A65;
+    border-bottom: 1px solid #692299;
     font-size: 1em;
     font-weight: 300;
     padding-bottom: 10px;

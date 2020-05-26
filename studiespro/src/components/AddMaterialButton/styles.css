@@ -1,8 +1,8 @@
 .addmaterial-button {
-    background: red;
+    background: #50C9A3;
     border-radius: 10px;
     top: 230px;
-    color: #410357;
+    color: rgb(29, 134, 101);
     font-size: 5px;
     height: 70px;
     position: fixed;

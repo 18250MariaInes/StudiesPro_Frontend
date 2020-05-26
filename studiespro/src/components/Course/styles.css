@@ -5,10 +5,10 @@
     transition: 0.25s;
 }
 
-.course {
-    background: #53CAC4;
+.course_d {
+    background: #A553DD;
     padding: 10px;
-    height: 150px;
+    height: 200px;
     width: 240px;
     font-style: normal;
     font-size: 20px;
@@ -20,6 +20,10 @@
     flex-direction: column;
     
     
+}
+
+.course-d--selected {
+    transform: scale(0.9);
 }
 
 .subtituloc{
@@ -46,7 +50,7 @@
 }
 
 .delete_course {
-    background: #53CAC4;
+    background: #A553DD;
     border-radius: 5px;
     color: white;
     font-size: 20px;

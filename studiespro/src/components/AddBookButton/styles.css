@@ -1,10 +1,10 @@
 .addbook-button {
-    background: rebeccapurple;
+    background: #EE78CE;
     border-radius: 10px;
     top: 150px;
-    color: #410357;
+    color: rgb(151, 32, 120);
     font-size: 5px;
-    height: 50px;
+    height: 60px;
     position: fixed;
     right: 20px;
     width: 70px;

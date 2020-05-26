@@ -16,9 +16,10 @@ function AddCourseView(){
     return (
         <div >
             <h1 className="instrucciones">Selecciona un semestre, un catedratico e introduce el nombre del curso</h1>
-            
-            <Semesters/>
-            <Teachers/>
+            <div className="organizador_course" >
+                <Semesters/>
+                <Teachers/>
+            </div>
             <AddCourseForm/>
            
             

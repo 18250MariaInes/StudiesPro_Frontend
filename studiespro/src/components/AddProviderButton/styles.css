@@ -1,8 +1,8 @@
-.addprovider-button {
-    background: rebeccapurple;
+.addprovider-buttonp {
+    background: #2A9779;
     border-radius: 10px;
     top: 150px;
-    color: #410357;
+    color: rgb(10, 90, 67);
     font-size: 5px;
     height: 70px;
     position: fixed;

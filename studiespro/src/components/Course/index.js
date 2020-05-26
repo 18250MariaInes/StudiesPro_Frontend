@@ -18,12 +18,12 @@ const Course = ({
         className={
           `
             course-wrapper
-            ${isSelected ? 'course--selected' : ''}
+            ${isSelected ? 'course-d--selected' : ''}
           `
         }
         onClick={onClick}
       >
-        <div className="course">
+        <div className="course_d">
           <button className="delete_course"
           onClick={onDelete}>
               &times;
@@ -35,11 +35,11 @@ const Course = ({
               </p>
           <p className="subtituloc">Semestre:</p>
           <p className="contenidoc">
-              {(Object.entries(Object.entries(course)[2])[1]).slice(1)}
+              {(Object.entries(Object.entries(course)[3])[1]).slice(1)}
               </p>
           <p className="subtituloc">Catedratico:</p>
           <p className="contenidoc">
-            {(Object.entries(Object.entries(course)[5])[1]).slice(1)}
+            {(Object.entries(Object.entries(course)[2])[1]).slice(1)}
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default connect(
   (dispatch, {id}) => ({
     onClick() {
       dispatch(selectedActions.selectedCourse(id));
-      console.log(selectedActions.selectedCourse(id).payload.id);
+      console.log(selectedActions.selectedCourse(id));
     },
       
     onDelete() {

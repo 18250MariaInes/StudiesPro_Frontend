@@ -1,14 +1,14 @@
-.provider-wrapper {
+.assignment-wrapper {
     display: flex;
     flex-direction: row;
     max-height: 300px;
     transition: 0.25s;
 }
 
-.provider {
-    background: #2A9779;
+.assignment {
+    background: #53DDAD;
     padding: 10px;
-    height: 200px;
+    height: 260px;
     width: 240px;
     font-style: normal;
     font-size: 20px;
@@ -21,11 +21,11 @@
     justify-content: space-evenly;
 }
 
-.provider--selected {
+.assignment--selected {
     transform: scale(0.9);
 }
 
-.provider_name{
+.assignment_name{
     font-size: 1rem;
     margin-top: -30px;
 }
@@ -47,8 +47,8 @@
     font-family: 'Tahoma';
     margin-bottom: 10px;
 }
-.delete_provider {
-    background: #2A9779;
+.delete_assignment {
+    background: #53DDAD;
     border-radius: 5px;
     color: white;
     font-size: 20px;

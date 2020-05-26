@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/auth';
 import * as selectors from '../../reducers';
 import './styles.css';
+import TokenRefresh from '../TokenRefresh';
 
 const Nav = ({
     isAuthenticated = false,
@@ -41,6 +42,7 @@ const Nav = ({
                 alt="Home" className="logout-icon"
                 />
             </Link>
+            <TokenRefresh reviewTime={3600000} />
         </ul>
     ) : (<></>)
     }
