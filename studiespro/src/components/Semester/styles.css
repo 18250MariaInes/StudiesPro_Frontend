@@ -1,0 +1,62 @@
+.semester-wrapper {
+    display: flex;
+    flex-direction: row;
+    max-height: 300px;
+    transition: 0.25s;
+}
+
+.semester {
+    background: #DD53CC;
+    padding: 10px;
+    height: 150px;
+    width: 240px;
+    font-style: normal;
+    font-size: 20px;
+    color: whitesmoke;
+    border-radius: 5px;
+    margin: 8px;
+    font-family: 'Tahoma';
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.semester--selected {
+    transform: scale(0.9);
+}
+
+.semester_name{
+    font-size: 1rem;
+    margin-top: -30px;
+}
+.subtitulop{
+    color:white;
+    margin-bottom: 0px;
+    padding: 5px;
+    margin:0;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-family: 'Tahoma';
+    font-weight: 600;
+}
+
+.contenidop{
+    color:white;
+    margin:0;
+    margin-left: 25px;
+    font-family: 'Tahoma';
+    margin-bottom: 10px;
+}
+.delete_semester {
+    background: #DD53CC;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    height: 25px;
+    width: 25px;
+    border-style: none;
+    margin-top: 0px;
+    align-self: flex-end;
+    
+    margin-bottom: 20px;
+}

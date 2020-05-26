@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import AddProviderForm from '../AddProviderForm';
 import AddMaterialForm from '../AddMaterialForm';
 import Providers from '../Providers';
 import AddProviderButton from '../AddProviderButton';
 
-function AddProviderView(){
+function AddMaterialView(){
     useEffect(() => {
         fetchItems();
     }, []);
@@ -15,11 +14,10 @@ function AddProviderView(){
     }
     return (
         <div >
-            <AddProviderForm/>
-            
+            <AddMaterialForm/>
            
             
         </div>
     )
 }
-export default AddProviderView;
+export default AddMaterialView;

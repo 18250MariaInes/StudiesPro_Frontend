@@ -1,0 +1,15 @@
+.semester-button {
+    background: #DD53CC;
+    border-radius: 10px;
+    top: 150px;
+    color: white;
+    font-size: 5px;
+    height: 300px;
+    width: 600px;
+    z-index: 2;
+    font-family: 'Tahoma';
+    border-style: none;
+    flex-grow: 1;
+    font-size: larger;
+    margin: 10px;
+}

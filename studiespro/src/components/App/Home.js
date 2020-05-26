@@ -15,7 +15,10 @@ import {
   } from "react-router-dom";
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/auth';
-
+import SemestersButton from '../SemestersButton';
+import CoursesButton from '../CourseButton';
+import ExamButton from '../ExamButton';
+import AssignmentButton from '../AssignmentButton';
 function Home(isAuthenticated= false){
     useEffect(() => {
         fetchItems();
@@ -32,9 +35,13 @@ function Home(isAuthenticated= false){
     }
       
     return (
-        <div >
-          <h1 className="home-title-home">Studies Pro</h1>            
+        <div className="buttons-wrapper" >
+          <SemestersButton/>
+          <CoursesButton/>
+          <ExamButton/> 
+          <AssignmentButton/>        
         </div>
+
     )
 }
 export default connect(

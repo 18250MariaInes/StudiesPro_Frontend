@@ -59,6 +59,12 @@ import {
   watchRemoveCourse
 } from './courses';
 
+import {
+  watchAddSemester,
+  watchsemestersFetch,
+  watchRemoveSemester
+} from './semesters';
+
 
 function* mainSaga() {
   yield all([
@@ -101,6 +107,10 @@ function* mainSaga() {
     fork(watchAddCourse),
     fork(watchcoursesFetch),
     fork(watchRemoveCourse),
+
+    fork(watchAddSemester),
+    fork(watchsemestersFetch),
+    fork(watchRemoveSemester),
   ]);
 }
 

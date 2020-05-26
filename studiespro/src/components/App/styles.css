@@ -105,3 +105,16 @@
     height: 25px;
     margin-right: 25px;
 }
+
+.buttons-wrapper{
+    display:flex;
+    flex-direction: row;
+    min-width: 100%;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content:center;
+}
