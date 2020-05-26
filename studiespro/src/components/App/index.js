@@ -39,6 +39,9 @@ import AddCourseView from './AddCourseView';
 import ExamsView from './ExamsView';
 import AddExamView from './AddExamView';
 
+import AssignmentsView from './AssignmentsView';
+import AddAssignmentView from './AddAssignmentView';
+
 import TokenRefresh from '../TokenRefresh';
 
 
@@ -144,6 +147,16 @@ const routes = [
     path: '/Add-exam',
     exact: true,
     component: UserIsAuthenticated(AddExamView),
+  },
+  {
+    path: '/Assignments',
+    exact: true,
+    component: UserIsAuthenticated(AssignmentsView),
+  },
+  {
+    path: '/Add-assignment',
+    exact: true,
+    component: UserIsAuthenticated(AddAssignmentView),
   },
 ];
 const App = () => (
