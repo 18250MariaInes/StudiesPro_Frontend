@@ -13,6 +13,7 @@ const Course = ({
   isSelected = false,
   onClick,
   onDelete,
+  teacher,
 }) => (
   <div
         className={
@@ -39,7 +40,7 @@ const Course = ({
               </p>
           <p className="subtituloc">Catedratico:</p>
           <p className="contenidoc">
-            {(Object.entries(Object.entries(course)[2])[1]).slice(1)}
+            {teacher}
             </p>
           </div>
         </div>
@@ -52,10 +53,11 @@ export default connect(
     ...selectors.getCourse(state, id),
     course: id,
     isSelected: selectors.getSelectedCourse(state) === id/*index*/,
-
+    teacher: selectors.getTeacher(state, (Object.entries(Object.entries(id)[2])[1]).slice(1)),
+    /*teacher: selectors.getTeacher(state).payload.teacher.id,*/
   }),
-  (dispatch, {id}) => ({
-    onClick() {
+  (dispatch, {id, state}) => ({
+    onClick(state) {
       dispatch(selectedActions.selectedCourse(id));
       console.log(selectedActions.selectedCourse(id));
     },

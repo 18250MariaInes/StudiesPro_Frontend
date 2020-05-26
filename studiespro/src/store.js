@@ -5,7 +5,7 @@ import {
   persistReducer,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
+import { logger } from 'redux-logger';
 import reducer from './reducers';
 import mainSaga from './sagas';
 
@@ -20,10 +20,10 @@ export const configureStore = () => {
     },
     reducer, 
   );
-
+  const middleware = [sagaMiddleware, logger]
   const store = createStore(
     persistedReducer,
-    applyMiddleware(sagaMiddleware),
+    applyMiddleware(...middleware),
   );
 
   const persistor = persistStore(store);
