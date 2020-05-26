@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddBookForm from '../AddBookForm';
 import Books from '../Books';
 import AddBookButton from '../AddBookButton';
+import TokenRefresh from '../TokenRefresh';
 
 function AddBookView(){
     useEffect(() => {
@@ -15,8 +16,7 @@ function AddBookView(){
     return (
         <div >
             <AddBookForm/>
-           
-           
+            <TokenRefresh reviewTime={3600000} />          
             
         </div>
     )

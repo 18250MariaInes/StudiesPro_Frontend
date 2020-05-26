@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import Books from '../Books';
 import AddBookButton from '../AddBookButton';
 import './styles.css';
+import TokenRefresh from '../TokenRefresh';
+
 function BooksView(){
     useEffect(() => {
         fetchItems();
@@ -16,6 +18,7 @@ function BooksView(){
             {/*<AddBookForm/>*/}
             <AddBookButton/>
             <Books/>
+            <TokenRefresh reviewTime={3600000} /> 
         </div>
     )
 }

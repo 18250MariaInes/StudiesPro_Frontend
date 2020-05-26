@@ -126,5 +126,8 @@
 .organizador_course{
     display: flex;
     flex-direction: row;
-    background-color: red;
+}
+
+.add-course-wrapper{
+    padding-bottom: 20px;
 }

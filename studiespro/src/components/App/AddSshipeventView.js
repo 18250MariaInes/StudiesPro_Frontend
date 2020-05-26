@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddSshipeventForm from '../AddSshipeventForm';
 import Sshipevents from '../Sshipevents';
 import AddSshipeventButton from '../AddSshipeventButton';
+import TokenRefresh from '../TokenRefresh';
 
 function AddSshipeventView(){
     useEffect(() => {
@@ -15,8 +16,7 @@ function AddSshipeventView(){
     return (
         <div >
             <AddSshipeventForm/>
-           
-            
+            <TokenRefresh reviewTime={3600000} />             
         </div>
     )
 }

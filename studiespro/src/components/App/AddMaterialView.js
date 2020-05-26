@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddMaterialForm from '../AddMaterialForm';
 import Providers from '../Providers';
 import AddProviderButton from '../AddProviderButton';
+import TokenRefresh from '../TokenRefresh';
 
 function AddMaterialView(){
     useEffect(() => {
@@ -15,8 +16,7 @@ function AddMaterialView(){
     return (
         <div >
             <AddMaterialForm/>
-           
-            
+            <TokenRefresh reviewTime={3600000} />             
         </div>
     )
 }

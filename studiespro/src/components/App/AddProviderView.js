@@ -3,6 +3,7 @@ import AddProviderForm from '../AddProviderForm';
 import AddMaterialForm from '../AddMaterialForm';
 import Providers from '../Providers';
 import AddProviderButton from '../AddProviderButton';
+import TokenRefresh from '../TokenRefresh';
 
 function AddProviderView(){
     useEffect(() => {
@@ -16,9 +17,7 @@ function AddProviderView(){
     return (
         <div >
             <AddProviderForm/>
-            
-           
-            
+            <TokenRefresh reviewTime={3600000} />         
         </div>
     )
 }

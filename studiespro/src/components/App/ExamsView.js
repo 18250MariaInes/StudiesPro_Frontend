@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 //import AddSshipeventForm from '../AddSshipeventForm';
 import Exams from '../Exams';
 import AddExamButton from '../AddExamButton';
+import TokenRefresh from '../TokenRefresh';
 
 function ExamsView(){
     useEffect(() => {
@@ -17,6 +18,7 @@ function ExamsView(){
             {/*<AddSshipeventForm/>*/}
             <AddExamButton/>
             <Exams/>
+            <TokenRefresh reviewTime={3600000} /> 
         </div>
     )
 }

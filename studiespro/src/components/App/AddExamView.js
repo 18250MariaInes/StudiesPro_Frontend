@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddExamForm from '../AddExamForm';
 import Courses from '../Courses';
 import AddSshipeventButton from '../AddSshipeventButton';
+import TokenRefresh from '../TokenRefresh';
 
 function AddExamView(){
     useEffect(() => {
@@ -17,6 +18,7 @@ function AddExamView(){
             <h1 className="instrucciones">Selecciona un curso y crea el examen</h1>
             <Courses/>
             <AddExamForm/>
+            <TokenRefresh reviewTime={3600000} /> 
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddDelvaForm from '../AddDelvaForm';
 import Delvas from '../Delvas';
 import AddDelvaButton from '../AddDelvaButton';
+import TokenRefresh from '../TokenRefresh';
 
 function AddDelvaView(){
     useEffect(() => {
@@ -15,9 +16,7 @@ function AddDelvaView(){
     return (
         <div >
             <AddDelvaForm/>
-           
-            
-            
+            <TokenRefresh reviewTime={3600000} />             
         </div>
     )
 }

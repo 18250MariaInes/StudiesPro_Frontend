@@ -4,6 +4,7 @@ import Providers from '../Providers';
 import Materials from '../Materials';
 import AddProviderButton from '../AddProviderButton';
 import AddMaterialButton from '../AddMaterialButton';
+import TokenRefresh from '../TokenRefresh';
 
 function ProvidersView(){
     useEffect(() => {
@@ -21,6 +22,7 @@ function ProvidersView(){
             <Providers/>
             <Materials/>
             <AddMaterialButton/>
+            <TokenRefresh reviewTime={3600000} /> 
 
         </div>
     )

@@ -5,6 +5,7 @@ import Materials from '../Materials';
 import AddProviderButton from '../AddProviderButton';
 import AddMaterialButton from '../AddMaterialButton';
 import AddSemesterForm from '../AddSemesterForm';
+import TokenRefresh from '../TokenRefresh';
 
 function SemestersView(){
     useEffect(() => {
@@ -22,6 +23,7 @@ function SemestersView(){
             <Providers/ semestres registrados>*/}
             <Semesters/>
             <AddSemesterForm/>
+            <TokenRefresh reviewTime={3600000} /> 
 
         </div>
     )

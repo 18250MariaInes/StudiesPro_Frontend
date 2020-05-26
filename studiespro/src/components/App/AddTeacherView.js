@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddTeacherForm from '../AddTeacherForm';
 import Teachers from '../Teachers';
 import AddTeacherButton from '../AddTeacherButton';
+import TokenRefresh from '../TokenRefresh';
 
 function AddTeacherView(){
     useEffect(() => {
@@ -15,7 +16,7 @@ function AddTeacherView(){
     return (
         <div >
             <AddTeacherForm/>
-            
+            <TokenRefresh reviewTime={3600000} /> 
         </div>
     )
 }

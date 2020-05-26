@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 //import AddDelvaForm from '../AddDelvaForm';
 import Delvas from '../Delvas';
 import AddDelvaButton from '../AddDelvaButton';
+import TokenRefresh from '../TokenRefresh';
 
 function DelvasView(){
     useEffect(() => {
@@ -17,6 +18,7 @@ function DelvasView(){
             {/*<AddTeacherForm/>*/}
             <AddDelvaButton/>
             <Delvas/>
+            <TokenRefresh reviewTime={3600000} /> 
         </div>
     )
 }

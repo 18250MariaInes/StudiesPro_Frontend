@@ -19,6 +19,8 @@ import SemestersButton from '../SemestersButton';
 import CoursesButton from '../CourseButton';
 import ExamButton from '../ExamButton';
 import AssignmentButton from '../AssignmentButton';
+import TokenRefresh from '../TokenRefresh';
+
 function Home(isAuthenticated= false){
     useEffect(() => {
         fetchItems();
@@ -39,7 +41,8 @@ function Home(isAuthenticated= false){
           <SemestersButton/>
           <CoursesButton/>
           <ExamButton/> 
-          <AssignmentButton/>        
+          <AssignmentButton/>      
+          <TokenRefresh reviewTime={3600000} />   
         </div>
 
     )

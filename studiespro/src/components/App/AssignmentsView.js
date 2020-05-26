@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Assignments from '../Assignments';
 import Courses from '../Courses';
 import AddAssignmentButton from '../AddAssignmentButton';
+import TokenRefresh from '../TokenRefresh';
 
 function AssignmentsView(){
     useEffect(() => {
@@ -18,7 +19,7 @@ function AssignmentsView(){
             {/*<AddProviderForm/>*/}
             <AddAssignmentButton/>
             <Assignments/>
-
+            <TokenRefresh reviewTime={3600000} /> 
         </div>
     )
 }
