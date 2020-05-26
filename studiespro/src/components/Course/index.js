@@ -53,11 +53,11 @@ export default connect(
     ...selectors.getCourse(state, id),
     course: id,
     isSelected: selectors.getSelectedCourse(state) === id/*index*/,
-    teacher: selectors.getTeacher(state, (Object.entries(Object.entries(id)[2])[1]).slice(1)),
-    /*teacher: selectors.getTeacher(state).payload.teacher.id,*/
+    teacher: selectors.getTeacherName(state, (Object.entries(Object.entries(id)[2])[1]).slice(1)),
+    /*teacher: selectors.getTeacher(state).payload.teacher,*/
   }),
   (dispatch, {id, state}) => ({
-    onClick(state) {
+    onClick() {
       dispatch(selectedActions.selectedCourse(id));
       console.log(selectedActions.selectedCourse(id));
     },

@@ -111,3 +111,4 @@ export const getTeacher = (state, id) => state.byId[id];
 export const getTeachers = state => state.order.map(id => getTeacher(state, id));
 export const isFetchingTeachers = state => state.isFetching;
 export const getFetchingTeachersError = state => state.error;
+export const getTeacherName = (state, id) => state.byId[id];

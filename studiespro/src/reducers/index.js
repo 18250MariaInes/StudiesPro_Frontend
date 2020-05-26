@@ -58,6 +58,7 @@ export const getTeacher = (state, id) => teachersSelectors.getTeacher(state.teac
 export const getTeachers = state => teachersSelectors.getTeachers(state.teacher);
 export const isFetchingTeachers = state => teachersSelectors.isFetchingTeachers(state.teacher);
 export const getFetchingTeachersError = state => teachersSelectors.getFetchingTeachersError(state.teacher);
+export const getTeacherName = (state, id) => teachersSelectors.getTeacherName(state.teacher, id)
 //delvas
 export const getDelva = (state, id) => delvasSelectors.getDelva(state.delvas, id);
 export const getDelvas = state => delvasSelectors.getDelvas(state.delvas);
