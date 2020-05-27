@@ -5,7 +5,7 @@ import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/materials';
 import Material from '../Material';
-
+import * as actionsp from '../../actions/providers';
 
 const Materials = ({ material, isLoading, onLoad }) => {
   useEffect(onLoad, []);
@@ -47,11 +47,13 @@ const Materials = ({ material, isLoading, onLoad }) => {
 
 export default connect(
   state => ({
+    provider: selectors.getProviders(state),
     material: selectors.getMaterials(state),
     isLoading: selectors.isFetchingMaterials(state),
   }),
   dispatch => ({
     onLoad() {
+      dispatch(actionsp.startFetchingProviders());
       dispatch(actions.startFetchingMaterials());
     },
   }),

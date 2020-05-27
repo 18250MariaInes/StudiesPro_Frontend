@@ -14,6 +14,7 @@ const Assignment = ({
   isSelected = false,
   onClick,
   onDelete,
+  course
 }) => (
   
       <div className="assignment">
@@ -36,7 +37,7 @@ const Assignment = ({
             </p>
             <p className="subtitulop">Curso:</p>
             <p className="contenidop">
-            {(Object.entries(Object.entries(assignment)[5])[1]).slice(1)}
+            {(Object.entries(Object.entries(course)[1])[1]).slice(1)}
             </p>
         </div>
       </div>
@@ -45,8 +46,11 @@ const Assignment = ({
 
 export default connect(
   (state, { id, /*index*/}) => ({
+    ...selectors.getCourse(state, id.course),
     ...selectors.getAssignment(state, id),
+    courses: selectors.getCourses(state)/*index*/,
     assignment: id/*index*/,
+    course: selectors.getCourse(state, id.course),
     /*isSelected: selectors.getSelectedTeacher(state) === index,*/
   }),
   (dispatch, {id}) => ({

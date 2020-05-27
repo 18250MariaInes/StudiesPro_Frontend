@@ -11,6 +11,7 @@ const Material = ({
   /*onDelete,*/ 
   isConfirmed = false,
   onDelete,
+  provider
 }) => (
   
       <div className="material">
@@ -34,7 +35,7 @@ const Material = ({
             </p>
             <p className="subtitulom">Provider:</p>
             <p className="contenidom">
-            {(Object.entries(Object.entries(material)[4])[1]).slice(1)}
+            {(Object.entries(Object.entries(provider)[1])[1]).slice(1)}
             </p>
         </div>
       </div>
@@ -43,8 +44,11 @@ const Material = ({
 
 export default connect(
   (state, { id, /*index*/}) => ({
+    ...selectors.getProvider(state, id.provider),
     ...selectors.getMaterial(state, id),
+    //providers: selectors.getProviders(state)/*index*/,
     material: id/*index*/,
+    provider: selectors.getProvider(state, id.provider),
   }),
   (dispatch, {id}) => ({
     

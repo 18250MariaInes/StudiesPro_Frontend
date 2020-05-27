@@ -5,6 +5,7 @@ import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/assignments';
 import Assignment from '../Assignment';
+import * as actionsc from '../../actions/courses';
 
 
 const Assignments = ({ assignment, isLoading, onLoad }) => {
@@ -43,11 +44,13 @@ const Assignments = ({ assignment, isLoading, onLoad }) => {
 
 export default connect(
   state => ({
+    course: selectors.getCourses(state),
     assignment: selectors.getAssignments(state),
     isLoading: selectors.isFetchingAssignments(state),
   }),
   dispatch => ({
     onLoad() {
+      dispatch(actionsc.startFetchingCourses());
       dispatch(actions.startFetchingAssignments());
     },
   }),

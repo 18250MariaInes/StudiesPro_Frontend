@@ -12,6 +12,7 @@ const exam = ({
   isSelected = false,
   onClick,
   onDelete,
+  course
 }) => (
     <div className="exam">
         <button className="delete_exam"
@@ -33,7 +34,7 @@ const exam = ({
         </p>
         <p className="subtituloe">Curso:</p>
         <p className="contenidoe">
-           {(Object.entries(Object.entries(exam)[5])[1]).slice(1)}
+        {(Object.entries(Object.entries(course)[1])[1]).slice(1)}
         </p>
         </div>
     </div>
@@ -42,8 +43,11 @@ const exam = ({
 
 export default connect(
   (state, { id, /*index*/}) => ({
+    ...selectors.getCourse(state, id.course),
     ...selectors.getExam(state, id),
-    exam: id
+    courses: selectors.getCourses(state)/*index*/,
+    exam: id,
+    course: selectors.getCourse(state, id.course),
   }),
   (dispatch, {id}) => ({
       
