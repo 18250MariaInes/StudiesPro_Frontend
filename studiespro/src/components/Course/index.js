@@ -13,7 +13,9 @@ const Course = ({
   isSelected = false,
   onClick,
   onDelete,
-  teacher,
+  teacherName,
+  teachers,
+  teacher
 }) => (
   <div
         className={
@@ -40,7 +42,7 @@ const Course = ({
               </p>
           <p className="subtituloc">Catedratico:</p>
           <p className="contenidoc">
-            {teacher}
+            {(Object.entries(Object.entries(teacher)[1])[1]).slice(1)}
             </p>
           </div>
         </div>
@@ -50,16 +52,22 @@ const Course = ({
 
 export default connect(
   (state, { id, /*index*/}) => ({
+    ...selectors.getTeacher(state, id.teacher),
     ...selectors.getCourse(state, id),
+   
+    //teacher: selectors.getTeachers(state),
+    teachers: selectors.getTeachers(state)/*index*/,
     course: id,
+    teacher: selectors.getTeacherName(state, id.teacher),
     isSelected: selectors.getSelectedCourse(state) === id/*index*/,
-    teacher: selectors.getTeacherName(state, (Object.entries(Object.entries(id)[2])[1]).slice(1)),
-    /*teacher: selectors.getTeacher(state).payload.teacher,*/
+    //teacher: (Object.entries(Object.entries(id)[2])[1]).slice(1),
+    //teacherName: selectors.getTeacher(state, Number(Object.entries(Object.entries(id)[2])[1]).slice(1)),
   }),
-  (dispatch, {id, state}) => ({
-    onClick() {
+  (dispatch, {id, state, teachers}) => ({
+    onClick(teachers) {
       dispatch(selectedActions.selectedCourse(id));
       console.log(selectedActions.selectedCourse(id));
+      //console.log(teachers)
     },
       
     onDelete() {

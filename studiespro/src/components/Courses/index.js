@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/courses';
+import * as actionsT from '../../actions/teachers';
 import Course from '../Course';
 
 
@@ -47,12 +48,15 @@ const Courses = ({ course, isLoading, onLoad }) => {
 
 export default connect(
   state => ({
+    teacher: selectors.getTeachers(state),
     course: selectors.getCourses(state),
     isLoading: selectors.isFetchingCourses(state),
   }),
   dispatch => ({
     onLoad() {
+      dispatch(actionsT.startFetchingTeachers());
       dispatch(actions.startFetchingCourses());
+      
     },
   }),
 )(Courses);
