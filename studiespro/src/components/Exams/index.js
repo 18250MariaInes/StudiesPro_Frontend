@@ -55,7 +55,8 @@ export default connect(
   dispatch => ({
     onLoad() {
       dispatch(actionsc.startFetchingCourses());
-      dispatch(actions.startFetchingExams());
+      setTimeout(() => { dispatch(actions.startFetchingExams()); }, 500);
+      
     },
   }),
 )(Exams);

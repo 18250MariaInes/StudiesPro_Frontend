@@ -8,7 +8,8 @@ import Assignment from '../Assignment';
 import * as actionsc from '../../actions/courses';
 
 
-const Assignments = ({ assignment, isLoading, onLoad }) => {
+const Assignments = ({ assignment, isLoading, onLoad, isLoadingC }) => {
+  
   useEffect(onLoad, []);
   return (
   <div >
@@ -47,11 +48,14 @@ export default connect(
     course: selectors.getCourses(state),
     assignment: selectors.getAssignments(state),
     isLoading: selectors.isFetchingAssignments(state),
+    isLoadingC: selectors.isFetchingCourses(state),
   }),
   dispatch => ({
     onLoad() {
       dispatch(actionsc.startFetchingCourses());
-      dispatch(actions.startFetchingAssignments());
+      setTimeout(() => { dispatch(actions.startFetchingAssignments()); }, 500);
+     
+      
     },
   }),
 )(Assignments);

@@ -54,7 +54,8 @@ export default connect(
   dispatch => ({
     onLoad() {
       dispatch(actionsp.startFetchingProviders());
-      dispatch(actions.startFetchingMaterials());
+      setTimeout(() => { dispatch(actions.startFetchingMaterials()); }, 500);
+      
     },
   }),
 )(Materials);

@@ -55,7 +55,8 @@ export default connect(
   dispatch => ({
     onLoad() {
       dispatch(actionsT.startFetchingTeachers());
-      dispatch(actions.startFetchingCourses());
+      setTimeout(() => { dispatch(actions.startFetchingCourses()); }, 750);
+      
       
     },
   }),
