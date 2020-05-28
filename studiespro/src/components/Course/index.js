@@ -15,8 +15,11 @@ const Course = ({
   onDelete,
   teacherName,
   teachers,
-  teacher
+  teacher,
 }) => (
+  /*if (teacher==undefined || teacher==null){
+    teacher=
+  };*/
   <div
         className={
           `
@@ -42,7 +45,8 @@ const Course = ({
               </p>
           <p className="subtituloc">Catedratico:</p>
           <p className="contenidoc">
-            {(Object.entries(Object.entries(teacher)[1])[1]).slice(1)}
+            
+            {teacher==null ? "no tiene catedrático": (Object.entries(Object.entries(teacher)[1])[1]).slice(1)}
             </p>
           </div>
         </div>
@@ -60,6 +64,7 @@ export default connect(
     course: id,
     teacher: selectors.getTeacherName(state, id.teacher),
     isSelected: selectors.getSelectedCourse(state) === id/*index*/,
+    //thatT: (Object.entries(Object.entries(selectors.getTeacherName(state, id.teacher))[1])[1]).slice(1)
     //teacher: (Object.entries(Object.entries(id)[2])[1]).slice(1),
     //teacherName: selectors.getTeacher(state, Number(Object.entries(Object.entries(id)[2])[1]).slice(1)),
   }),

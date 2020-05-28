@@ -47,7 +47,7 @@ const Assignment = ({
             </p>
             <p className="subtitulop">Curso:</p>
             <p className="contenidop">
-            {(Object.entries(Object.entries(course)[1])[1]).slice(1)}
+            {course==null ? "no tiene curso": (Object.entries(Object.entries(course)[1])[1]).slice(1)}
             </p>
         </div>
       </div>

@@ -44,7 +44,7 @@ const exam = ({
         </p>
         <p className="subtituloe">Curso:</p>
         <p className="contenidoe">
-        {(Object.entries(Object.entries(course)[1])[1]).slice(1)}
+        {course==null ? "No tiene curso": (Object.entries(Object.entries(course)[1])[1]).slice(1)}
         </p>
         </div>
     </div>

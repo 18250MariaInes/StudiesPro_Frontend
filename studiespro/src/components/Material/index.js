@@ -31,11 +31,11 @@ const Material = ({
             </p>
             <p className="subtitulom">Precio:</p>
             <p className="contenidom">
-            {(Object.entries(Object.entries(material)[3])[1]).slice(1)}
+            Q{(Object.entries(Object.entries(material)[3])[1]).slice(1)}
             </p>
             <p className="subtitulom">Provider:</p>
             <p className="contenidom">
-            {(Object.entries(Object.entries(provider)[1])[1]).slice(1)}
+            {provider==null ? "No tiene Provider": (Object.entries(Object.entries(provider)[1])[1]).slice(1)}
             </p>
         </div>
       </div>
