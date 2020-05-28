@@ -22,7 +22,7 @@
 }
 
 .assignment--selected {
-    transform: scale(0.9);
+    background-color: #FE1134;
 }
 
 .assignment_name{

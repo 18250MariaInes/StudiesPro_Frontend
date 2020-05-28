@@ -36,6 +36,10 @@
     font-weight: 600;
 }
 
+.exam--selected {
+    background-color: #FE1134;
+}
+
 .contenidoe{
     color:white;
     margin:0;

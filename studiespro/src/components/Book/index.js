@@ -12,8 +12,17 @@ const Book = ({
   isSelected = false,
   onClick,
   onDelete,
+  isNear = false,
 }) => (
-    <div className="book">
+
+  <div
+    className={
+      `
+      book-wrapper
+        ${isNear ? 'book--selected' : ''}
+      `
+    }
+  >    <div className="book">
         <button className="delete_book"
         onClick={onDelete}>
             &times;
@@ -33,13 +42,14 @@ const Book = ({
            </p>
         </div>
     </div>
-     
+  </div>
 );
 
 export default connect(
   (state, { id, /*index*/}) => ({
     ...selectors.getBook(state, id),
-    book: id
+    book: id,
+    isNear: id.is_near,
   }),
   (dispatch, {id}) => ({
       

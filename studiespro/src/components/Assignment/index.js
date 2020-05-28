@@ -14,8 +14,18 @@ const Assignment = ({
   isSelected = false,
   onClick,
   onDelete,
-  course
+  course,
+  isNear = false
 }) => (
+
+  <div
+      className={
+        `
+        assignment-wrapper
+          ${isNear ? 'assignment--selected' : ''}
+        `
+      }
+  >
   
       <div className="assignment">
         <button className="delete_assignment"
@@ -41,7 +51,7 @@ const Assignment = ({
             </p>
         </div>
       </div>
-  
+  </div>
 );
 
 export default connect(
@@ -51,6 +61,7 @@ export default connect(
     courses: selectors.getCourses(state)/*index*/,
     assignment: id/*index*/,
     course: selectors.getCourse(state, id.course),
+    isNear: id.is_near,
     /*isSelected: selectors.getSelectedTeacher(state) === index,*/
   }),
   (dispatch, {id}) => ({

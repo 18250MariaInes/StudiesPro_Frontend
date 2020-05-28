@@ -12,8 +12,18 @@ const exam = ({
   isSelected = false,
   onClick,
   onDelete,
-  course
+  course,
+  isNear = false
 }) => (
+
+  <div
+    className={
+      `
+      exam-wrapper
+        ${isNear ? 'exam--selected' : ''}
+      `
+    }
+  >
     <div className="exam">
         <button className="delete_exam"
         onClick={onDelete}>
@@ -38,7 +48,7 @@ const exam = ({
         </p>
         </div>
     </div>
-     
+  </div>
 );
 
 export default connect(
@@ -48,6 +58,7 @@ export default connect(
     courses: selectors.getCourses(state)/*index*/,
     exam: id,
     course: selectors.getCourse(state, id.course),
+    isNear: id.is_near,
   }),
   (dispatch, {id}) => ({
       
