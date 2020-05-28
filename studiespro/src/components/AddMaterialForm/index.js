@@ -58,7 +58,7 @@ const AddMaterialForm = ({
           isLoading ? (
             <strong>{'Cargando...'}</strong>
           ) : (
-            <Link to='/Providers'> 
+            <Link to='/Materials'> 
               <button type="submit" className="buttonTformp" onClick={
                 () => {
                   onSubmit(name, description, price, student, provider);

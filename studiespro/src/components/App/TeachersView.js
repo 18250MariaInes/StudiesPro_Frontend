@@ -4,6 +4,7 @@ import Teachers from '../Teachers';
 import AddTeacherButton from '../AddTeacherButton';
 
 function TeachersView(){
+
     useEffect(() => {
         fetchItems();
     }, []);

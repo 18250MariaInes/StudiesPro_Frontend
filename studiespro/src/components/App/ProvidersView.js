@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 //import AddProviderForm from '../AddProviderForm';
 import Providers from '../Providers';
-import Materials from '../Materials';
 import AddProviderButton from '../AddProviderButton';
-import AddMaterialButton from '../AddMaterialButton';
 import TokenRefresh from '../TokenRefresh';
 
 function ProvidersView(){
@@ -20,8 +18,6 @@ function ProvidersView(){
             {/*<AddProviderForm/>*/}
             <AddProviderButton/>
             <Providers/>
-            <Materials/>
-            <AddMaterialButton/>
             <TokenRefresh reviewTime={3600000} /> 
 
         </div>

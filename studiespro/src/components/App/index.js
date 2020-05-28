@@ -28,6 +28,7 @@ import AddDelvaView from './AddDelvaView';
 
 import ProvidersView from './ProvidersView';
 import AddProviderView from './AddProviderView';
+import MaterialsView from './MaterialsView';
 import AddMaterialView from './AddMaterialView';
 
 import SshipeventsView from './SshipeventsView';
@@ -104,6 +105,11 @@ const routes = [
     component: UserIsAuthenticated(ProvidersView),
   },
   {
+    path: '/Materials',
+    exact: true,
+    component: UserIsAuthenticated(MaterialsView),
+  },
+  {
     path: '/Add-provider',
     exact: true,
     component: UserIsAuthenticated(AddProviderView),
@@ -173,7 +179,7 @@ const App = () => (
                     path={route.path}
                     exact={route.exact}
                     component={route.component}
-                />
+                />  
             ))
         }
         </Switch>   

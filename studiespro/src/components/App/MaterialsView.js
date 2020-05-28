@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import AddMaterialForm from '../AddMaterialForm';
-import Providers from '../Providers';
+//import AddProviderForm from '../AddProviderForm';
+import Materials from '../Materials';
+import AddMaterialButton from '../AddMaterialButton';
 import TokenRefresh from '../TokenRefresh';
 
-function AddMaterialView(){
+function MaterialsView(){
     useEffect(() => {
         fetchItems();
     }, []);
@@ -13,11 +14,13 @@ function AddMaterialView(){
         console.log(items);
     }
     return (
-        <div >
-            <Providers/>
-            <AddMaterialForm/>
-            <TokenRefresh reviewTime={3600000} />             
+        <div>
+            {/*<AddProviderForm/>*/}
+            <Materials/>
+            <AddMaterialButton/>
+            <TokenRefresh reviewTime={3600000} /> 
+
         </div>
     )
 }
-export default AddMaterialView;
+export default MaterialsView;
