@@ -14,7 +14,7 @@ const Providers = ({ provider, isLoading, onLoad }) => {
     
       {
         provider.length === 0 && !isLoading && (
-          <p>{'No hay providers registrados'}</p>
+          <p className="titulo">{'No hay providers registrados'}</p>
         )
       }
       {
@@ -24,7 +24,7 @@ const Providers = ({ provider, isLoading, onLoad }) => {
       }
       {
         isLoading && (
-          <p>{'Cargando...'}</p>
+          <p className="titulo">{'Cargando...'}</p>
         )
       }
       {

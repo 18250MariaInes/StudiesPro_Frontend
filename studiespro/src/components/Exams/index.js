@@ -16,7 +16,7 @@ const Exams = ({ exam, isLoading, onLoad }) => {
     
       {
         exam.length === 0 && !isLoading && (
-          <p>{'No hay cursos registrados'}</p>
+          <p className="titulo">{'No hay exámenes registrados'}</p>
         )
       }
       {
@@ -27,7 +27,7 @@ const Exams = ({ exam, isLoading, onLoad }) => {
       
       {
         isLoading && (
-          <p>{'Cargando...'}</p>
+          <p className="titulo">{'Cargando...'}</p>
         )
       }
       {

@@ -16,7 +16,7 @@ const Courses = ({ course, isLoading, onLoad }) => {
     
       {
         course.length === 0 && !isLoading && (
-          <p>{'No hay cursos registrados'}</p>
+          <p className="tituloc">{'No hay cursos registrados'}</p>
         )
       }
       {
@@ -27,7 +27,7 @@ const Courses = ({ course, isLoading, onLoad }) => {
       
       {
         isLoading && (
-          <p>{'Cargando...'}</p>
+          <p className="tituloc">{'Cargando...'}</p>
         )
       }
       {
@@ -55,7 +55,7 @@ export default connect(
   dispatch => ({
     onLoad() {
       dispatch(actionsT.startFetchingTeachers());
-      setTimeout(() => { dispatch(actions.startFetchingCourses()); }, 750);
+      setTimeout(() => { dispatch(actions.startFetchingCourses()); }, 300);
       
       
     },

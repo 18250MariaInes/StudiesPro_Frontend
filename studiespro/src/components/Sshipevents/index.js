@@ -25,7 +25,7 @@ const Sshipevents = ({ sshipevent, isLoading, onLoad }) => {
       
       {
         isLoading && (
-          <p>{'Cargando...'}</p>
+          <p className="titulo">{'Cargando...'}</p>
         )
       }
       {

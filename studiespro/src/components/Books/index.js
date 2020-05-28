@@ -14,7 +14,7 @@ const Books = ({ book, isLoading, onLoad }) => {
     
       {
         book.length === 0 && !isLoading && (
-          <p>{'No hay catedráticos registrados'}</p>
+          <p className="titulo">{'No hay catedráticos registrados'}</p>
         )
       }
       {
@@ -25,7 +25,7 @@ const Books = ({ book, isLoading, onLoad }) => {
       
       {
         isLoading && (
-          <p>{'Cargando...'}</p>
+          <p className="titulo">{'Cargando...'}</p>
         )
       }
       {

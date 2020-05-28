@@ -3,6 +3,7 @@
     flex-direction: row;
     max-height: 300px;
     transition: 0.25s;
+    margin:5px;
 }
 
 .exam {

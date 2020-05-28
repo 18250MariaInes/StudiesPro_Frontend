@@ -16,7 +16,7 @@ const Assignments = ({ assignment, isLoading, onLoad, isLoadingC }) => {
     
       {
         assignment.length === 0 && !isLoading && (
-          <p>{'No hay assignments registrados'}</p>
+          <p className="titulo">{'No hay assignments registrados'}</p>
         )
       }
       {
@@ -26,7 +26,7 @@ const Assignments = ({ assignment, isLoading, onLoad, isLoadingC }) => {
       }
       {
         isLoading && (
-          <p>{'Cargando...'}</p>
+          <p className="titulo">{'Cargando...'}</p>
         )
       }
       {

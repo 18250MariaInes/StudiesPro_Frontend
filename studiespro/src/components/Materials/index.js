@@ -15,7 +15,7 @@ const Materials = ({ material, isLoading, onLoad }) => {
     
       {
         material.length === 0 && !isLoading && (
-          <p>{'No hay materiales registrados'}</p>
+          <p className="titulo">{'No hay materiales registrados'}</p>
         )
       }
       {
@@ -26,7 +26,7 @@ const Materials = ({ material, isLoading, onLoad }) => {
       
       {
         isLoading && (
-          <p>{'Cargando...'}</p>
+          <p className="titulo">{'Cargando...'}</p>
         )
       }
       {

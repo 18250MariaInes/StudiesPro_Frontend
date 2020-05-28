@@ -14,7 +14,7 @@ const Semesters = ({ semester, isLoading, onLoad }) => {
     
       {
         semester.length === 0 && !isLoading && (
-          <p>{'No hay semesters registrados'}</p>
+          <p className="titulo">{'No hay semesters registrados'}</p>
         )
       }
       {
@@ -24,7 +24,7 @@ const Semesters = ({ semester, isLoading, onLoad }) => {
       }
       {
         isLoading && (
-          <p>{'Cargando...'}</p>
+          <p className="titulo">{'Cargando...'}</p>
         )
       }
       {

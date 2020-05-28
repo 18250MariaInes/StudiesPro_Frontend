@@ -15,7 +15,7 @@ const Delvas = ({ delva, isLoading, onLoad }) => {
     
       {
         delva.length === 0 && !isLoading && (
-          <p>{'No hay delvas registradas'}</p>
+          <p className="titulo">{'No hay delvas registradas'}</p>
         )
       }
       {
@@ -26,7 +26,7 @@ const Delvas = ({ delva, isLoading, onLoad }) => {
       
       {
         isLoading && (
-          <p>{'Cargando...'}</p>
+          <p className="titulo">{'Cargando...'}</p>
         )
       }
       {
