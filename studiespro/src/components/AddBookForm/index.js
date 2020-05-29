@@ -17,16 +17,17 @@ import './styles.css';
 import {Field, reduxForm} from 'redux-form';
 
 const BookForm = ({
-  handleSubmit,
   onSubmit,
   isLoading,
   student,
+  handleSubmit,
   values=[student]
 }) => {
-  
+  const boundHandleSubmit = handleSubmit.bind(student)
+
   return (
     
-    <form className="formT" onSubmit={handleSubmit}>
+    <form className="formT" onSubmit={boundHandleSubmit}>
       
       <h2 className="tituloform">{'Crear un nuevo Libro'}</h2>
       <p>
@@ -82,7 +83,7 @@ export default connect(
 )(
   reduxForm({
     form:'bookform',
-    onSubmit({title, description, date, student=13},  dispatch){
+    onSubmit({title, description, date, student},  dispatch){
       dispatch(
         actions.startAddingBook({
           id: uuidv4(),
@@ -96,6 +97,8 @@ export default connect(
     },
   })(BookForm)
 );
+
+
 /*export default reduxForm({form: 'bookform'})(
    connect(
   state => ({
@@ -117,7 +120,7 @@ export default connect(
     },
   }),
 )(BookForm),
-);*/
+);
 //AQUI EMPIEZA LO QUE YA FUNCIONABA
 /*import { v4 as uuidv4 } from 'uuid';
 import React, { useState, Fragment } from 'react';

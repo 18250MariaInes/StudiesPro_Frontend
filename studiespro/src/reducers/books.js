@@ -47,7 +47,7 @@ const byId = (state = {}, action) => {
 const order = (state = [], action) => {
   switch(action.type) {
     case types.BOOKS_FETCH_COMPLETED: {
-      return [...state, ...action.payload.order];
+      return [...action.payload.order];
     }
     case types.BOOK_ADD_STARTED: {
       return [...state, action.payload.id];
