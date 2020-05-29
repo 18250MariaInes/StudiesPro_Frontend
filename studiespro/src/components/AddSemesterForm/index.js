@@ -14,32 +14,32 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/semesters';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
+import {Field, reduxForm} from 'redux-form';
 
 const AddSemesterForm = ({
   onSubmit,
   isLoading,
   student,
+  handleSubmit,
 }) => {
-  const [beginning, changeInicio] = useState('');
-  const [end, changeFin] = useState('');
   return (
-    <div className="formS">
+    <div className="formS" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
       <h2 className="tituloforms">{'Crear un nuevo Semestre'}</h2>
       <p>
-        <input className="inputSem"
+        <Field className="inputSem"
+          name="beginning"
           type="text"
           placeholder="Fecha de inicio"
-          value={beginning}
-          onChange={e => changeInicio(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputSem"
+        <Field className="inputSem"
+          name="end"
           type="text"
           placeholder="Fecha de fin"
-          value={end}
-          onChange={e => changeFin(e.target.value)}
+          component="input"
         />
       </p>
       <p>
@@ -48,15 +48,7 @@ const AddSemesterForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             <Link to='/Semesters'> 
-              <button type="submit" className="buttonTforms" onClick={
-                () => {
-                  onSubmit(beginning, end, student);
-                  console.log(student);
-                  //changeName('');
-                  //changeaddress('');
-                  //changeEmail('');
-                }
-              }>
+              <button type="submit" className="buttonTforms" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
             </Link>
@@ -68,24 +60,32 @@ const AddSemesterForm = ({
   );
 } 
 
-
-export default connect(
-  state => ({
-    isLoading: false,
-    student: selectors.getAuthUserID(state),
-  }),
-  dispatch => ({
-    onSubmit(beginning, end, student) {
-      console.log(student);
-      dispatch(
-        actions.startAddingSemester({
-          id: uuidv4(),
-          beginning,
-          end,
-          student,
-        }),
-      );
-      //console.log(student);
-    },
-  }),
-)(AddSemesterForm);
+export default reduxForm({form: 'semesterform'})(
+  connect(
+    state => ({
+      isLoading: false,
+      student: selectors.getAuthUserID(state),
+    }),
+    dispatch => ({
+      onSubmit({beginning, end}, student) {
+        dispatch(
+          actions.startAddingSemester({
+            id: uuidv4(),
+            beginning, 
+            end,
+            student,
+          }),
+        );
+      },
+    }),
+    (stateProps, dispatchProps, ownProps) => ({
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+      onSubmit({beginning, end}) {
+        console.log("Hola", stateProps.student);
+        dispatchProps.onSubmit({beginning, end}, stateProps.student);
+      },
+    })
+  )(AddSemesterForm)
+);

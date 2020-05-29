@@ -15,42 +15,41 @@ import * as actions from '../../actions/exams';
 import LogoutButton from '../LogoutButton';
 import * as selectedActions from '../../actions/selectedCourse';
 import './styles.css';
+import {Field, reduxForm} from 'redux-form';
 
 const AddExamForm = ({
   onSubmit,
   isLoading,
   student,
   course,
+  handleSubmit,
 }) => {
-  const [title, changeTitle] = useState('');
-  const [topics, changeTopics] = useState('');
-  const [date, changeDate] = useState('');
   return (
-    <div className="formE">
+    <div className="formE" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
       <h2 className="tituloforme">{'Crear un nuevo examen'}</h2>
       <p>
-        <input className="inputExam"
+        <Field className="inputExam"
+          name="title"
           type="text"
           placeholder="Titulo"
-          value={title}
-          onChange={e => changeTitle(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputExam"
+        <Field className="inputExam"
+          name="topics"
           type="text"
           placeholder="Temas"
-          value={topics}
-          onChange={e => changeTopics(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputExam"
+        <Field className="inputExam"
+          name="date"
           type="text"
           placeholder="Fecha"
-          value={date}
-          onChange={e => changeDate(e.target.value)}
+          component="input"
         />
       </p>
       <p>
@@ -58,20 +57,11 @@ const AddExamForm = ({
           isLoading ? (
             <strong>{'Cargando...'}</strong>
           ) : (
-            <Link to='/Exams'> 
-              <button type="submit" className="buttonTforme" onClick={
-                () => {
-                  onSubmit(title, topics, date, student, course);
-                  console.log(student);
-                  console.log(course);
-                  //changeName('');
-                  //changeaddress('');
-                  //changeEmail('');
-                }
-              }>
+            //<Link to='/Exams'> 
+              <button type="submit" className="buttonTforme" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
-            </Link>
+            //</Link>
           )
         }
       </p>
@@ -80,27 +70,35 @@ const AddExamForm = ({
   );
 } 
 
-
-export default connect(
-  state => ({
-    isLoading: false,
-    student: selectors.getAuthUserID(state),
-    course: selectedActions.selectedCourse(state).payload.selectedCourse.id,
-  }),
-  dispatch => ({
-    onSubmit(title, topics, date, student, course) {
-      console.log(student);
-      dispatch(
-        actions.startAddingExam({
-          id: uuidv4(),
-          title, 
-          topics, 
-          date, 
-          student, 
-          course
-        }),
-      );
-      //console.log(student);
-    },
-  }),
-)(AddExamForm);
+export default reduxForm({form: 'examform'})(
+  connect(
+    state => ({
+      isLoading: false,
+      student: selectors.getAuthUserID(state),
+      course: selectedActions.selectedCourse(state).payload.selectedCourse.id,
+    }),
+    dispatch => ({
+      onSubmit({title, topics, date}, student, course) {
+        dispatch(
+          actions.startAddingExam({
+            id: uuidv4(),
+            title, 
+            topics, 
+            date,
+            student,
+            course,
+          }),
+        );
+      },
+    }),
+    (stateProps, dispatchProps, ownProps) => ({
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+      onSubmit({title, topics, date}) {
+        console.log("Hola", stateProps.student, stateProps.course);
+        dispatchProps.onSubmit({title, topics, date}, stateProps.student, stateProps.course);
+      },
+    })
+  )(AddExamForm)
+);

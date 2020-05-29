@@ -15,42 +15,41 @@ import * as actions from '../../actions/materials';
 import LogoutButton from '../LogoutButton';
 import * as selectedActions from '../../actions/selectedProvider';
 import './styles.css';
+import {Field, reduxForm} from 'redux-form';
 
 const AddMaterialForm = ({
   onSubmit,
   isLoading,
   student,
   provider,
+  handleSubmit,
 }) => {
-  const [name, changeName] = useState('');
-  const [description, changeDescription] = useState('');
-  const [price, changePrice] = useState('');
   return (
-    <div className="formM">
+    <div className="formM" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformm">{'Crear un nuevo material:'}</h2>
+      <h2 className="tituloformm">{'Crear un nuevo material'}</h2>
       <p>
-        <input className="inputMat"
+        <Field className="inputMat"
+          name="name"        
           type="text"
           placeholder="Nombre"
-          value={name}
-          onChange={e => changeName(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputMat"
+        <Field className="inputMat"
+          name="description"        
           type="text"
           placeholder="Description"
-          value={description}
-          onChange={e => changeDescription(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputMat"
+        <Field className="inputMat"
+          name="price"
           type="text"
           placeholder="Price"
-          value={price}
-          onChange={e => changePrice(e.target.value)}
+          component="input"
         />
       </p>
       <p>
@@ -58,20 +57,11 @@ const AddMaterialForm = ({
           isLoading ? (
             <strong>{'Cargando...'}</strong>
           ) : (
-            <Link to='/Materials'> 
-              <button type="submit" className="buttonTformp" onClick={
-                () => {
-                  onSubmit(name, description, price, student, provider);
-                  console.log(student);
-                  console.log(provider);
-                  //changeName('');
-                  //changeaddress('');
-                  //changeEmail('');
-                }
-              }>
+            //<Link to='/Materials'> 
+              <button type="submit" className="buttonTformp" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
-            </Link>
+            //</Link>
           )
         }
       </p>
@@ -80,27 +70,35 @@ const AddMaterialForm = ({
   );
 } 
 
-
-export default connect(
-  state => ({
-    isLoading: false,
-    student: selectors.getAuthUserID(state),
-    provider: selectedActions.selectedProvider(state).payload.selectedProvider.id,
-  }),
-  dispatch => ({
-    onSubmit(name, description, price, student, provider) {
-      console.log(student);
-      dispatch(
-        actions.startAddingMaterial({
-          id: uuidv4(),
-          name,
-          description, 
-          price,
-          student,
-          provider,
-        }),
-      );
-      //console.log(student);
-    },
-  }),
-)(AddMaterialForm);
+export default reduxForm({form: 'materialform'})(
+  connect(
+    state => ({
+      isLoading: false,
+      student: selectors.getAuthUserID(state),
+      provider: selectedActions.selectedProvider(state).payload.selectedProvider.id,
+    }),
+    dispatch => ({
+      onSubmit({name, description, price}, student, provider) {
+        dispatch(
+          actions.startAddingMaterial({
+            id: uuidv4(),
+            name, 
+            description, 
+            price,
+            student,
+            provider,
+          }),
+        );
+      },
+    }),
+    (stateProps, dispatchProps, ownProps) => ({
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+      onSubmit({name, description, price}) {
+        console.log("Hola", stateProps.student, stateProps.provider);
+        dispatchProps.onSubmit({name, description, price}, stateProps.student, stateProps.provider);
+      },
+    })
+  )(AddMaterialForm)
+);

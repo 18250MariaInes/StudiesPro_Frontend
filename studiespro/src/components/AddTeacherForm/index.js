@@ -14,41 +14,40 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/teachers';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
+import {Field, reduxForm} from 'redux-form';
 
 const TeacherForm = ({
   onSubmit,
   isLoading,
   student,
+  handleSubmit,
 }) => {
-  const [name, changeName] = useState('');
-  const [lastname, changeLastName] = useState('');
-  const [email, changeEmail] = useState('');
   return (
-    <div className="formTeacher">
+    <div className="formTeacher" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformt">{'Crear un nuevo catedratico:'}</h2>
+      <h2 className="tituloformt">{'Crear un nuevo catedratico'}</h2>
       <p>
-        <input className="inputTeach"
+        <Field className="inputTeach"
+          name="name"
           type="text"
           placeholder="Nombre"
-          value={name}
-          onChange={e => changeName(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputTeach"
+        <Field className="inputTeach"
+          name="lastname"
           type="text"
           placeholder="Apellido"
-          value={lastname}
-          onChange={e => changeLastName(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputTeach"
+        <Field className="inputTeach"
+          name="email"
           type="text"
           placeholder="Email"
-          value={email}
-          onChange={e => changeEmail(e.target.value)}
+          component="input"
         />
       </p>
       <p>
@@ -56,19 +55,11 @@ const TeacherForm = ({
           isLoading ? (
             <strong>{'Cargando...'}</strong>
           ) : (
-            <Link to='/Teachers'> 
-              <button className="buttonTformt" type="submit" onClick={
-                () => {
-                  onSubmit(name, lastname, email,student);
-                  console.log(student);
-                  //changeName('');
-                  //changeLastName('');
-                  //changeEmail('');
-                }
-              }>
+            //<Link to='/Teachers'> 
+              <button className="buttonTformt" type="submit" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
-            </Link>
+            //</Link>
           )
         }
       </p>
@@ -77,25 +68,33 @@ const TeacherForm = ({
   );
 } 
 
-
-export default connect(
-  state => ({
-    isLoading: false,
-    student: selectors.getAuthUserID(state),
-  }),
-  dispatch => ({
-    onSubmit(name,lastname,email, student) {
-      console.log(student);
-      dispatch(
-        actions.startAddingTeacher({
-          id: uuidv4(),
-          name,
-          lastname,
-          email,
-          student,
-        }),
-      );
-      console.log(student);
-    },
-  }),
-)(TeacherForm);
+export default reduxForm({form: 'teacherform'})(
+  connect(
+    state => ({
+      isLoading: false,
+      student: selectors.getAuthUserID(state),
+    }),
+    dispatch => ({
+      onSubmit({name,lastname,email}, student) {
+        dispatch(
+          actions.startAddingTeacher({
+            id: uuidv4(),
+            name,
+            lastname,
+            email,
+            student,
+          }),
+        );
+      },
+    }),
+    (stateProps, dispatchProps, ownProps) => ({
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+      onSubmit({name,lastname,email}) {
+        console.log("Hola", stateProps.student);
+        dispatchProps.onSubmit({name,lastname,email}, stateProps.student);
+      },
+    })
+  )(TeacherForm)
+);

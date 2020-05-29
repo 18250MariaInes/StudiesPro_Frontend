@@ -15,41 +15,41 @@ import * as actions from '../../actions/providers';
 import LogoutButton from '../LogoutButton';
 import * as selectedActions from '../../actions/selectedProvider';
 import './styles.css';
+import {Field, reduxForm} from 'redux-form';
+
 const ProviderForm = ({
   onSubmit,
   isLoading,
   student,
   selectedP,
+  handleSubmit,
 }) => {
-  const [name, changeName] = useState('');
-  const [address, changeAddress] = useState('');
-  const [email, changeEmail] = useState('');
   return (
-    <div className="formP">
+    <div className="formP" onSubmit={handleSubmit} >
       {/*<LogoutButton/>*/}
       <h2 className="tituloformp">{'Crear un nuevo provider:'}</h2>
       <p>
-        <input className="inputProv"
+        <Field className="inputProv"
+          name="name"
           type="text"
           placeholder="Nombre"
-          value={name}
-          onChange={e => changeName(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputProv"
+        <Field className="inputProv"
+          name="address"
           type="text"
           placeholder="Direccion"
-          value={address}
-          onChange={e => changeAddress(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputProv"
+        <Field className="inputProv"
+          name="email"
           type="text"
           placeholder="Email"
-          value={email}
-          onChange={e => changeEmail(e.target.value)}
+          component="input"
         />
       </p>
       <p>
@@ -57,19 +57,11 @@ const ProviderForm = ({
           isLoading ? (
             <strong>{'Cargando...'}</strong>
           ) : (
-            <Link to='/Providers'> 
-              <button type="submit" className="buttonTformp" onClick={
-                () => {
-                  onSubmit(name, address, email,student, selectedP);
-                  console.log(selectedP);
-                  //changeName('');
-                  //changeaddress('');
-                  //changeEmail('');
-                }
-              }>
+           // <Link to='/Providers'> 
+              <button type="submit" className="buttonTformp" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
-            </Link>
+            //</Link>
           )
         }
       </p>
@@ -78,27 +70,34 @@ const ProviderForm = ({
   );
 } 
 
-
-export default connect(
-  state => ({
-    isLoading: false,
-    student: selectors.getAuthUserID(state),
-    selectedP: selectedActions.selectedProvider(state).payload.selectedProvider.id,
-  }),
-  dispatch => ({
-    onSubmit(name,address,email, student,selectedP) {
-      //console.log(student);
-      console.log(selectedP);
-      dispatch(
-        actions.startAddingProvider({
-          id: uuidv4(),
-          name,
-          address,
-          email,
-          student,
-        }),
-      );
-      //console.log(student);
-    },
-  }),
-)(ProviderForm);
+export default reduxForm({form: 'providerform'})(
+  connect(
+    state => ({
+      isLoading: false,
+      student: selectors.getAuthUserID(state),
+      selectedP: selectedActions.selectedProvider(state).payload.selectedProvider.id,
+    }),
+    dispatch => ({
+      onSubmit({name,address,email}, student) {
+        dispatch(
+          actions.startAddingProvider({
+            id: uuidv4(),
+            name,
+            address,
+            email,
+            student,
+          }),
+        );
+      },
+    }),
+    (stateProps, dispatchProps, ownProps) => ({
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+      onSubmit({name,address,email}) {
+        console.log("Hola", stateProps.student);
+        dispatchProps.onSubmit({name,address,email}, stateProps.student);
+      },
+    })
+  )(ProviderForm)
+);

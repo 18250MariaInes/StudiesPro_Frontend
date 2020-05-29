@@ -22,19 +22,15 @@ const SshipeventForm = ({
   student,
   handleSubmit,
 }) => {
-  const [name, changeName] = useState('');
-  const [description, changeDescription] = useState('');
-  const [hours, changeHours] = useState('');
-  const [date, changeDate] = useState('');
   return (
     <form className="formHB" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformHB">{'Crear evento de horas beca:'}</h2>
+      <h2 className="tituloformHB">{'Crear evento de horas beca'}</h2>
       <p>
         <Field className="inputHB"
           name="name"
           type="text"
-          placeholder="Nombre"
+          placeholder="Nombre del evento"
           component="input"
         />
       </p>
@@ -50,7 +46,7 @@ const SshipeventForm = ({
         <Field className="inputHB"
           name="hours"
           type="text"
-          placeholder="Hours"
+          placeholder="Horas realizadas"
           component="input"
         />
       </p>
@@ -58,7 +54,7 @@ const SshipeventForm = ({
         <Field className="inputHB"
           name="date"
           type="text"
-          placeholder="Date"
+          placeholder="Fecha"
           component="input"
         />
       </p>

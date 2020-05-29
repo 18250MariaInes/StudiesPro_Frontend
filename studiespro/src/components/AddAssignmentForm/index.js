@@ -15,41 +15,41 @@ import * as actions from '../../actions/assignments';
 import LogoutButton from '../LogoutButton';
 import * as selectedActions from '../../actions/selectedCourse';
 import './styles.css';
+import {Field, reduxForm} from 'redux-form';
+
 const AssignmentForm = ({
   onSubmit,
   isLoading,
   student,
   course,
+  handleSubmit,
 }) => {
-  const [title, changeTitle] = useState('');
-  const [description, changeDesc] = useState('');
-  const [deadline, changeDeadline] = useState('');
   return (
-    <div className="formP">
+    <div className="formP" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
       <h2 className="tituloformp">{'Crear una nueva tarea'}</h2>
       <p>
-        <input className="inputProv"
+        <Field className="inputProv"
+          name="title"
           type="text"
           placeholder="Titulo"
-          value={title}
-          onChange={e => changeTitle(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputProv"
+        <Field className="inputProv"
+          name="description"
           type="text"
           placeholder="Descripcion"
-          value={description}
-          onChange={e => changeDesc(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputProv"
+        <Field className="inputProv"
+          name="deadline"
           type="text"
           placeholder="Fecha limite"
-          value={deadline}
-          onChange={e => changeDeadline(e.target.value)}
+          component="input"
         />
       </p>
       <p>
@@ -57,19 +57,11 @@ const AssignmentForm = ({
           isLoading ? (
             <strong>{'Cargando...'}</strong>
           ) : (
-            <Link to='/Assignments'> 
-              <button type="submit" className="buttonTformp" onClick={
-                () => {
-                  onSubmit(title, description, deadline,student, course);
-                  console.log(course);
-                  //changeName('');
-                  //changeaddress('');
-                  //changeEmail('');
-                }
-              }>
+            //<Link to='/Assignments'> 
+              <button type="submit" className="buttonTformp" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
-            </Link>
+            //</Link>
           )
         }
       </p>
@@ -78,28 +70,35 @@ const AssignmentForm = ({
   );
 } 
 
-
-export default connect(
-  state => ({
-    isLoading: false,
-    student: selectors.getAuthUserID(state),
-    course: selectedActions.selectedCourse(state).payload.selectedCourse.id,
-  }),
-  dispatch => ({
-    onSubmit(title, description, deadline,student, course) {
-      //console.log(student);
-      console.log(course);
-      dispatch(
-        actions.startAddingAssignment({
-          id: uuidv4(),
-          title, 
-          description, 
-          deadline,
-          student, 
-          course
-        }),
-      );
-      //console.log(student);
-    },
-  }),
-)(AssignmentForm);
+export default reduxForm({form: 'assignmentform'})(
+  connect(
+    state => ({
+      isLoading: false,
+      student: selectors.getAuthUserID(state),
+      course: selectedActions.selectedCourse(state).payload.selectedCourse.id,
+    }),
+    dispatch => ({
+      onSubmit({title, description, deadline}, student, course) {
+        dispatch(
+          actions.startAddingAssignment({
+            id: uuidv4(),
+            title, 
+            description, 
+            deadline,
+            student,
+            course,
+          }),
+        );
+      },
+    }),
+    (stateProps, dispatchProps, ownProps) => ({
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+      onSubmit({title, description, deadline}) {
+        console.log("Hola", stateProps.student, stateProps.course);
+        dispatchProps.onSubmit({title, description, deadline}, stateProps.student, stateProps.course);
+      },
+    })
+  )(AssignmentForm)
+);

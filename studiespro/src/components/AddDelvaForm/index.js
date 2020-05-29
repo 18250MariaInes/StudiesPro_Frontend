@@ -22,8 +22,6 @@ const DelvaForm = ({
   student,
   handleSubmit,
 }) => {
-  const [name, changeName] = useState('');
-  const [date, changeDate] = useState('');
   return (
     <form className="formD" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
