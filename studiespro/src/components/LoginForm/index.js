@@ -15,6 +15,7 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/auth';
 import './styles.css';
 import LogoutButton from '../LogoutButton';
+import {Field, reduxForm} from 'redux-form';
 
 const LoginForm = ({
   onSubmit,
@@ -22,9 +23,10 @@ const LoginForm = ({
   error = null,
   isAuthenticated= false,
   authName = '',
+  handleSubmit,
 }) => {  
-  const [username, changeUsername] = useState('');
-  const [password, changePassword] = useState('');
+  //const [username, changeUsername] = useState('');
+  //const [password, changePassword] = useState('');
   if (isAuthenticated) {
     return (
       <Redirect to='/Home' />
@@ -34,7 +36,7 @@ const LoginForm = ({
   
   return (
       <Fragment>
-        <div className="login-wrapper"> 
+        <form className="login-wrapper" onSubmit={handleSubmit}> 
           {
             error && (
               <p>
@@ -44,21 +46,19 @@ const LoginForm = ({
           }
           <h1>¡Bienvenido!</h1>
           <p>
-            <input
-              className="FormField_Input"
+            <Field className="FormField_Input"
+              name="username"
               type="text"
               placeholder="Email"
-              value={username}
-              onChange={e => changeUsername(e.target.value)}
+              component="input"
             />
           </p>
           <p>
-            <input
-              className="FormField_Input"
+            <Field className="FormField_Input"
+              name="password"
               type="password"
               placeholder="Password"
-              value={password}
-              onChange={e => changePassword(e.target.value)}
+              component="input"
             />
           </p>
           <p>
@@ -66,9 +66,7 @@ const LoginForm = ({
               isLoading ? (
                 <strong>{'Cargando...'}</strong>
               ) : (
-                <button className="SubmitButton" type="submit" onClick={
-                  () => onSubmit(username, password)
-                }>
+                <button className="SubmitButton" type="submit" >
                   {'Login'}
                 </button>
               )
@@ -77,13 +75,13 @@ const LoginForm = ({
           <Link to='/Signup' className="signup-link" >¿Eres nuevo? Crea una cuenta</Link>
 
           {/*<h1>{`Bienvenido ${authName} nuevamente!`}</h1>*/}
-          </div>
+          </form>
       </Fragment>
   ); 
 } 
 
 
-export default connect(
+/*export default connect(
   state => ({
     isLoading: selectors.getIsAuthenticating(state),
     error: selectors.getAuthenticatingError(state),
@@ -95,4 +93,19 @@ export default connect(
       dispatch(actions.startLogin(username, password));
     },
   }),
-)(LoginForm);
+)(LoginForm);*/
+export default connect(
+  state => ({
+    isLoading: selectors.getIsAuthenticating(state),
+    error: selectors.getAuthenticatingError(state),
+    isAuthenticated: selectors.isAuthenticated(state),
+    authName: selectors.getAuthName(state),
+  }),
+)(
+  reduxForm({
+    form:'loginform',
+    onSubmit({username, password},  dispatch){
+      dispatch(actions.startLogin(username, password));
+    },
+  })(LoginForm)
+);
