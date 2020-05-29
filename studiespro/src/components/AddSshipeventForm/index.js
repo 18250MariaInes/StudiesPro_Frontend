@@ -14,49 +14,52 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/sshipevents';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
+import {Field, reduxForm} from 'redux-form';
+
 const SshipeventForm = ({
   onSubmit,
   isLoading,
   student,
+  handleSubmit,
 }) => {
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
   const [hours, changeHours] = useState('');
   const [date, changeDate] = useState('');
   return (
-    <div className="formHB">
+    <form className="formHB" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
       <h2 className="tituloformHB">{'Crear evento de horas beca:'}</h2>
       <p>
-        <input className="inputHB"
+        <Field className="inputHB"
+          name="name"
           type="text"
           placeholder="Nombre"
-          value={name}
-          onChange={e => changeName(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputHB"
+        <Field className="inputHB"
+          name="description"
           type="text"
           placeholder="Descripcion"
-          value={description}
-          onChange={e => changeDescription(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputHB"
+        <Field className="inputHB"
+          name="hours"
           type="text"
           placeholder="Hours"
-          value={hours}
-          onChange={e => changeHours(e.target.value)}
+          component="input"
         />
       </p>
       <p>
-        <input className="inputHB"
+        <Field className="inputHB"
+          name="date"
           type="text"
           placeholder="Date"
-          value={date}
-          onChange={e => changeDate(e.target.value)}
+          component="input"
         />
       </p>
       <p>
@@ -64,47 +67,47 @@ const SshipeventForm = ({
           isLoading ? (
             <strong>{'Cargando...'}</strong>
           ) : (
-            <Link to='/Sshipevents'> 
-              <button className="buttonHBform" type="submit" onClick={
-                () => {
-                  onSubmit(name, description, hours, date, student);
-                  console.log(student);
-                  //changeName('');
-                  //changeLastName('');
-                  //changeEmail('');
-                }
-              }>
+            //<Link to='/Sshipevents'> 
+              <button className="buttonHBform" type="submit" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
-            </Link>
+            //</Link>
           )
         }
       </p>
       
-    </div>
+    </form>
   );
 } 
 
-
-export default connect(
-  state => ({
-    isLoading: false,
-    student: selectors.getAuthUserID(state),
-  }),
-  dispatch => ({
-    onSubmit(name, description, hours, date, student) {
-      console.log(student);
-      dispatch(
-        actions.startAddingSshipevent({
-          id: uuidv4(),
-          name, 
-          description, 
-          hours, 
-          date,
-          student,
-        }),
-      );
-      console.log(student);
-    },
-  }),
-)(SshipeventForm);
+export default reduxForm({form: 'sshipeventform'})(
+  connect(
+    state => ({
+      isLoading: false,
+      student: selectors.getAuthUserID(state),
+    }),
+    dispatch => ({
+      onSubmit({name, description, hours, date,}, student) {
+        dispatch(
+          actions.startAddingSshipevent({
+            id: uuidv4(),
+            name, 
+            description, 
+            hours, 
+            date,
+            student,
+          }),
+        );
+      },
+    }),
+    (stateProps, dispatchProps, ownProps) => ({
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+      onSubmit({name, description, hours, date}) {
+        console.log("Hola", stateProps.student);
+        dispatchProps.onSubmit({name, description, hours, date}, stateProps.student);
+      },
+    })
+  )(SshipeventForm)
+);
