@@ -70,7 +70,7 @@ import {
         yield put(actions.failRegistration(non_field_errors[0]));
       }
     } catch (error) {
-      yield put(actions.failRegistration('Falló horrible la conexión mano'));
+      yield put(actions.failRegistration('algo esta mal'));
     }
   }
   

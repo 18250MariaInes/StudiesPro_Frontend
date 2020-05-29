@@ -15,24 +15,18 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/auth';
 import './styles.css';
 import LogoutButton from '../LogoutButton';
+import {Field, reduxForm} from 'redux-form';
 
 const SignUpForm = ({
   onSubmit,
   isLoading = false,
   error = null,
+  handleSubmit,
 }) => {  
-  //email, name, lastname, carne, sship
-  const [email, changeEmail] = useState('');
-  const [name, changeName] = useState('');
-  const [lastname, changeLastname] = useState('');
-  const [carne, changeCarne] = useState('');
-  const [sship, changeSship] = useState('');
-  const [password, changePassword] = useState('');
-
   
   return (
       <Fragment>
-        <div className="signup-wrapper">
+        <form className="signup-wrapper"  onSubmit={handleSubmit}>
         {
           error && (
             <p>
@@ -42,57 +36,53 @@ const SignUpForm = ({
         }
         <h1>Cuenta Nueva</h1>
         <p>
-          <input
-            className="FormField_Input"
+          <Field className="FormField_Input"
+            name="name"
             type="text"
             placeholder="Nombre"
-            value={name}
-            onChange={e => changeName(e.target.value)}
+            component="input"
+            
           />
         </p>
         <p>
-          <input
+          <Field
             className="FormField_Input"
+            name="lastname"
             type="text"
             placeholder="Apellido"
-            value={lastname}
-            onChange={e => changeLastname(e.target.value)}
+            component="input"
           />
         </p>
         <p>
-          <input
-            className="FormField_Input"
+          <Field className="FormField_Input"
+            name="email"
             type="text"
             placeholder="Email"
-            value={email}
-            onChange={e => changeEmail(e.target.value)}
+            component="input"
           />
         </p>
         <p>
-          <input
-            className="FormField_Input"
+          <Field className="FormField_Input"
+            name="carne"
             type="text"
             placeholder="Carne"
-            value={carne}
-            onChange={e => changeCarne(e.target.value)}
+            component="input"
           />
         </p>
         <p>
-          <input
-            className="FormField_Input"
+          <Field className="FormField_Input"
+            name="sship"
             type="text"
             placeholder="Sship"
-            value={sship}
-            onChange={e => changeSship(e.target.value)}
+            component="input"
           />
         </p>
         <p>
-          <input
-            className="FormField_Input"
-            type="text"
+          <Field className="FormField_Input"
+            name="password"
+            type="Password"
             placeholder="Password"
-            value={password}
-            onChange={e => changePassword(e.target.value)}
+            component="input"
           />
         </p>
         <p>
@@ -100,17 +90,15 @@ const SignUpForm = ({
             isLoading ? (
               <strong>{'Cargando...'}</strong>
             ) : (
-              <Link to='/Sshipevents'> 
-                <button className="SubmitButton" type="submit" onClick={
-                      () => onSubmit(name, lastname, email, carne, sship, password)
-                    }>
+              
+                <button className="SubmitButton" type="submit" >
                       {'Crear'}
                 </button>
-              </Link>
+              
             )
           }
         </p>
-        </div>
+        </form>
       </Fragment>
   ); 
 } 
@@ -121,9 +109,12 @@ export default connect(
     isLoading: selectors.getIsRegistrating(state),
     error: selectors.getRegistratingError(state),
   }),
-  dispatch => ({
-    onSubmit(name, lastname, email, carne, sship, password) {
+)(
+  reduxForm({
+    form:'signupform',
+    onSubmit({name, lastname, email, carne, sship, password},  dispatch){
       dispatch(actions.startRegistration(name, lastname, email, carne, sship, password));
     },
-  }),
-)(SignUpForm);
+  })(SignUpForm)
+);
+
