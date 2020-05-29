@@ -21,13 +21,12 @@ const BookForm = ({
   isLoading,
   student,
   handleSubmit,
-  values=[student]
 }) => {
-  const boundHandleSubmit = handleSubmit.bind(student)
+  //const boundHandleSubmit = handleSubmit.bind(student)
 
   return (
     
-    <form className="formT" onSubmit={boundHandleSubmit}>
+    <form className="formT" onSubmit={handleSubmit} >
       
       <h2 className="tituloform">{'Crear un nuevo Libro'}</h2>
       <p>
@@ -62,7 +61,7 @@ const BookForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             //<Link to='/Books'> {/*CAMBIAR RUTA*/}
-              <button className="buttonTform" type="submit">
+              <button className="buttonTform" type="submit" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
             //</Link>
@@ -74,15 +73,47 @@ const BookForm = ({
   );
 } 
 
+export default reduxForm({form: 'bookform'})(
+  connect(
+    state => ({
+      isLoading: false,
+      student: selectors.getAuthUserID(state),
+    }),
+    dispatch => ({
+      onSubmit({title, description, date}, student) {
+        dispatch(
+          actions.startAddingBook({
+            id: uuidv4(),
+            title,
+            description,
+            date,
+            student,
+          }),
+        );
+      },
+    }),
+    (stateProps, dispatchProps, ownProps) => ({
+      ...ownProps,
+      ...stateProps,
+      ...dispatchProps,
+      onSubmit({title, description, date}) {
+        console.log("Hola", stateProps.student);
+        dispatchProps.onSubmit({title, description, date}, stateProps.student);
+      },
+    })
+  )(BookForm)
+);
 
-export default connect(
+/*export default connect(
   state => ({
     isLoading: false,
     student: selectors.getAuthUserID(state),
+    initialValues: selectors.getAuthUserID(state),
   }),
 )(
   reduxForm({
     form:'bookform',
+    enableReinitialize: true,
     onSubmit({title, description, date, student},  dispatch){
       dispatch(
         actions.startAddingBook({
