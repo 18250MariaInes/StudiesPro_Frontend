@@ -38,6 +38,15 @@ const byId = (state = {}, action) => {
     case types.SEMESTER_REMOVE_STARTED: {
       return omit(state, action.payload.id);
     }
+    case types.SEMESTER_UPDATE_STARTED: {
+      return {
+        ...state,
+        [action.payload.id.id]: {
+        ...state[action.payload.id.id],//hola
+        ...action.payload.id,
+        },
+    };
+    }
     default: {
       return state;
     }
@@ -58,6 +67,17 @@ const order = (state = [], action) => {
     }
     case types.SEMESTER_REMOVE_STARTED: {
       return state.filter(id => id !== action.payload.id);
+    }
+    case types.SEMESTER_UPDATE_COMPLETED: {
+      /*const { oldId, SEMESTER } = action.payload;
+      return state.map(id => id === oldId ? SEMESTER.id : id);*/
+      const { id, semester } = action.payload;
+        const newState = omit(state, id);
+        newState[semester.id] = {
+          ...semester,
+          //isConfirmed: true,
+        };
+        return newState;
     }
     default: {
       return state;
@@ -99,15 +119,34 @@ const error = (state = null, action) => {
   }
 };
 
+const updateSemesterError = (state=null, action) => {
+  switch(action.type){
+    case types.SEMESTER_UPDATE_FAILED: {
+      return action.payload.error;
+    }
+    case types.SEMESTER_UPDATE_COMPLETED: {
+      return null;
+    }
+    case types.SEMESTER_UPDATE_STARTED: {
+      return null;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 
 export default combineReducers({
   byId,
   order,
   isFetching,
   error,
+  updateSemesterError
 });
 
 export const getSemester = (state, id) => state.byId[id];
 export const getSemesters = state => state.order.map(id => getSemester(state, id));
 export const isFetchingSemesters = state => state.isFetching;
 export const getFetchingSemestersError = state => state.error;
+export const getUpdateBookError = state => state.updateBookError;

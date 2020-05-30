@@ -57,6 +57,7 @@ import { connect } from 'react-redux';
 import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/sshipevents';
+import * as selectedActions from '../../actions/selectedSshipevent';
 
 const Sshipevent = ({ 
   sshipevent,
@@ -64,8 +65,18 @@ const Sshipevent = ({
   isConfirmed = false,
   isSelected = false,
   onDelete,
+  onClick,
 }) => (
-  <div>
+  <div
+    className={
+      `
+      sshipevent-wrapper
+        ${isSelected ? 'sshipevent--clicked' : ''}
+      `
+      
+    }
+    onClick={onClick}
+  >   
         <div className="sshipevent">
           <button className="delete_sshipevent"
             onClick={onDelete}>
@@ -94,11 +105,15 @@ export default connect(
   (state, { id, /*index*/}) => ({
     ...selectors.getSshipevent(state, id),
     sshipevent: id/*index*/,
-    
-    /*isSelected: selectors.getSelecteddelva(state) === index,*/
+    //descomentar
+    //isSelected: selectors.getSelectedSshipevent(state) === id
   }),
   (dispatch, {id}) => ({
-    
+    onClick() {
+      dispatch(selectedActions.selectedSshipevent(id));
+      console.log(selectedActions.selectedSshipevent(id));
+      //console.log(teachers)
+    },    
     onDelete() {
       dispatch(actions.startRemovingSshipevent(id));
       console.log(id);

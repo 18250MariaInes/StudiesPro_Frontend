@@ -53,3 +53,28 @@ export const failRemovingSshipevent = (id, error) => ({
     error,
   },
 });
+
+export const startUpdatingSshipevent = (id, name, description, hours, date) => ({
+  type: types.SSHIPEVENT_UPDATE_STARTED,
+  payload: {
+    id,
+    name, 
+    description, 
+    hours, 
+    date,
+  },
+});
+export const completeUpdatingSshipevent = (id, sshipevent) => ({
+  type: types.SSHIPEVENT_UPDATE_COMPLETED,
+  payload: {
+    id,
+    sshipevent,
+  },
+});
+export const failUpdatingSshipevent = (id, error) => ({
+  type: types.SSHIPEVENT_UPDATE_FAILED,
+  payload: {
+    id,
+    error,
+  },
+});

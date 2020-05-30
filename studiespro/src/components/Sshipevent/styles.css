@@ -5,6 +5,10 @@
     transition: 0.25s;
 }
 
+.book--clicked{
+    transform: scale(0.9);
+}
+
 .sshipevent {
     background: #94DD53;
     padding: 10px;

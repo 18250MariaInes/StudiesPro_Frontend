@@ -53,3 +53,26 @@ export const failRemovingSemester = (id, error) => ({
     error,
   },
 });
+
+export const startUpdatingSemester = (id, beginning, end) => ({
+  type: types.SEMESTER_UPDATE_STARTED,
+  payload: {
+    id,
+    beginning, 
+    end,
+  },
+});
+export const completeUpdatingSemester = (id, semester) => ({
+  type: types.SEMESTER_UPDATE_COMPLETED,
+  payload: {
+    id,
+    semester,
+  },
+});
+export const failUpdatingSemester = (id, error) => ({
+  type: types.SEMESTER_UPDATE_FAILED,
+  payload: {
+    id,
+    error,
+  },
+});

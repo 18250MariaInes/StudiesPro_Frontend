@@ -38,6 +38,15 @@ const byId = (state = {}, action) => {
     case types.SSHIPEVENT_REMOVE_STARTED: {
       return omit(state, action.payload.id);
     }
+    case types.SSHIPEVENT_UPDATE_STARTED: {
+      return {
+        ...state,
+        [action.payload.id.id]: {
+        ...state[action.payload.id.id],//hola
+        ...action.payload.id,
+        },
+    };
+    }
     default: {
       return state;
     }
@@ -58,6 +67,15 @@ const order = (state = [], action) => {
     }
     case types.SSHIPEVENT_REMOVE_STARTED: {
       return state.filter(id => id !== action.payload.id);
+    }
+    case types.SSHIPEVENT_UPDATE_COMPLETED: {
+      const { id, sshipevent } = action.payload;
+        const newState = omit(state, id);
+        newState[sshipevent.id] = {
+          ...sshipevent,
+          //isConfirmed: true,
+        };
+        return newState;
     }
     default: {
       return state;
@@ -99,15 +117,34 @@ const error = (state = null, action) => {
   }
 };
 
+const updateSshipeventError = (state=null, action) => {
+  switch(action.type){
+    case types.SSHIPEVENT_UPDATE_FAILED: {
+      return action.payload.error;
+    }
+    case types.SSHIPEVENT_UPDATE_COMPLETED: {
+      return null;
+    }
+    case types.SSHIPEVENT_UPDATE_STARTED: {
+      return null;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 
 export default combineReducers({
   byId,
   order,
   isFetching,
   error,
+  updateSshipeventError,
 });
 
 export const getSshipevent = (state, id) => state.byId[id];
 export const getSshipevents = state => state.order.map(id => getSshipevent(state, id));
 export const isFetchingSshipevents = state => state.isFetching;
 export const getFetchingSshipeventsError = state => state.error;
+export const getUpdateSshipeventError = state => state.updateSshipeventError;
