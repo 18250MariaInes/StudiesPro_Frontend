@@ -105,8 +105,7 @@ export default connect(
   (state, { id, /*index*/}) => ({
     ...selectors.getSshipevent(state, id),
     sshipevent: id/*index*/,
-    //descomentar
-    //isSelected: selectors.getSelectedSshipevent(state) === id
+    isSelected: selectors.getSelectedSshipevent(state) === id
   }),
   (dispatch, {id}) => ({
     onClick() {

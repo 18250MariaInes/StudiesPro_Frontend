@@ -30,7 +30,7 @@ const UpdateProviderForm = ({
   return (
     <div className="formP" onSubmit={handleSubmit} >
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformp">{'Update provider:'}</h2>
+      <h2 className="tituloformp">{'Update provider'}</h2>
       <p>
         <Field className="inputProv"
           name="name"
@@ -61,8 +61,8 @@ const UpdateProviderForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
            // <Link to='/Providers'> 
-              <button type="submit" className="buttonTformp" onClick={handleSubmit(onSubmit)}>
-                {'Agregar'}
+              <button type="submit" className="buttonPformp" onClick={handleSubmit(onSubmit)}>
+                {'Aceptar'}
               </button>
             //</Link>
           )

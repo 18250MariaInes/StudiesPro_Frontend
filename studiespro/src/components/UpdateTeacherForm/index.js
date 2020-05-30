@@ -15,7 +15,7 @@ import * as actions from '../../actions/teachers';
 import * as selectedActions from '../../actions/selectedTeacher';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const TeacherUpdateForm = ({
   onSubmit,
@@ -64,7 +64,7 @@ const TeacherUpdateForm = ({
           ) : (
             //<Link to='/Teachers'> 
               <button className="buttonTformt" type="submit" onClick={handleSubmit(onSubmit)}>
-                {'Agregar'}
+                {'Aceptar'}
               </button>
             //</Link>
           )
@@ -90,7 +90,7 @@ export default reduxForm({form: 'teacherupdateform'})(
     }),
     dispatch => ({
       onSubmit({name, lastname, email}, id, oldname, oldlastname, oldemail) {
-        if (title==null){
+        if (name==null){
           name=oldname;
         }
         if (lastname==null){

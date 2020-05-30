@@ -32,9 +32,9 @@ const BookUpdateForm = ({
 
   return (
     
-    <form className="formT" onSubmit={handleSubmit} >
+    <form className="formB" onSubmit={handleSubmit} >
       
-      <h2 className="tituloform">{'Update a libro'}</h2>
+      <h2 className="tituloformb">{'Update libro'}</h2>
       <p>
         <Field className="inputBook"
           name="title"
@@ -70,8 +70,8 @@ const BookUpdateForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             //<Link to='/Books'> {/*CAMBIAR RUTA*/}
-              <button className="buttonTform" type="submit" onClick={handleSubmit(onSubmit)}>
-                {'Agregar'}
+              <button className="buttonBform" type="submit" onClick={handleSubmit(onSubmit)}>
+                {'Aceptar'}
               </button>
             //</Link>
           )

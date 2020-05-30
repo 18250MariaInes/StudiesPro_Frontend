@@ -184,7 +184,7 @@ import {
         const token = yield select(selectors.getAuthToken);
         const response = yield call(
           fetch,
-          `${API_BASE_URL}/delva/${action.payload.id.id}/`,
+          `${API_BASE_URL}/delvas/${action.payload.id.id}/`,
           {
             method: 'PUT',
             body: JSON.stringify(action.payload.id),

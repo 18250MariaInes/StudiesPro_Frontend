@@ -15,7 +15,7 @@ import * as actions from '../../actions/sshipevents';
 import * as selectedActions from '../../actions/selectedSshipevent';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const SshipeventUpdateForm = ({
   onSubmit,
@@ -32,7 +32,7 @@ const SshipeventUpdateForm = ({
     
     <form className="formT" onSubmit={handleSubmit} >
       
-      <h2 className="tituloform">{'Update a libro'}</h2>
+      <h2 className="tituloform">{'Update evento de hora beca'}</h2>
       <p>
         <Field className="inputSshipevent"
           name="name"
@@ -77,7 +77,7 @@ const SshipeventUpdateForm = ({
           ) : (
             //<Link to='/Sshipevents'> {/*CAMBIAR RUTA*/}
               <button className="buttonTform" type="submit" onClick={handleSubmit(onSubmit)}>
-                {'Agregar'}
+                {'Aceptar'}
               </button>
             //</Link>
           )
@@ -119,8 +119,8 @@ export default reduxForm({form: 'sshipeventupdateform'})(
         dispatch(
           actions.startUpdatingSshipevent({
             id, name, description, hours, date
-           
           }),
+          dispatch(reset('sshipeventupdateform')),
         );
       },
     }),

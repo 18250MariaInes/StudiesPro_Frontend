@@ -16,24 +16,32 @@ import {
 } from 'redux-auth-wrapper/history4/redirect';
 import * as selectors from '../../reducers';
 import LogoutButton from '../LogoutButton';
+
 import TeachersView from './TeachersView';
 import AddTeacherView from './AddTeacherView';
+import UpdateTeacherView from './UpdateTeacherView';
 
 import BooksView from './BooksView';
 import AddBookView from './AddBookView';
 import UpdateBookView from './UpdateBookView';
 
-import DelvasView from './DelvasView';
 import SemestersView from './SemestersView';
+import UpdateSemesterView from './UpdateSemesterView';
+
+import DelvasView from './DelvasView';
 import AddDelvaView from './AddDelvaView';
+import UpdateDelvaView from './UpdateDelvaView';
 
 import ProvidersView from './ProvidersView';
 import AddProviderView from './AddProviderView';
+import UpdateProviderView from './UpdateProviderView';
+
 import MaterialsView from './MaterialsView';
 import AddMaterialView from './AddMaterialView';
 
 import SshipeventsView from './SshipeventsView';
 import AddSshipeventView from './AddSshipeventView';
+import UpdateSshipeventView from './UpdateSshipeventView';
 
 import CoursesView from './CoursesView';
 import AddCourseView from './AddCourseView';
@@ -66,9 +74,9 @@ const routes = [
     component: SignUpForm,
 },
   {
-      path: '/Teachers',
-      exact: true,
-      component: UserIsAuthenticated(TeachersView),
+    path: '/Teachers',
+    exact: true,
+    component: UserIsAuthenticated(TeachersView),
   },
   {
     path: '/Home',
@@ -79,6 +87,11 @@ const routes = [
     path: '/Add-teacher',
     exact: true,
     component: UserIsAuthenticated(AddTeacherView),
+  },
+  {
+    path: '/Update-teacher',
+    exact: true,
+    component: UserIsAuthenticated(UpdateTeacherView),
   },
   {
     path: '/Books',
@@ -106,9 +119,19 @@ const routes = [
     component: UserIsAuthenticated(AddDelvaView),
   },
   {
+    path: '/Update-delva',
+    exact: true,
+    component: UserIsAuthenticated(UpdateDelvaView),
+  },
+  {
     path: '/Providers',
     exact: true,
     component: UserIsAuthenticated(ProvidersView),
+  },
+  {
+    path: '/Update-provider',
+    exact: true,
+    component: UserIsAuthenticated(UpdateProviderView),
   },
   {
     path: '/Materials',
@@ -131,6 +154,11 @@ const routes = [
     component: UserIsAuthenticated(AddSshipeventView),
   },
   {
+    path: '/Update-sshipevent',
+    exact: true,
+    component: UserIsAuthenticated(UpdateSshipeventView),
+  },
+  {
     path: '/Add-material',
     exact: true,
     component: UserIsAuthenticated(AddMaterialView),
@@ -139,6 +167,11 @@ const routes = [
     path: '/Semesters',
     exact: true,
     component: UserIsAuthenticated(SemestersView),
+  },
+  {
+    path: '/Update-semester',
+    exact: true,
+    component: UserIsAuthenticated(UpdateSemesterView),
   },
   {
     path: '/Courses',

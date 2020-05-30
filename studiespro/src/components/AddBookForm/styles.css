@@ -1,4 +1,4 @@
-.formT{
+.formB{
     background-color: #EE78CE;
     display: flex;
     flex-direction: column;
@@ -12,13 +12,13 @@
     
 }
 
-.tituloform{
+.tituloformb{
     font-family: 'Tahoma';
     color: #A93389;
     font-weight: bold;
 }
 
-.buttonTform{
+.buttonBform{
     border-radius: 5px;
     height: 35px;
     width: 70px;

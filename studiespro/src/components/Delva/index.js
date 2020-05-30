@@ -13,6 +13,7 @@ const Delva = ({
   isConfirmed = false,
   isSelected = false,
   onDelete,
+  onClick,
 }) => (
   <div>
     <div

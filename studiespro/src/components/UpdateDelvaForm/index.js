@@ -28,7 +28,7 @@ const UpdateDelvaForm = ({
   return (
     <form className="formD" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformD">{'Crear una nueva Delva:'}</h2>
+      <h2 className="tituloformD">{'Update Delva'}</h2>
       <p>
         <Field className="inputBookD"
           name="name"
@@ -52,7 +52,7 @@ const UpdateDelvaForm = ({
           ) : (
             //<Link to='/Delvas'> 
               <button className="buttonTformD" type="submit" onClick={handleSubmit(onSubmit)}>
-                {'Agregar'}
+                {'Aceptar'}
               </button>
             //</Link>
           )

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddTeacherForm from '../AddTeacherForm';
 import Teachers from '../Teachers';
 import AddTeacherButton from '../AddTeacherButton';
+import UpdateTeacherButton from '../UpdateTeacherButton';
 
 function TeachersView(){
 
@@ -17,6 +18,7 @@ function TeachersView(){
         <div>
             {/*<AddTeacherForm/>*/}
             <AddTeacherButton/>
+            <UpdateTeacherButton/>
             <Teachers/>
         </div>
     )

@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Sshipevents from '../Sshipevents';
 import AddSshipeventButton from '../AddSshipeventButton';
 import TokenRefresh from '../TokenRefresh';
+import UpdateSshipeventButton from '../UpdateSshipeventButton';
 
 function SshipeventsView(){
     useEffect(() => {
@@ -18,6 +19,7 @@ function SshipeventsView(){
             {/*<AddSshipeventForm/>*/}
             <AddSshipeventButton/>
             <Sshipevents/>
+            <UpdateSshipeventButton/>
             <TokenRefresh reviewTime={3600000} /> 
         </div>
     )

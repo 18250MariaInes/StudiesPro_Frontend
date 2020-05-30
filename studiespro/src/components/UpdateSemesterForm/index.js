@@ -15,9 +15,9 @@ import * as actions from '../../actions/semesters';
 import * as selectedActions from '../../actions/selectedsSemester';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
-const SemesterSemesterUpendForm = ({
+const SemesterUpdateForm = ({
   onSubmit,
   isLoading,
   student,
@@ -31,9 +31,9 @@ const SemesterSemesterUpendForm = ({
 
   return (
     
-    <form className="formT" onSubmit={handleSubmit} >
+    <form className="formS" onSubmit={handleSubmit} >
       
-      <h2 className="tituloform">{'Upend a libro'}</h2>
+      <h2 className="tituloforms">{'Update semestre'}</h2>
       <p>
         <Field className="inputSemester"
           name="beginning"
@@ -61,8 +61,8 @@ const SemesterSemesterUpendForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             //<Link to='/SemesterSemesters'> {/*CAMBIAR RUTA*/}
-              <button className="buttonTform" type="submit" onClick={handleSubmit(onSubmit)}>
-                {'Agregar'}
+              <button className="buttonSform" type="submit" onClick={handleSubmit(onSubmit)}>
+                {'Aceptar'}
               </button>
             //</Link>
           )
@@ -73,7 +73,7 @@ const SemesterSemesterUpendForm = ({
   );
 } 
 
-export default reduxForm({form: 'semesterupendform'})(
+export default reduxForm({form: 'semesterupdateform'})(
   connect(
     state => ({
       isLoading: false,
@@ -96,8 +96,8 @@ export default reduxForm({form: 'semesterupendform'})(
         dispatch(
           actions.startUpdatingSemester({
             id, beginning, end
-           
           }),
+          dispatch(reset('semesterupdateform')),
         );
       },
     }),

@@ -5,7 +5,7 @@
     transition: 0.25s;
 }
 
-.book--clicked{
+.sshipevent--clicked{
     transform: scale(0.9);
 }
 

@@ -26,9 +26,9 @@ const BookForm = ({
 
   return (
     
-    <form className="formT" onSubmit={handleSubmit} >
+    <form className="formB" onSubmit={handleSubmit} >
       
-      <h2 className="tituloform">{'Crear un nuevo Libro'}</h2>
+      <h2 className="tituloformb">{'Crear un nuevo Libro'}</h2>
       <p>
         <Field className="inputBook"
           name="title"
@@ -61,7 +61,7 @@ const BookForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             //<Link to='/Books'> {/*CAMBIAR RUTA*/}
-              <button className="buttonTform" type="submit" onClick={handleSubmit(onSubmit)}>
+              <button className="buttonBform" type="submit" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
             //</Link>

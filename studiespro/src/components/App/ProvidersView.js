@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Providers from '../Providers';
 import AddProviderButton from '../AddProviderButton';
 import TokenRefresh from '../TokenRefresh';
+import UpdateProviderButton from '../UpdateProviderButton';
 
 function ProvidersView(){
     useEffect(() => {
@@ -17,6 +18,7 @@ function ProvidersView(){
         <div>
             {/*<AddProviderForm/>*/}
             <AddProviderButton/>
+            <UpdateProviderButton/>
             <Providers/>
             <TokenRefresh reviewTime={3600000} /> 
 

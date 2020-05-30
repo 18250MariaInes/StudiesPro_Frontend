@@ -8,7 +8,8 @@ import { watchLoginStarted,
 import {
   watchAddTeacher,
   watchteachersFetch,
-  watchRemoveTeacher
+  watchRemoveTeacher,
+  watchUpdateTeacher
 } from './teacher';
 
 import {
@@ -21,19 +22,22 @@ import {
 import {
   watchAddDelva,
   watchdelvasFetch,
-  watchRemoveDelva
+  watchRemoveDelva,
+  watchUpdateDelva
 } from './delvas';
 
 import {
   watchAddProvider,
   watchprovidersFetch,
-  watchRemoveProvider
+  watchRemoveProvider,
+  watchUpdateProvider
 } from './providers';
 
 import {
   watchAddSshipevent,
   watchsshipeventsFetch,
-  watchRemoveSshipevent
+  watchRemoveSshipevent,
+  watchUpdateSshipevent,
 } from './sshipevents';
 
 import {
@@ -63,7 +67,8 @@ import {
 import {
   watchAddSemester,
   watchsemestersFetch,
-  watchRemoveSemester
+  watchRemoveSemester,
+  watchUpdateSemester
 } from './semesters';
 
 
@@ -76,6 +81,7 @@ function* mainSaga() {
     fork(watchAddTeacher),
     fork(watchteachersFetch),
     fork(watchRemoveTeacher),
+    fork(watchUpdateTeacher),
 
     fork(watchAddBook),
     fork(watchbooksFetch),
@@ -85,14 +91,17 @@ function* mainSaga() {
     fork(watchAddDelva),
     fork(watchdelvasFetch),
     fork(watchRemoveDelva),
+    fork(watchUpdateDelva),
 
     fork(watchAddProvider),
     fork(watchprovidersFetch),
     fork(watchRemoveProvider),
+    fork(watchUpdateProvider),
     
     fork(watchAddSshipevent),
     fork(watchsshipeventsFetch),
     fork(watchRemoveSshipevent),
+    fork(watchUpdateSshipevent),
 
     fork(watchAddExam),
     fork(watchexamsFetch),
@@ -113,6 +122,7 @@ function* mainSaga() {
     fork(watchAddSemester),
     fork(watchsemestersFetch),
     fork(watchRemoveSemester),
+    fork(watchUpdateSemester),
   ]);
 }
 

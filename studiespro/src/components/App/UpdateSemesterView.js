@@ -1,11 +1,8 @@
 import React, {useState, useEffect} from 'react';
-//import AddDelvaForm from '../AddDelvaForm';
-import Delvas from '../Delvas';
-import AddDelvaButton from '../AddDelvaButton';
 import TokenRefresh from '../TokenRefresh';
-import UpdateDelvaButton from '../UpdateDelvaButton';
+import UpdateSemesterForm from '../UpdateSemesterForm';
 
-function DelvasView(){
+function UpdateSemesterView(){
     useEffect(() => {
         fetchItems();
     }, []);
@@ -16,12 +13,10 @@ function DelvasView(){
     }
     return (
         <div >
-            {/*<AddTeacherForm/>*/}
-            <AddDelvaButton/>
-            <UpdateDelvaButton/>
-            <Delvas/>
-            <TokenRefresh reviewTime={3600000} /> 
+            <UpdateSemesterForm/>
+            <TokenRefresh reviewTime={3600000} />          
+            
         </div>
     )
 }
-export default DelvasView;
+export default UpdateSemesterView;

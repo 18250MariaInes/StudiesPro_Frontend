@@ -17,6 +17,8 @@ import selectedProvider, * as selectedProviderSelectors from './selectedProvider
 import selectedCourse, * as selectedCourseSelectors from './selectedCourse';
 import selectedSemester, * as selectedSemesterSelectors from './selectedSemester';
 import selectedBook, * as selectedBookSelectors from './selectedBook';
+import selectedDelva, * as selectedDelvaSelectors from './selectedDelva';
+import selectedSshipevent, * as selectedSshipeventSelectors from './selectedSshipevent';
 
 import {reducer as formReducer} from 'redux-form';
 
@@ -37,6 +39,8 @@ const reducer = combineReducers({
   selectedCourse,
   selectedSemester,
   selectedBook,
+  selectedDelva,
+  selectedSshipevent,
   form: formReducer,
 });
 
@@ -116,3 +120,7 @@ export const getSelectedCourse = (state) => selectedCourseSelectors.getSelectedC
 export const getSelectedSemester = (state) => selectedSemesterSelectors.getSelectedSemester(state.selectedSemester)
 
 export const getSelectedBook = (state) => selectedBookSelectors.getSelectedBook(state.selectedBook)
+
+export const getSelectedDelva = (state) => selectedDelvaSelectors.getSelectedDelva(state.selectedDelva)
+
+export const getSelectedSshipevent = (state) => selectedSshipeventSelectors.getSelectedSshipevent(state.selectedSshipevent)
