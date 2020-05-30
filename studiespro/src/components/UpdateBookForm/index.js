@@ -22,13 +22,13 @@ const BookUpdateForm = ({
   isLoading,
   student,
   handleSubmit,
-  oldBookTitle,
-  oldBookDesc,
-  oldBookDate,
-  id,
+  oldtitle,
+  olddescription,
+  olddate,
+  //props,
 }) => {
   //const boundHandleSubmit = handleSubmit.bind(student)
-  
+  //const { description, date,title } = props
 
   return (
     
@@ -39,9 +39,9 @@ const BookUpdateForm = ({
         <Field className="inputBook"
           name="title"
           type="text"
-          placeholder="saber"
+          placeholder={oldtitle}
           component="input"
-          defaultValue={oldBookTitle}//hola
+          //defaultValue={oldtitle}//hola
           
           
         />
@@ -51,7 +51,7 @@ const BookUpdateForm = ({
         <Field className="inputBook"
           name="description"
           type="text"
-          placeholder={oldBookDesc}
+          placeholder={olddescription}
           component="input"
         />
       </p>
@@ -59,7 +59,7 @@ const BookUpdateForm = ({
         <Field className="inputBook"
           name="date"
           type="text"
-          placeholder={oldBookDate}
+          placeholder={olddate}
           component="input"
         />
       </p>
@@ -89,14 +89,23 @@ export default reduxForm({form: 'bookupdateform'})(
       student: selectors.getAuthUserID(state),
       
       id: selectedActions.selectedBook(state).payload.selectedBook.id,
-      initialValues: {
-      description: selectedActions.selectedBook(state).payload.selectedBook.description,
-      date: selectedActions.selectedBook(state).payload.selectedBook.date,
-      title: selectedActions.selectedBook(state).payload.selectedBook.title,}
+      olddescription: selectedActions.selectedBook(state).payload.selectedBook.description,
+      olddate: selectedActions.selectedBook(state).payload.selectedBook.date,
+      oldtitle: selectedActions.selectedBook(state).payload.selectedBook.title,
+      
       
     }),
     dispatch => ({
-      onSubmit({title, description, date}, id) {
+      onSubmit({title, description, date}, id, oldtitle, olddate, olddescription) {
+        if (title==null){
+          title=oldtitle;
+        }
+        if (description==null){
+          description=olddescription;
+        }
+        if (date==null){
+          date=olddate;
+        }
         dispatch(
           actions.startUpdatingingBook({
             id, title, description, date
@@ -111,7 +120,7 @@ export default reduxForm({form: 'bookupdateform'})(
       ...dispatchProps,
       onSubmit({title, description, date}) {
         //console.log("Hola", stateProps.id); SI MANDA ID DEL BOOK
-        dispatchProps.onSubmit({title, description, date}, stateProps.id);
+        dispatchProps.onSubmit({title, description, date}, stateProps.id, stateProps.oldtitle, stateProps.olddescription, stateProps.olddate);
       },
     })
   )(BookUpdateForm)
