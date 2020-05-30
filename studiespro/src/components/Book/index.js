@@ -52,6 +52,7 @@ const Book = ({
         </div>
     </div>
   </div>
+  
 );
 
 export default connect(

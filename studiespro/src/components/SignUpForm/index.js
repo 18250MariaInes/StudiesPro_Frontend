@@ -15,7 +15,7 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/auth';
 import './styles.css';
 import LogoutButton from '../LogoutButton';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const SignUpForm = ({
   onSubmit,
@@ -113,7 +113,8 @@ export default connect(
   reduxForm({
     form:'signupform',
     onSubmit({name, lastname, email, carne, sship, password},  dispatch){
-      dispatch(actions.startRegistration(name, lastname, email, carne, sship, password));
+      dispatch(actions.startRegistration(name, lastname, email, carne, sship, password),
+      dispatch(reset('signupform')),);
     },
   })(SignUpForm)
 );

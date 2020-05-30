@@ -15,7 +15,7 @@ import * as actions from '../../actions/materials';
 import LogoutButton from '../LogoutButton';
 import * as selectedActions from '../../actions/selectedProvider';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const AddMaterialForm = ({
   onSubmit,
@@ -88,6 +88,7 @@ export default reduxForm({form: 'materialform'})(
             student,
             provider,
           }),
+        dispatch(reset('materialform')),
         );
       },
     }),

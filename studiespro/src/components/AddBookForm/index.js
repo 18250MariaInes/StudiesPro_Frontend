@@ -14,7 +14,7 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/books';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const BookForm = ({
   onSubmit,
@@ -89,6 +89,7 @@ export default reduxForm({form: 'bookform'})(
             date,
             student,
           }),
+        dispatch(reset('bookform')),
         );
       },
     }),

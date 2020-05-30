@@ -14,7 +14,7 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/teachers';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const TeacherForm = ({
   onSubmit,
@@ -84,6 +84,7 @@ export default reduxForm({form: 'teacherform'})(
             email,
             student,
           }),
+        dispatch(reset('teacherform')),
         );
       },
     }),

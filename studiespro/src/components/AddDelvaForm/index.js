@@ -14,7 +14,7 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/delvas';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const DelvaForm = ({
   onSubmit,
@@ -75,6 +75,7 @@ export default reduxForm({form: 'delvaform'})(
             date,
             student,
           }),
+        dispatch(reset('delvaform')),
         );
       },
     }),

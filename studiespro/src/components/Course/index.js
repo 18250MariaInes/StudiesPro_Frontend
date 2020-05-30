@@ -16,6 +16,7 @@ const Course = ({
   teacherName,
   teachers,
   teacher,
+  semester,
 }) => (
   /*if (teacher==undefined || teacher==null){
     teacher=
@@ -43,6 +44,17 @@ const Course = ({
           <p className="contenidoc">
               {(Object.entries(Object.entries(course)[3])[1]).slice(1)}
               </p>
+          <p className="subtituloc">Inicio:</p>
+          <p className="contenidoc">
+            
+            {semester==null ? "no especificado": (Object.entries(Object.entries(semester)[1])[1]).slice(1)}
+            </p>
+          <p className="subtituloc">Fin:</p>
+          <p className="contenidoc">
+            
+            {semester==null ? "no especificado": (Object.entries(Object.entries(semester)[2])[1]).slice(1)}
+            </p>
+
           <p className="subtituloc">Catedratico:</p>
           <p className="contenidoc">
             
@@ -58,11 +70,12 @@ export default connect(
   (state, { id, /*index*/}) => ({
     ...selectors.getTeacher(state, id.teacher),
     ...selectors.getCourse(state, id),
-   
+    ...selectors.getSemester(state, id.semester),
     //teacher: selectors.getTeachers(state),
     teachers: selectors.getTeachers(state)/*index*/,
     course: id,
     teacher: selectors.getTeacherName(state, id.teacher),
+    semester: selectors.getSemester(state, id.semester),
     isSelected: selectors.getSelectedCourse(state) === id/*index*/,
     //thatT: (Object.entries(Object.entries(selectors.getTeacherName(state, id.teacher))[1])[1]).slice(1)
     //teacher: (Object.entries(Object.entries(id)[2])[1]).slice(1),

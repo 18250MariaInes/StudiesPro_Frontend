@@ -14,7 +14,7 @@ import * as selectors from '../../reducers';
 import * as actions from '../../actions/sshipevents';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const SshipeventForm = ({
   onSubmit,
@@ -93,6 +93,7 @@ export default reduxForm({form: 'sshipeventform'})(
             date,
             student,
           }),
+        dispatch(reset('sshipeventform')),
         );
       },
     }),

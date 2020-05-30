@@ -15,7 +15,7 @@ import * as actions from '../../actions/providers';
 import LogoutButton from '../LogoutButton';
 import * as selectedActions from '../../actions/selectedProvider';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const ProviderForm = ({
   onSubmit,
@@ -87,6 +87,7 @@ export default reduxForm({form: 'providerform'})(
             email,
             student,
           }),
+        dispatch(reset('providerform')),
         );
       },
     }),

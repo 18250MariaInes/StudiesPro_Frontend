@@ -16,7 +16,7 @@ import LogoutButton from '../LogoutButton';
 import * as selectedActions from '../../actions/selectedsSemester';
 import * as selectedActionsT from '../../actions/selectedTeacher';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
 
 const AddCourseForm = ({
   onSubmit,
@@ -74,6 +74,7 @@ export default reduxForm({form: 'courseform'})(
             semester, 
             teacher,
           }),
+        dispatch(reset('courseform')),
         );
       },
     }),
