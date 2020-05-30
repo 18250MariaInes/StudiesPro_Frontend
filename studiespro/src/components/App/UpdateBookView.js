@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import AddBookForm from '../AddBookForm';
 import Books from '../Books';
 import AddBookButton from '../AddBookButton';
-import './styles.css';
 import TokenRefresh from '../TokenRefresh';
-import UpdateBookButton from '../UpdateBookButton';
-function BooksView(){
+import UpdateBookForm from '../UpdateBookForm';
+function UpdateBookView(){
     useEffect(() => {
         fetchItems();
     }, []);
@@ -14,13 +14,11 @@ function BooksView(){
         console.log(items);
     }
     return (
-        <div className="book-view">
-            {/*<AddBookForm/>*/}
-            <AddBookButton/>
-            <UpdateBookButton/>
-            <Books/>
-            <TokenRefresh reviewTime={3600000} /> 
+        <div >
+            <UpdateBookForm/>
+            <TokenRefresh reviewTime={3600000} />          
+            
         </div>
     )
 }
-export default BooksView;
+export default UpdateBookView;

@@ -21,6 +21,7 @@ import AddTeacherView from './AddTeacherView';
 
 import BooksView from './BooksView';
 import AddBookView from './AddBookView';
+import UpdateBookView from './UpdateBookView';
 
 import DelvasView from './DelvasView';
 import SemestersView from './SemestersView';
@@ -88,6 +89,11 @@ const routes = [
     path: '/Add-book',
     exact: true,
     component: UserIsAuthenticated(AddBookView),
+  },
+  {
+    path: '/Update-book',
+    exact: true,
+    component: UserIsAuthenticated(UpdateBookView),
   },
   {
     path: '/Delvas',

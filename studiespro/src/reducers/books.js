@@ -38,6 +38,22 @@ const byId = (state = {}, action) => {
     case types.BOOK_REMOVE_STARTED: {
       return omit(state, action.payload.id);
     }
+    case types.BOOK_UPDATE_STARTED: {
+      /*const { oldId, book } = action.payload;
+      const newState= omit(state, oldId);
+      newState[book.id] = {
+        ...book,
+      };
+      return newState;*/
+      return {
+        ...state,
+        [action.payload.id.id]: {
+        ...state[action.payload.id.id],//hola
+        ...action.payload.id,
+        },
+    };
+    }
+    
     default: {
       return state;
     }
@@ -58,6 +74,17 @@ const order = (state = [], action) => {
     }
     case types.BOOK_REMOVE_STARTED: {
       return state.filter(id => id !== action.payload.id);
+    }
+    case types.BOOK_UPDATE_COMPLETED: {
+      /*const { oldId, book } = action.payload;
+      return state.map(id => id === oldId ? book.id : id);*/
+      const { id, book } = action.payload;
+        const newState = omit(state, id);
+        newState[book.id] = {
+          ...book,
+          //isConfirmed: true,
+        };
+        return newState;
     }
     default: {
       return state;
@@ -99,15 +126,34 @@ const error = (state = null, action) => {
   }
 };
 
+const updateBookError = (state=null, action) => {
+  switch(action.type){
+    case types.BOOK_UPDATE_FAILED: {
+      return action.payload.error;
+    }
+    case types.BOOK_UPDATE_COMPLETED: {
+      return null;
+    }
+    case types.BOOK_UPDATE_STARTED: {
+      return null;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 
 export default combineReducers({
   byId,
   order,
   isFetching,
   error,
+  updateBookError,
 });
 
 export const getBook = (state, id) => state.byId[id];
 export const getBooks = state => state.order.map(id => getBook(state, id));
 export const isFetchingBooks = state => state.isFetching;
 export const getFetchingBooksError = state => state.error;
+export const getUpdateBookError = state => state.updateBookError;

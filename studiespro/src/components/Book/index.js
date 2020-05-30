@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/books';
+import * as selectedActions from '../../actions/selectedBook';
 
 const Book = ({ 
   book,
@@ -20,13 +21,21 @@ const Book = ({
       `
       book-wrapper
         ${isNear ? 'book--selected' : ''}
+        ${isSelected ? 'book--clicked' : ''}
       `
+      
     }
-  >    <div className="book">
-        <button className="delete_book"
-        onClick={onDelete}>
-            &times;
-        </button>
+    onClick={onClick}
+  >    
+  
+  <div className="book">
+        
+        
+          <button className="delete_book"
+          onClick={onDelete}>
+              &times;
+          </button>
+        
         <div className="book_name">
         <p className="subtitulob">Título:</p>
         <p className="contenidob">
@@ -50,8 +59,15 @@ export default connect(
     ...selectors.getBook(state, id),
     book: id,
     isNear: id.is_near,
+    isSelected: selectors.getSelectedBook(state) === id
+
   }),
-  (dispatch, {id}) => ({
+  (dispatch, {id, state, teachers}) => ({
+    onClick(teachers) {
+      dispatch(selectedActions.selectedBook(id));
+      console.log(selectedActions.selectedBook(id));
+      //console.log(teachers)
+    },
       
     onDelete() {
       dispatch(actions.startRemovingBook(id));

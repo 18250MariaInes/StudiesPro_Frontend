@@ -14,7 +14,8 @@ import {
 import {
   watchAddBook,
   watchbooksFetch,
-  watchRemoveBook
+  watchRemoveBook,
+  watchUpdateBook
 } from './books';
 
 import {
@@ -79,6 +80,7 @@ function* mainSaga() {
     fork(watchAddBook),
     fork(watchbooksFetch),
     fork(watchRemoveBook),
+    fork(watchUpdateBook),
 
     fork(watchAddDelva),
     fork(watchdelvasFetch),

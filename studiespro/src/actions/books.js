@@ -53,3 +53,27 @@ export const failRemovingBook = (id, error) => ({
     error,
   },
 });
+
+export const startUpdatingingBook = (id, title, description, date) => ({
+  type: types.BOOK_UPDATE_STARTED,
+  payload: {
+    id,
+    title, 
+    description,
+     date,
+  },
+});
+export const completeUpdatingBook = (id, book) => ({
+  type: types.BOOK_UPDATE_COMPLETED,
+  payload: {
+    id,
+    book,
+  },
+});
+export const failUpdatingBook = (id, error) => ({
+  type: types.BOOK_UPDATE_FAILED,
+  payload: {
+    id,
+    error,
+  },
+});
