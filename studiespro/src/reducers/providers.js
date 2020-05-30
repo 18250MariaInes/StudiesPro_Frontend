@@ -38,6 +38,21 @@ const byId = (state = {}, action) => {
     case types.PROVIDER_REMOVE_STARTED: {
       return omit(state, action.payload.id);
     }
+    case types.PROVIDER_UPDATE_STARTED: {
+      /*const { oldId, PROVIDER } = action.payload;
+      const newState= omit(state, oldId);
+      newState[PROVIDER.id] = {
+        ...PROVIDER,
+      };
+      return newState;*/
+      return {
+        ...state,
+        [action.payload.id.id]: {
+        ...state[action.payload.id.id],//hola
+        ...action.payload.id,
+        },
+      };
+    }
     default: {
       return state;
     }
@@ -58,6 +73,17 @@ const order = (state = [], action) => {
     }
     case types.PROVIDER_REMOVE_STARTED: {
       return state.filter(id => id !== action.payload.id);
+    }
+    case types.PROVIDER_UPDATE_COMPLETED: {
+      /*const { oldId, PROVIDER } = action.payload;
+      return state.map(id => id === oldId ? PROVIDER.id : id);*/
+      const { id, provider } = action.payload;
+        const newState = omit(state, id);
+        newState[provider.id] = {
+          ...provider,
+          //isConfirmed: true,
+        };
+        return newState;
     }
     default: {
       return state;
@@ -99,15 +125,34 @@ const error = (state = null, action) => {
   }
 };
 
+const updateProviderError = (state=null, action) => {
+  switch(action.type){
+    case types.PROVIDER_UPDATE_FAILED: {
+      return action.payload.error;
+    }
+    case types.PROVIDER_UPDATE_COMPLETED: {
+      return null;
+    }
+    case types.PROVIDER_UPDATE_STARTED: {
+      return null;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 
 export default combineReducers({
   byId,
   order,
   isFetching,
   error,
+  updateProviderError,
 });
 
 export const getProvider = (state, id) => state.byId[id];
 export const getProviders = state => state.order.map(id => getProvider(state, id));
 export const isFetchingProviders = state => state.isFetching;
 export const getFetchingProvidersError = state => state.error;
+export const getUpdateProviderError = state => state.updateProviderError;

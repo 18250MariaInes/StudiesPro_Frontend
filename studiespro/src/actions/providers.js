@@ -53,3 +53,27 @@ export const failRemovingProvider = (id, error) => ({
     error,
   },
 });
+
+export const startUpdatingProvider = (id, name, address, email) => ({
+  type: types.PROVIDER_UPDATE_STARTED,
+  payload: {
+    id,
+    name,  
+    address, 
+    email
+  },
+});
+export const completeUpdatingProvider = (id, provider) => ({
+  type: types.PROVIDER_UPDATE_COMPLETED,
+  payload: {
+    id,
+    provider,
+  },
+});
+export const failUpdatingProvider = (id, error) => ({
+  type: types.PROVIDER_UPDATE_FAILED,
+  payload: {
+    id,
+    error,
+  },
+});

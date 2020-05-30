@@ -53,3 +53,26 @@ export const failRemovingDelva = (id, error) => ({
     error,
   },
 });
+
+export const startUpdatingDelva = (id, name, date) => ({
+  type: types.DELVA_UPDATE_STARTED,
+  payload: {
+    id,
+    name, 
+    date
+  },
+});
+export const completeUpdatingDelva = (id, delva) => ({
+  type: types.DELVA_UPDATE_COMPLETED,
+  payload: {
+    id,
+    delva,
+  },
+});
+export const failUpdatingDelva = (id, error) => ({
+  type: types.DELVA_UPDATE_FAILED,
+  payload: {
+    id,
+    error,
+  },
+});

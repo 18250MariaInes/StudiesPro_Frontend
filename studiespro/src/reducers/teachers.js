@@ -38,6 +38,15 @@ const byId = (state = {}, action) => {
     case types.TEACHER_REMOVE_STARTED: {
       return omit(state, action.payload.id);
     }
+    case types.TEACHER_UPDATE_STARTED: {
+      return {
+        ...state,
+        [action.payload.id.id]: {
+        ...state[action.payload.id.id],
+        ...action.payload.id,
+        },
+      };
+    }
     default: {
       return state;
     }
@@ -58,6 +67,16 @@ const order = (state = [], action) => {
     }
     case types.TEACHER_REMOVE_STARTED: {
       return state.filter(id => id !== action.payload.id);
+    }
+    case types.TEACHER_UPDATE_COMPLETED: {
+      
+      const { id, teacher } = action.payload;
+        const newState = omit(state, id);
+        newState[teacher.id] = {
+          ...teacher,
+          
+        };
+        return newState;
     }
     default: {
       return state;
@@ -99,12 +118,29 @@ const error = (state = null, action) => {
   }
 };
 
+const updateTeacherError = (state=null, action) => {
+  switch(action.type){
+    case types.TEACHER_UPDATE_FAILED: {
+      return action.payload.error;
+    }
+    case types.TEACHER_UPDATE_COMPLETED: {
+      return null;
+    }
+    case types.TEACHER_UPDATE_STARTED: {
+      return null;
+    }
+    default: {
+      return state;
+    }
+  }
+};
 
 export default combineReducers({
   byId,
   order,
   isFetching,
   error,
+  updateTeacherError
 });
 
 export const getTeacher = (state, id) => state.byId[id];
@@ -112,3 +148,4 @@ export const getTeachers = state => state.order.map(id => getTeacher(state, id))
 export const isFetchingTeachers = state => state.isFetching;
 export const getFetchingTeachersError = state => state.error;
 export const getTeacherName = (state, id) => state.byId[id];
+export const getUpdateTeacherError = state => state.updateTeacherError;

@@ -22,6 +22,10 @@
     
 }
 
+.delva--clicked{
+    transform: scale(0.9);
+}
+
 .subtitulo{
     color:white;
     margin-bottom: 0px;

@@ -1,0 +1,1 @@
+export const DELVA_SELECTED="DELVA_SELECTED";

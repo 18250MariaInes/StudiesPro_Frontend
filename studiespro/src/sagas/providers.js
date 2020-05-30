@@ -160,4 +160,47 @@ import {
       removeProvider,
     );
   }
+
+  function* updateProvider(action) {
+    try {
+      const isAuth = yield select(selectors.isAuthenticated);
+  
+      if (isAuth) {
+        const token = yield select(selectors.getAuthToken);
+        const response = yield call(
+          fetch,
+          `${API_BASE_URL}/provider/${action.payload.id.id}/`,
+          {
+            method: 'PUT',
+            body: JSON.stringify(action.payload.id),
+            headers:{
+              'Content-Type': 'application/json',
+              'Authorization': `JWT ${token}`,
+            },
+          }
+        );
+        if (response.status === 200) {
+          const jsonResult = yield response.json();
+          console.log("SÍ ENTRA COMO STATUS 200")
+          yield put(
+            actions.completeUpdatingProvider(
+              action.payload.provider.id,
+              jsonResult,
+            ),
+          );
+        } else {
+          console.log("ALGO SALIO MAL Y NO ENTRA COMO 200")
+        }
+      }
+    } catch (error) {
+      console.log("algo salio mal", error)
+    }
+  }
+  
+  export function* watchUpdateProvider() {
+    yield takeEvery(
+      types.PROVIDER_UPDATE_STARTED,
+      updateProvider,
+    );
+  }
   

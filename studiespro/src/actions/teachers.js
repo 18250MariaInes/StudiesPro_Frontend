@@ -53,3 +53,27 @@ export const failRemovingTeacher = (id, error) => ({
     error,
   },
 });
+
+export const startUpdatingTeacher = (id, name, lastname, email) => ({
+  type: types.TEACHER_UPDATE_STARTED,
+  payload: {
+    id,
+    name, 
+    lastname, 
+    email
+  },
+});
+export const completeUpdatingTeacher = (id, teacher) => ({
+  type: types.TEACHER_UPDATE_COMPLETED,
+  payload: {
+    id,
+    teacher,
+  },
+});
+export const failUpdatingTeacher = (id, error) => ({
+  type: types.TEACHER_UPDATE_FAILED,
+  payload: {
+    id,
+    error,
+  },
+});

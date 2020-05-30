@@ -38,6 +38,15 @@ const byId = (state = {}, action) => {
     case types.DELVA_REMOVE_STARTED: {
       return omit(state, action.payload.id);
     }
+    case types.DELVA_UPDATE_STARTED: {
+      return {
+        ...state,
+        [action.payload.id.id]: {
+        ...state[action.payload.id.id],//hola
+        ...action.payload.id,
+        },
+      };
+    }
     default: {
       return state;
     }
@@ -58,6 +67,14 @@ const order = (state = [], action) => {
     }
     case types.DELVA_REMOVE_STARTED: {
       return state.filter(id => id !== action.payload.id);
+    }
+    case types.DELVA_UPDATE_COMPLETED: {
+      const { id, delva } = action.payload;
+        const newState = omit(state, id);
+        newState[delva.id] = {
+          ...delva,
+        };
+        return newState;
     }
     default: {
       return state;
@@ -99,15 +116,34 @@ const error = (state = null, action) => {
   }
 };
 
+const updateDelvaError = (state=null, action) => {
+  switch(action.type){
+    case types.DELVA_UPDATE_FAILED: {
+      return action.payload.error;
+    }
+    case types.DELVA_UPDATE_COMPLETED: {
+      return null;
+    }
+    case types.DELVA_UPDATE_STARTED: {
+      return null;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 
 export default combineReducers({
   byId,
   order,
   isFetching,
   error,
+  updateDelvaError,
 });
 
 export const getDelva = (state, id) => state.byId[id];
 export const getDelvas = state => state.order.map(id => getDelva(state, id));
 export const isFetchingDelvas = state => state.isFetching;
 export const getFetchingDelvasError = state => state.error;
+export const getUpdateDelvaError = state => state.updateDelvaError;
