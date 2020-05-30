@@ -40,10 +40,6 @@ const Course = ({
           <p className="contenidoc">
               {(Object.entries(Object.entries(course)[1])[1]).slice(1)}
               </p>
-          <p className="subtituloc">Semestre:</p>
-          <p className="contenidoc">
-              {(Object.entries(Object.entries(course)[3])[1]).slice(1)}
-              </p>
           <p className="subtituloc">Inicio:</p>
           <p className="contenidoc">
             
