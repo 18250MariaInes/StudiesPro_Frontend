@@ -21,7 +21,7 @@ const updateprovider = ({ onClick, isHidden = false }) => (
       !isHidden && (
         <Link to='/Update-provider'>{/*cambiar ruta cuando juntemos todo*/}
             <button className='updateprovider-button' onClick={onClick}>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABoUlEQVRoge2XMW6DQBBF/3ABJ6bLLQIpcoRcI0dI49BExlIK7EvkGj5CCuNbpCRKqnRsihES2gC7wMKsFV45uzN+X9gjDCws/G9IWqBOkeRPBHoB1EdQ0uPVITqZerwJUCR5SqBtrfStSvUQHuL3rj4vAjTIVxhDiAfokK/oDBFM5GUNgX4MV1YU0LHY5PdNh+IB1lm0V1A7w7UVBXT82pzv9APxAAAQZnFqE6IM1JtenD1AkeRpkeSpXrcKQXSjl2YNUP1gCbQdEkIp9arXZttCLdtmv86iRL/7mZyfAWT1GoHS6+z2T7hZAhhWpTFEmzyfTYzFnoeC2oVZnDb1AvzVauudNICNfI3GJ2FisgA95St6h5gkwED5il4hnK/RkfI2rxbafYc4kG/dNu09jpCQ5z4HSMlz70gk5bl/BNLyPGMgPsjznAH4Is+zeuKTPM/rgW/yPNMSH+V5rgW+yvNsAz7L8/wOfJfnz2jhEuSBjtfpS5AHJvg/MKc84DjA3PKAwwAS8oCjAFLygIMAkvLAyADS8sCIAD7ILywsLMjzC46G0viaOFgKAAAAAElFTkSuQmCC"></img>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAB1UlEQVRoge2YrU7DQACAvysKhQEEb8CPRCCWBYEgAR4Cx3A4soVQEmDbCzAcL8ESBAIySBBIGE+AGgYFqocgDVvprn/X3hH6ud1d2+9Lu0tTKCn53wjTAsMsdup7EnkAvDrC2X7aOXmMOsaagIVO3QV56P8W8O5JZ/1l9+RBdZwVAUF5nzgRxgPGyftERTi5mcVESO9DNS9hyhHe1fxZYyVs3njA826rDeJItcaPWDpvLAfnjAcA9GunbpwIT3oXwfHCAxY6dff7uR8lTgQwFxwoNODnDysP00QIxHFwbEKroYKQ3WZ1eqs6+XbZux5eN+j2bmY3Kp8IsTZ6Bun2a81W8LyFBCj2+Up4xN39aIR0+7VW6J3JPSDGPl+Z2ayKQbd3Mzw+6N7dz2xWBYjbfq2peKxyJEp+GClE+2XndD/pNXK7A0nkYfzjFEUuAUnlfdJEaN9G08r7RL1a/Fqf9kJhZJVX7Tbj0BZgQh40BZiSBw0BJuUhY4BpecgQYIM8pAywRR5SBNgkDwkDbJOHBAE2ykPMAFvlIUaAzfIQEWC7PCgC/oI8KF+n7ZeHXD6rFCcP2gOKlQetAcXLg7YAM/KgJcCcPGQOMCsPmQLMy5eUlJSY5wuSwRSJsXhudgAAAABJRU5ErkJggg=="></img>
                 
             
             </button>
