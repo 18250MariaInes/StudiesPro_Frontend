@@ -38,6 +38,15 @@ const byId = (state = {}, action) => {
     case types.EXAM_REMOVE_STARTED: {
       return omit(state, action.payload.id);
     }
+    case types.EXAM_UPDATE_STARTED: {
+      return {
+        ...state,
+        [action.payload.id.id]: {
+        ...state[action.payload.id.id],
+        ...action.payload.id,
+        },
+      };
+    }
     default: {
       return state;
     }
@@ -58,6 +67,14 @@ const order = (state = [], action) => {
     }
     case types.EXAM_REMOVE_STARTED: {
       return state.filter(id => id !== action.payload.id);
+    }
+    case types.EXAM_UPDATE_COMPLETED: {
+      const { id, exam } = action.payload;
+        const newState = omit(state, id);
+        newState[exam.id] = {
+          ...exam,
+        };
+        return newState;
     }
     default: {
       return state;
@@ -99,15 +116,34 @@ const error = (state = null, action) => {
   }
 };
 
+const updateExamError = (state=null, action) => {
+  switch(action.type){
+    case types.EXAM_UPDATE_FAILED: {
+      return action.payload.error;
+    }
+    case types.EXAM_UPDATE_COMPLETED: {
+      return null;
+    }
+    case types.EXAM_UPDATE_STARTED: {
+      return null;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 
 export default combineReducers({
   byId,
   order,
   isFetching,
   error,
+  updateExamError
 });
 
 export const getExam = (state, id) => state.byId[id];
 export const getExams = state => state.order.map(id => getExam(state, id));
 export const isFetchingExams = state => state.isFetching;
 export const getFetchingExamsError = state => state.error;
+export const getUpdateExamError = state => state.updateExamError;

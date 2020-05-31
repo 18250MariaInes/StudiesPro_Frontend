@@ -41,6 +41,10 @@
     background-color: #FE1134;
 }
 
+.assignment--clicked{
+    transform: scale(0.9);
+}
+
 .contenidoe{
     color:white;
     margin:0;

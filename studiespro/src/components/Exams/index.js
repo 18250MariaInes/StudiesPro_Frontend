@@ -8,7 +8,7 @@ import * as actionsc from '../../actions/courses';
 import Exam from '../Exam';
 
 
-const Exams = ({ exam, isLoading, onLoad }) => {
+const Exams = ({ exam, isLoading, onLoad, isLoadingC}) => {
   useEffect(onLoad, []);
   return (
     
@@ -51,6 +51,7 @@ export default connect(
     course: selectors.getCourses(state),
     exam: selectors.getExams(state),
     isLoading: selectors.isFetchingExams(state),
+    isLoadingC: selectors.isFetchingCourses(state),
   }),
   dispatch => ({
     onLoad() {
