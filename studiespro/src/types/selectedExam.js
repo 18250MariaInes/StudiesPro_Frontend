@@ -1,0 +1,1 @@
+export const EXAM_SELECTED="EXAM_SELECTED";  
