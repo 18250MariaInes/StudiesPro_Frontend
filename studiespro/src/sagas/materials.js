@@ -175,4 +175,49 @@ import {
       removeMaterial,
     );
   }
+
+  function* updateMaterial(action) {
+    try {
+      const isAuth = yield select(selectors.isAuthenticated);
+  
+      if (isAuth) {
+        const token = yield select(selectors.getAuthToken);
+        const response = yield call(
+          fetch,
+          `${API_BASE_URL}/material/${action.payload.id.id}/`,
+          {
+            method: 'PUT',
+            body: JSON.stringify(action.payload.id),
+            headers:{
+              'Content-Type': 'application/json',
+              'Authorization': `JWT ${token}`,
+            },
+          }
+        );
+        if (response.status === 200) {
+          const jsonResult = yield response.json();
+          console.log("SÍ ENTRA COMO STATUS 200")
+          yield put(
+            actions.completeUpdatingMaterial(
+              action.payload.material.id,
+              jsonResult,
+            ),
+          );
+        } else {
+          console.log("ALGO SALIO MAL Y NO ENTRA COMO 200")
+          /*const { non_field_errors } = yield response.json();
+          yield put(actions.failUpdatingBook(non_field_errors[0]));*/
+        }
+      }
+    } catch (error) {
+      console.log("algo salio mal", error)
+    }
+  }
+  
+  export function* watchUpdateMaterial() {
+    yield takeEvery(
+      types.MATERIAL_UPDATE_STARTED,
+      updateMaterial,
+    );
+  }
   

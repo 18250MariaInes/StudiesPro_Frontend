@@ -52,4 +52,29 @@ export const failRemovingExam = (id, error) => ({
     id,
     error,
   },
-})
+});
+
+export const startUpdatingExam = (id, title, topics, date, course) => ({
+  type: types.EXAM_UPDATE_STARTED,
+  payload: {
+    id,
+    title, 
+    topics,
+    date,
+    course,
+  },
+});
+export const completeUpdatingExam = (id, exam) => ({
+  type: types.EXAM_UPDATE_COMPLETED,
+  payload: {
+    id,
+    exam,
+  },
+});
+export const failUpdatingExam = (id, error) => ({
+  type: types.EXAM_UPDATE_FAILED,
+  payload: {
+    id,
+    error,
+  },
+});

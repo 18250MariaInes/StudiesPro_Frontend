@@ -53,3 +53,28 @@ export const failRemovingAssignment = (id, error) => ({
     error,
   },
 });
+
+export const startUpdatingAssignment = (id, title, description, deadline, course) => ({
+  type: types.ASSIGNMENT_UPDATE_STARTED,
+  payload: {
+    id,
+    title, 
+    description,
+    deadline,
+    course,
+  },
+});
+export const completeUpdatingAssignment = (id, assignment) => ({
+  type: types.ASSIGNMENT_UPDATE_COMPLETED,
+  payload: {
+    id,
+    assignment,
+  },
+});
+export const failUpdatingAssignment = (id, error) => ({
+  type: types.ASSIGNMENT_UPDATE_FAILED,
+  payload: {
+    id,
+    error,
+  },
+});

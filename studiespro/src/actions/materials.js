@@ -57,3 +57,28 @@ export const failRemovingMaterial = (id, error) => ({
     error,
   },
 });
+
+export const startUpdatingMaterial = (id, name, description, price, provider) => ({
+  type: types.MATERIAL_UPDATE_STARTED,
+  payload: {
+    id,
+    name, 
+    description,
+    price,
+    provider,
+  },
+});
+export const completeUpdatingMaterial = (id, material) => ({
+  type: types.MATERIAL_UPDATE_COMPLETED,
+  payload: {
+    id,
+    material,
+  },
+});
+export const failUpdatingMaterial = (id, error) => ({
+  type: types.MATERIAL_UPDATE_FAILED,
+  payload: {
+    id,
+    error,
+  },
+});

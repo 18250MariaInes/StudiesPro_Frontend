@@ -163,3 +163,48 @@ import {
       removeAssignment,
     );
   }
+
+  function* updateAssignment(action) {
+    try {
+      const isAuth = yield select(selectors.isAuthenticated);
+  
+      if (isAuth) {
+        const token = yield select(selectors.getAuthToken);
+        const response = yield call(
+          fetch,
+          `${API_BASE_URL}/assignment/${action.payload.id.id}/`,
+          {
+            method: 'PUT',
+            body: JSON.stringify(action.payload.id),
+            headers:{
+              'Content-Type': 'application/json',
+              'Authorization': `JWT ${token}`,
+            },
+          }
+        );
+        if (response.status === 200) {
+          const jsonResult = yield response.json();
+          console.log("SÍ ENTRA COMO STATUS 200")
+          yield put(
+            actions.completeUpdatingAssignment(
+              action.payload.assignment.id,
+              jsonResult,
+            ),
+          );
+        } else {
+          console.log("ALGO SALIO MAL Y NO ENTRA COMO 200")
+          /*const { non_field_errors } = yield response.json();
+          yield put(actions.failUpdatingBook(non_field_errors[0]));*/
+        }
+      }
+    } catch (error) {
+      console.log("algo salio mal", error)
+    }
+  }
+  
+  export function* watchUpdateAssignment() {
+    yield takeEvery(
+      types.ASSIGNMENT_UPDATE_STARTED,
+      updateAssignment,
+    );
+  }
