@@ -22,7 +22,7 @@ const exam = ({
       `
       exam-wrapper
         ${isNear ? 'exam--selected' : ''}
-        ${isSelected ? 'assignment--clicked' : ''}
+        ${isSelected ? 'exam--clicked' : ''}
       `
     }
     onClick={onClick}
@@ -62,12 +62,12 @@ export default connect(
     exam: id,
     course: selectors.getCourse(state, id.course),
     isNear: id.is_near,
-    isSelected: selectors.getSelectedAssignment(state) === id,
+    isSelected: selectors.getSelectedExam(state) === id,
   }),
   (dispatch, {id}) => ({
     onClick() {
-      dispatch(selectedActions.selectedAssignment(id));
-      console.log(selectedActions.selectedAssignment(id));
+      dispatch(selectedActions.selectedExam(id));
+      console.log(selectedActions.selectedExam(id));
     },
     onDelete() {
       dispatch(actions.startRemovingExam(id));

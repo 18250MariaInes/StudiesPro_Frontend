@@ -21,7 +21,7 @@ const updateexam = ({ onClick, isHidden = false }) => (
       !isHidden && (
         <Link to='/Update-exam'>
             <button className='updateexam-button' onClick={onClick}>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABpklEQVRoge2XMU7DMBSGf+cC3dlQrsDAEZhpLsBMg8QEC2oqMdCVwMwF0s49AgNXsJg4ABNbzPAUKTJJ7CSOnyvyjY79+n1qa7XAzMz/RnAL1HmVy1sFPCjgC8BVGu8+TGeCCchlkgmodW3pu4zUxc3p/r3rXBABDfIVxgj2gA75is6IaCIvawTwY9iyiEpxeP68PG96yB6wioutgtgYti2iUhxyuTzTH7AHAEAaF5lNBIA3fdF7QC6TLJdJpq/bRAjgRF/zGlB9YQXUekiEAB4b1vzQcttsV/HuXt/7IpM7QD3V1wRUdh3v/8R5CTBclcaINnl6NjEW9zwUxCaNi6zpLEAfrbazkwbYyNdofCdMTBbQU76id8QkAQPlK3pFOL9GR8pDQJl+Wmj7HeJAvvW2aT/jCA55OucALnk6OxJOeTo/Am55mjGQEORpzgBCkadZPQlJnub1IDR5mmlJiPI014JQ5Wm2gZDlaX4HocvTa7RwDPJAx8/pY5AHJvg/4FMecBzgWx5wGMAhDzgK4JIHHARwygMjA7jlgREBIcjPzMzM8PMLmiQAN9V3Pe0AAAAASUVORK5CYII="></img>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABmklEQVRoge2XsU3DQBRA37FAejrkFSgYgZpkAZRkACpoUByJgszgIBZIUmcEClawqBiAii5HgSwZx/ad7fP9i/Arv33Se7Lz5cDAwP9GSQvkGa/TO+AR+ERxu51G76YzwQRMkjTWikVu9KX12fVufvFWdy6IgBL5DGOEeECNfEZtxFlPXvYovg13jJQ67G+Sj6uyi+IBm1m0Upql4baRUof9+CW9LF4QDwDYzKPYJgLNa3HoPWCSpPEkSePi3DLivDjwGpD9YLVi0TLiqTjwtoUqts1qO4seju5dp/canvMzrYh30+gozkuAYVUaI6rkwUOAxZ5HaZabeRSXnYXfV6vybEe/Wmzkc5Q+CRO9BTSUz2gc0UtAS/mMRhHO12hHebT50+IPTp+AA/nKbVOFswAJeXAUICUPDgIk5aFjgLQ8dAgIQR5aBoQiDy0CQpKHhgGhyUODgBDlwTIgVHmwCAhZHgwBoctDTcApyEPN5/QpyEMP/wd8yoPjAN/y4DBAQh4cBUjJg4MASXnoGCAtDx0CQpAfGBgYkOcHQPD+/ump8xYAAAAASUVORK5CYII="></img>
                 
             
             </button>

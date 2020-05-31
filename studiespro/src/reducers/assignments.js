@@ -38,6 +38,16 @@ const byId = (state = {}, action) => {
     case types.ASSIGNMENT_REMOVE_STARTED: {
       return omit(state, action.payload.id);
     }
+    case types.ASSIGNMENT_UPDATE_STARTED: {
+      
+      return {
+        ...state,
+        [action.payload.id.id]: {
+        ...state[action.payload.id.id],//hola
+        ...action.payload.id,
+        },
+      };
+    }
     default: {
       return state;
     }
@@ -58,6 +68,16 @@ const order = (state = [], action) => {
     }
     case types.ASSIGNMENT_REMOVE_STARTED: {
       return state.filter(id => id !== action.payload.id);
+    }
+    case types.ASSIGNMENT_UPDATE_COMPLETED: {
+      
+      const { id, assignment } = action.payload;
+        const newState = omit(state, id);
+        newState[assignment.id] = {
+          ...assignment,
+          //isConfirmed: true,
+        };
+        return newState;
     }
     default: {
       return state;
@@ -99,15 +119,33 @@ const error = (state = null, action) => {
   }
 };
 
+const updateAssignmentError = (state=null, action) => {
+  switch(action.type){
+    case types.ASSIGNMENT_UPDATE_FAILED: {
+      return action.payload.error;
+    }
+    case types.ASSIGNMENT_UPDATE_COMPLETED: {
+      return null;
+    }
+    case types.ASSIGNMENT_UPDATE_STARTED: {
+      return null;
+    }
+    default: {
+      return state;
+    }
+  }
+};
 
 export default combineReducers({
   byId,
   order,
   isFetching,
   error,
+  updateAssignmentError
 });
 
 export const getAssignment = (state, id) => state.byId[id];
 export const getAssignments = state => state.order.map(id => getAssignment(state, id));
 export const isFetchingAssignments = state => state.isFetching;
 export const getFetchingAssignmentsError = state => state.error;
+export const getUpdateAssignmentError = state => state.updateAssignmentError;

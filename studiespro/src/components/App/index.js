@@ -28,8 +28,6 @@ import UpdateBookView from './UpdateBookView';
 import SemestersView from './SemestersView';
 import UpdateSemesterView from './UpdateSemesterView';
 
-import UpdateAssignmentView from './UpdateAssignmentView';
-
 import DelvasView from './DelvasView';
 import AddDelvaView from './AddDelvaView';
 import UpdateDelvaView from './UpdateDelvaView';
@@ -40,6 +38,7 @@ import UpdateProviderView from './UpdateProviderView';
 
 import MaterialsView from './MaterialsView';
 import AddMaterialView from './AddMaterialView';
+import UpdateMaterialView from './UpdateMaterialView';
 
 import SshipeventsView from './SshipeventsView';
 import AddSshipeventView from './AddSshipeventView';
@@ -51,9 +50,11 @@ import UpdateCourseView from './UpdateCourseView';
 
 import ExamsView from './ExamsView';
 import AddExamView from './AddExamView';
+import UpdateExamView from './UpdateExamView';
 
 import AssignmentsView from './AssignmentsView';
 import AddAssignmentView from './AddAssignmentView';
+import UpdateAssignmentView from './UpdateAssignmentView';
 
 import TokenRefresh from '../TokenRefresh';
 
@@ -167,6 +168,11 @@ const routes = [
     component: UserIsAuthenticated(AddMaterialView),
   },
   {
+    path: '/Update-material',
+    exact: true,
+    component: UserIsAuthenticated(UpdateMaterialView),
+  },
+  {
     path: '/Semesters',
     exact: true,
     component: UserIsAuthenticated(SemestersView),
@@ -200,6 +206,11 @@ const routes = [
     path: '/Add-exam',
     exact: true,
     component: UserIsAuthenticated(AddExamView),
+  },
+  {
+    path: '/Update-exam',
+    exact: true,
+    component: UserIsAuthenticated(UpdateExamView),
   },
   {
     path: '/Assignments',

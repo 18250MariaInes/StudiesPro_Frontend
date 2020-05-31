@@ -16,4 +16,4 @@ const selectedExam = (state = [0,"No seleccionó un examen",3], action) => {
 export default selectedExam;
 
 
-export const getSelectedExamselectedExam = state => state;
+export const getSelectedExam = state => state;

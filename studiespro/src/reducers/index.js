@@ -20,6 +20,8 @@ import selectedSemester, * as selectedSemesterSelectors from './selectedSemester
 import selectedBook, * as selectedBookSelectors from './selectedBook';
 import selectedDelva, * as selectedDelvaSelectors from './selectedDelva';
 import selectedSshipevent, * as selectedSshipeventSelectors from './selectedSshipevent';
+import selectedExam, * as selectedExamSelectors from './selectedExam';
+import selectedMaterial, * as selectedMaterialSelectors from './selectedMaterial';
 
 import {reducer as formReducer} from 'redux-form';
 
@@ -43,6 +45,8 @@ const reducer = combineReducers({
   selectedDelva,
   selectedSshipevent,
   selectedAssignment,
+  selectedExam,
+  selectedMaterial,
   form: formReducer,
 });
 
@@ -97,6 +101,7 @@ export const getAssignment = (state, id) => assignmentsSelectors.getAssignment(s
 export const getAssignments = state => assignmentsSelectors.getAssignments(state.assignments);
 export const isFetchingAssignments = state => assignmentsSelectors.isFetchingAssignments(state.assignments);
 export const getFetchingAssignmentsError = state => assignmentsSelectors.getFetchingAssignmentsError(state.assignments);
+export const getUpdateAssignmentError = state => state.updateAssignmentError;
 //semesters
 export const getSemester = (state, id) => semestersSelectors.getSemester(state.semesters, id);
 export const getSemesters = state => semestersSelectors.getSemesters(state.semesters);
@@ -128,3 +133,5 @@ export const getSelectedDelva = (state) => selectedDelvaSelectors.getSelectedDel
 
 export const getSelectedSshipevent = (state) => selectedSshipeventSelectors.getSelectedSshipevent(state.selectedSshipevent)
 export const getSelectedAssignment = (state) => selectedAssignmentSelectors.getSelectedAssignment(state.selectedAssignment)
+export const getSelectedExam = (state) => selectedExamSelectors.getSelectedExam(state.selectedExam)
+export const getSelectedMaterial = (state) => selectedMaterialSelectors.getSelectedMaterial(state.selectedMaterial)

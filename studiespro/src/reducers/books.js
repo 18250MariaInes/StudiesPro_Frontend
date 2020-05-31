@@ -51,7 +51,7 @@ const byId = (state = {}, action) => {
         ...state[action.payload.id.id],//hola
         ...action.payload.id,
         },
-    };
+      };
     }
     
     default: {

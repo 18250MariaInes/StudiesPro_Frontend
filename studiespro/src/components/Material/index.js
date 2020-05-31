@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/materials';
+import * as selectedActions from '../../actions/selectedMaterial';
 
 const Material = ({ 
   material,
@@ -11,8 +12,20 @@ const Material = ({
   /*onDelete,*/ 
   isConfirmed = false,
   onDelete,
+  isSelected = false,
+  onClick,
   provider
 }) => (
+
+  <div
+        className={
+          `
+            material-wrapper
+            ${isSelected ? 'material--selected' : ''}
+          `
+        }
+        onClick={onClick}
+      >
   
       <div className="material">
         <button className="delete_material"
@@ -39,6 +52,7 @@ const Material = ({
             </p>
         </div>
       </div>
+     </div> 
     
 );
 
@@ -48,9 +62,14 @@ export default connect(
     ...selectors.getMaterial(state, id),
     //providers: selectors.getProviders(state)/*index*/,
     material: id/*index*/,
+    isSelected: selectors.getSelectedMaterial(state) === id,
     provider: selectors.getProvider(state, id.provider),
   }),
   (dispatch, {id}) => ({
+    onClick() {
+      dispatch(selectedActions.selectedMaterial(id));
+      //console.log(selectedActions.selectedProvider(id).payload.id);
+    },
     
     onDelete() {
       dispatch(actions.startRemovingMaterial(id));
