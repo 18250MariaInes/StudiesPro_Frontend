@@ -61,7 +61,8 @@ import {
 import {
   watchAddCourse,
   watchcoursesFetch,
-  watchRemoveCourse
+  watchRemoveCourse,
+  watchUpdateCourse,
 } from './courses';
 
 import {
@@ -118,6 +119,7 @@ function* mainSaga() {
     fork(watchAddCourse),
     fork(watchcoursesFetch),
     fork(watchRemoveCourse),
+    fork(watchUpdateCourse),
 
     fork(watchAddSemester),
     fork(watchsemestersFetch),

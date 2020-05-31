@@ -45,6 +45,7 @@ import UpdateSshipeventView from './UpdateSshipeventView';
 
 import CoursesView from './CoursesView';
 import AddCourseView from './AddCourseView';
+import UpdateCourseView from './UpdateCourseView';
 
 import ExamsView from './ExamsView';
 import AddExamView from './AddExamView';
@@ -182,6 +183,11 @@ const routes = [
     path: '/Add-course',
     exact: true,
     component: UserIsAuthenticated(AddCourseView),
+  },
+  {
+    path: '/Update-course',
+    exact: true,
+    component: UserIsAuthenticated(UpdateCourseView),
   },
   {
     path: '/Exams',

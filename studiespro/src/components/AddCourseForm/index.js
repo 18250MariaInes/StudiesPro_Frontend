@@ -27,7 +27,7 @@ const AddCourseForm = ({
   handleSubmit,
 }) => {
   return (
-    <div className="formC" onSubmit={handleSubmit}>
+    <form className="formC" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
       <h2 className="tituloformc">{'Crear un nuevo curso'}</h2>
       <p>
@@ -52,7 +52,7 @@ const AddCourseForm = ({
         }
       </p>
       
-    </div>
+    </form>
   );
 } 
 

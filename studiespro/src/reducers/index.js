@@ -105,6 +105,7 @@ export const getCourse = (state, id) => coursesSelectors.getCourse(state.courses
 export const getCourses = state => coursesSelectors.getCourses(state.courses);
 export const isFetchingCourses = state => coursesSelectors.isFetchingCourses(state.courses);
 export const getFetchingCoursesError = state => coursesSelectors.getFetchingCoursesError(state.courses);
+export const getUpdateCourseError = state => state.updateCourseError;
 //material
 export const getMaterial = (state, id) => materialsSelectors.getMaterial(state.materials, id);
 export const getMaterials = state => materialsSelectors.getMaterials(state.materials);
