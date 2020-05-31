@@ -1,0 +1,17 @@
+.updateexam-button {
+    background: rgb(80, 144, 24);
+    border-radius: 10px;
+    top: 230px;
+    color: #94DD53;
+    font-size: 5px;
+    height: 70px;
+    position: fixed;
+    right: 20px;
+    width: 70px;
+    z-index: 2;
+    border-style: none;
+}
+
+.agregar{
+    font-size: 2.5rem;
+}

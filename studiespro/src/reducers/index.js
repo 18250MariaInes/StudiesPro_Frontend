@@ -13,6 +13,7 @@ import courses, * as coursesSelectors from './courses';
 import materials, * as materialsSelectors from './materials';
 
 import selectedTeacher, * as selectedTeacherSelectors from './selectedTeacher';
+import selectedAssignment, * as selectedAssignmentSelectors from './selectedAssignment';
 import selectedProvider, * as selectedProviderSelectors from './selectedProvider';
 import selectedCourse, * as selectedCourseSelectors from './selectedCourse';
 import selectedSemester, * as selectedSemesterSelectors from './selectedSemester';
@@ -41,6 +42,7 @@ const reducer = combineReducers({
   selectedBook,
   selectedDelva,
   selectedSshipevent,
+  selectedAssignment,
   form: formReducer,
 });
 
@@ -125,3 +127,4 @@ export const getSelectedBook = (state) => selectedBookSelectors.getSelectedBook(
 export const getSelectedDelva = (state) => selectedDelvaSelectors.getSelectedDelva(state.selectedDelva)
 
 export const getSelectedSshipevent = (state) => selectedSshipeventSelectors.getSelectedSshipevent(state.selectedSshipevent)
+export const getSelectedAssignment = (state) => selectedAssignmentSelectors.getSelectedAssignment(state.selectedAssignment)

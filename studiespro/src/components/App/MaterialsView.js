@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Materials from '../Materials';
 import AddMaterialButton from '../AddMaterialButton';
 import TokenRefresh from '../TokenRefresh';
+import UpdateMaterialButton from '../UpdateMaterialButton';
 
 function MaterialsView(){
     useEffect(() => {
@@ -18,6 +19,7 @@ function MaterialsView(){
             {/*<AddProviderForm/>*/}
             <Materials/>
             <AddMaterialButton/>
+            <UpdateMaterialButton/>
             <TokenRefresh reviewTime={3600000} /> 
 
         </div>

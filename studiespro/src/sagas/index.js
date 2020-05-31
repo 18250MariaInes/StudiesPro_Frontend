@@ -43,19 +43,22 @@ import {
 import {
   watchAddExam,
   watchexamsFetch,
-  watchRemoveExam
+  watchRemoveExam,
+  watchUpdateExam,
 } from './exams';
 
 import {
   watchAddAssignment,
   watchassignmentsFetch,
-  watchRemoveAssignment
+  watchRemoveAssignment,
+  watchUpdateAssignment,
 } from './assignments';
 
 import {
   watchAddMaterial,
   watchmaterialsFetch,
-  watchRemoveMaterial
+  watchRemoveMaterial,
+  watchUpdateMaterial,
 } from './materials';
 
 import {
@@ -107,14 +110,17 @@ function* mainSaga() {
     fork(watchAddExam),
     fork(watchexamsFetch),
     fork(watchRemoveExam),
+    fork(watchUpdateExam),
 
     fork(watchAddAssignment),
     fork(watchassignmentsFetch),
     fork(watchRemoveAssignment),
+    fork(watchUpdateAssignment),
 
     fork(watchAddMaterial),
     fork(watchmaterialsFetch),
     fork(watchRemoveMaterial),
+    fork(watchUpdateMaterial),
 
     fork(watchAddCourse),
     fork(watchcoursesFetch),

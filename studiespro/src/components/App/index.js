@@ -28,6 +28,8 @@ import UpdateBookView from './UpdateBookView';
 import SemestersView from './SemestersView';
 import UpdateSemesterView from './UpdateSemesterView';
 
+import UpdateAssignmentView from './UpdateAssignmentView';
+
 import DelvasView from './DelvasView';
 import AddDelvaView from './AddDelvaView';
 import UpdateDelvaView from './UpdateDelvaView';
@@ -208,6 +210,11 @@ const routes = [
     path: '/Add-assignment',
     exact: true,
     component: UserIsAuthenticated(AddAssignmentView),
+  },
+  {
+    path: '/Update-assignment',
+    exact: true,
+    component: UserIsAuthenticated(UpdateAssignmentView),
   },
 ];
 const App = () => (

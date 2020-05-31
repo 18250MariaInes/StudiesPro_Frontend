@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './styles.css';
 import * as selectors from '../../reducers';
 import * as actions from '../../actions/assignments';
-import * as selectedActions from '../../actions/selectedCourse';
+import * as selectedActions from '../../actions/selectedAssignment';
 
 const Assignment = ({ 
   assignment,
@@ -23,8 +23,10 @@ const Assignment = ({
         `
         assignment-wrapper
           ${isNear ? 'assignment--selected' : ''}
+          ${isSelected ? 'assignment--clicked' : ''}
         `
       }
+      onClick={onClick}
   >
   
       <div className="assignment">
@@ -62,9 +64,15 @@ export default connect(
     assignment: id/*index*/,
     course: selectors.getCourse(state, id.course),
     isNear: id.is_near,
+    isSelected: selectors.getSelectedAssignment(state) === id,
     /*isSelected: selectors.getSelectedTeacher(state) === index,*/
   }),
   (dispatch, {id}) => ({
+    onClick(teachers) {
+      dispatch(selectedActions.selectedAssignment(id));
+      console.log(selectedActions.selectedAssignment(id));
+      //console.log(teachers)
+    },
     
     onDelete() {
       dispatch(actions.startRemovingAssignment(id));
