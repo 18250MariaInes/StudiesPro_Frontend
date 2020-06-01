@@ -36,7 +36,7 @@ const byId = (state = {}, action) => {
       return newState;
     }
     case types.ASSIGNMENT_REMOVE_STARTED: {
-      return omit(state, action.payload.id);
+      return omit(state, action.payload.id.id);
     }
     case types.ASSIGNMENT_UPDATE_STARTED: {
       
@@ -67,7 +67,7 @@ const order = (state = [], action) => {
       return state.map(id => id === oldId ? assignment.id : id);
     }
     case types.ASSIGNMENT_REMOVE_STARTED: {
-      return state.filter(id => id !== action.payload.id);
+      return state.filter(id => id !== action.payload.id.id);
     }
     case types.ASSIGNMENT_UPDATE_COMPLETED: {
       

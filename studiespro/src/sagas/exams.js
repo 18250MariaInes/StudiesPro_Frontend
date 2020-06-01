@@ -132,7 +132,7 @@ import {
           }
         );
   
-        if (response.status === 200) {
+        if (response.status === 204) {
           yield put(actions.completeRemovingExam());
           console.log("Entro 204");
           // const {

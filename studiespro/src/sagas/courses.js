@@ -38,7 +38,7 @@ import {
           }
         );
   
-        if (response.status === 200) {
+        if (response.status === 204) {
           const jsonResult = yield response.json();
           const {
             entities: { courses },
