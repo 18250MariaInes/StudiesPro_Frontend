@@ -141,9 +141,11 @@ import {
           }
         );
   
-        if (response.status === 200) {
+        if (response.status === 204) {
+          console.log("si elimino, 200", response)
           yield put(actions.completeRemovingProvider());
         } else {
+          console.log("saber que pex", response)
           // const { non_field_errors } = yield response.json();
           // yield put(actions.failLogin(non_field_errors[0]));
         }

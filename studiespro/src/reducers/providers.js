@@ -36,15 +36,9 @@ const byId = (state = {}, action) => {
       return newState;
     }
     case types.PROVIDER_REMOVE_STARTED: {
-      return omit(state, action.payload.id);
+      return omit(state, action.payload.id.id);
     }
     case types.PROVIDER_UPDATE_STARTED: {
-      /*const { oldId, PROVIDER } = action.payload;
-      const newState= omit(state, oldId);
-      newState[PROVIDER.id] = {
-        ...PROVIDER,
-      };
-      return newState;*/
       return {
         ...state,
         [action.payload.id.id]: {
@@ -72,7 +66,7 @@ const order = (state = [], action) => {
       return state.map(id => id === oldId ? provider.id : id);
     }
     case types.PROVIDER_REMOVE_STARTED: {
-      return state.filter(id => id !== action.payload.id);
+      return state.filter(id => id !== action.payload.id.id);
     }
     case types.PROVIDER_UPDATE_COMPLETED: {
       /*const { oldId, PROVIDER } = action.payload;
