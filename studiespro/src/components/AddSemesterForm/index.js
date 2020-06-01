@@ -33,7 +33,7 @@ const AddSemesterForm = ({
         <Field className="inputSem"
           name="beginning"
           type="text"
-          placeholder="Fecha de inicio"
+          placeholder="Fecha de inicio (YYYY-MM-DD)"
           component="input"
         />
       </p>
@@ -41,7 +41,7 @@ const AddSemesterForm = ({
         <Field className="inputSem"
           name="end"
           type="text"
-          placeholder="Fecha de fin"
+          placeholder="Fecha de fin (YYYY-MM-DD)"
           component="input"
         />
       </p>

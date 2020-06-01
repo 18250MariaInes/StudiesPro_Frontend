@@ -57,7 +57,7 @@ const SshipeventForm = ({
         <Field className="inputHB"
           name="date"
           type="text"
-          placeholder="Fecha"
+          placeholder="Fecha (YYYY-MM-DD)"
           component="input"
         />
       </p>

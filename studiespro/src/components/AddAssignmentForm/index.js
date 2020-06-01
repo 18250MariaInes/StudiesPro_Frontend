@@ -19,6 +19,17 @@ import { reset, Field, reduxForm} from 'redux-form';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const RenderInput=({input, meta})=>(
+  <Fragment>
+    {
+      meta.dirty && meta.error && (
+        <strong>{meta.error}</strong>
+      )
+    }
+    <input {...input}/>
+  </Fragment>
+)
+
 toast.configure()
 const AssignmentForm = ({
   onSubmit,
@@ -51,7 +62,7 @@ const AssignmentForm = ({
         <Field className="inputProv"
           name="deadline"
           type="text"
-          placeholder="Fecha limite"
+          placeholder="Fecha limite (YYYY-MM-DD)"
           component="input"
         />
       </p>
@@ -97,6 +108,13 @@ export default reduxForm({form: 'assignmentform'})(
         dispatch(reset('assignmentform')),
         );
       },
+      validate(values){
+        const errors={}
+        if (values.deadline.lenght!=10){
+          errors.name="YYYY-MM-DD"
+        }
+        return errors;
+      }
     }),
     (stateProps, dispatchProps, ownProps) => ({
       ...ownProps,

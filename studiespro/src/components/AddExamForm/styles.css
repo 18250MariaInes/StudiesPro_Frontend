@@ -1,4 +1,4 @@
-.formE{
+.formEx{
     background-color: #539CDD;
     display: flex;
     flex-direction: column;
@@ -12,13 +12,13 @@
     
 }
 
-.tituloforme{
+.tituloformex{
     font-family: 'Tahoma';
     color: #1F629D;
     font-weight: bold;
 }
 
-.buttonTforme{
+.buttonTformex{
     border-radius: 5px;
     height: 35px;
     width: 70px;
@@ -27,7 +27,7 @@
     border-style: none;
 }
 
-.inputExam {
+.inputExamx {
     width: 85%;
     background-color: transparent;
     border: none;
@@ -42,7 +42,7 @@
     
 }
   
-.inputExam::placeholder {
+.inputExamx::placeholder {
     color: white;
     font-style: italic;
 }

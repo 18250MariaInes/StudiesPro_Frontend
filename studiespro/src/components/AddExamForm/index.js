@@ -28,11 +28,11 @@ const AddExamForm = ({
   handleSubmit,
 }) => {
   return (
-    <div className="formE" onSubmit={handleSubmit}>
+    <div className="formEx" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloforme">{'Crear un nuevo examen'}</h2>
+      <h2 className="tituloformex">{'Crear un nuevo examen'}</h2>
       <p>
-        <Field className="inputExam"
+        <Field className="inputExamx"
           name="title"
           type="text"
           placeholder="Titulo"
@@ -40,7 +40,7 @@ const AddExamForm = ({
         />
       </p>
       <p>
-        <Field className="inputExam"
+        <Field className="inputExamx"
           name="topics"
           type="text"
           placeholder="Temas"
@@ -48,10 +48,10 @@ const AddExamForm = ({
         />
       </p>
       <p>
-        <Field className="inputExam"
+        <Field className="inputExamx"
           name="date"
           type="text"
-          placeholder="Fecha"
+          placeholder="Fecha (YYYY-MM-DD)"
           component="input"
         />
       </p>
@@ -61,7 +61,7 @@ const AddExamForm = ({
             <strong>{'Cargando...'}</strong>
           ) : (
             //<Link to='/Exams'> 
-              <button type="submit" className="buttonTforme" onClick={handleSubmit(onSubmit)}>
+              <button type="submit" className="buttonTformex" onClick={handleSubmit(onSubmit)}>
                 {'Agregar'}
               </button>
             //</Link>

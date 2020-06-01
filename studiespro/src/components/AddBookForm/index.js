@@ -52,7 +52,7 @@ const BookForm = ({
         <Field className="inputBook"
           name="date"
           type="text"
-          placeholder="Fecha de entrega"
+          placeholder="Fecha de entrega (YYYY-MM-DD)"
           component="input"
         />
       </p>
