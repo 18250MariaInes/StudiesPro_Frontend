@@ -89,7 +89,7 @@ import {
         );
   
         if (response.status === 201) {
-          console.log("Aqui estamos");
+          console.log('LIBRO AGREGADO');
           const jsonResult = yield response.json();
           yield put(
             actions.completeAddingBook(
@@ -184,7 +184,6 @@ import {
         );
         if (response.status === 200) {
           const jsonResult = yield response.json();
-          console.log("SÍ ENTRA COMO STATUS 200")
           yield put(
             actions.completeUpdatingBook(
               action.payload.book.id,

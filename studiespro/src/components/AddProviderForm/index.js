@@ -16,7 +16,10 @@ import LogoutButton from '../LogoutButton';
 import * as selectedActions from '../../actions/selectedProvider';
 import './styles.css';
 import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const ProviderForm = ({
   onSubmit,
   isLoading,
@@ -87,6 +90,9 @@ export default reduxForm({form: 'providerform'})(
             email,
             student,
           }),
+        toast('¡Provider agregado!', 
+        {position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 3000}),
         dispatch(reset('providerform')),
         );
       },

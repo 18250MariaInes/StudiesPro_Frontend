@@ -15,7 +15,10 @@ import * as actions from '../../actions/books';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
 import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const BookForm = ({
   onSubmit,
   isLoading,
@@ -23,7 +26,6 @@ const BookForm = ({
   handleSubmit,
 }) => {
   //const boundHandleSubmit = handleSubmit.bind(student)
-
   return (
     
     <form className="formB" onSubmit={handleSubmit} >
@@ -89,6 +91,9 @@ export default reduxForm({form: 'bookform'})(
             date,
             student,
           }),
+        toast('¡Libro agregado!', 
+        {position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 3000}),
         dispatch(reset('bookform')),
         );
       },

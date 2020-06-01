@@ -15,7 +15,10 @@ import * as actions from '../../actions/teachers';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
 import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const TeacherForm = ({
   onSubmit,
   isLoading,
@@ -84,6 +87,9 @@ export default reduxForm({form: 'teacherform'})(
             email,
             student,
           }),
+        toast('¡Catedrático agregado!', 
+          {position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 3000}),
         dispatch(reset('teacherform')),
         );
       },

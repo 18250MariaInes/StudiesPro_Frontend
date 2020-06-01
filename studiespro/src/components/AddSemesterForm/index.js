@@ -15,7 +15,10 @@ import * as actions from '../../actions/semesters';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
 import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const AddSemesterForm = ({
   onSubmit,
   isLoading,
@@ -75,6 +78,9 @@ export default reduxForm({form: 'semesterform'})(
             end,
             student,
           }),
+        toast('¡Semestre agregado!', 
+        {position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 3000}),
         dispatch(reset('semesterform')),
         );
       },

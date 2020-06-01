@@ -15,7 +15,10 @@ import * as actions from '../../actions/sshipevents';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
 import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const SshipeventForm = ({
   onSubmit,
   isLoading,
@@ -93,6 +96,9 @@ export default reduxForm({form: 'sshipeventform'})(
             date,
             student,
           }),
+        toast('¡Evento de hora beca agregado!', 
+          {position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 3000}),
         dispatch(reset('sshipeventform')),
         );
       },
