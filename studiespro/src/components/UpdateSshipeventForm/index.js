@@ -16,7 +16,10 @@ import * as selectedActions from '../../actions/selectedSshipevent';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
 import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const SshipeventUpdateForm = ({
   onSubmit,
   isLoading,
@@ -120,6 +123,9 @@ export default reduxForm({form: 'sshipeventupdateform'})(
           actions.startUpdatingSshipevent({
             id, name, description, hours, date
           }),
+          toast('¡Evento de hora beca actualizada!', 
+        {position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 3000}),
           dispatch(reset('sshipeventupdateform')),
         );
       },

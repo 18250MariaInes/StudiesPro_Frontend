@@ -16,7 +16,10 @@ import * as selectedActions from '../../actions/selectedsSemester';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
 import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const SemesterUpdateForm = ({
   onSubmit,
   isLoading,
@@ -97,6 +100,9 @@ export default reduxForm({form: 'semesterupdateform'})(
           actions.startUpdatingSemester({
             id, beginning, end
           }),
+        toast('¡Libro agregado!', 
+          {position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 3000}),
           dispatch(reset('semesterupdateform')),
         );
       },

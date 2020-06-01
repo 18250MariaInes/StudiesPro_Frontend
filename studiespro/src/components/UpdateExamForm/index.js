@@ -17,7 +17,10 @@ import * as selectedActions from '../../actions/selectedCourse';
 import * as selectedActionsC from '../../actions/selectedExam';
 import './styles.css';
 import { reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const ExamUpdateForm = ({
   onSubmit,
   isLoading,
@@ -105,6 +108,9 @@ export default reduxForm({form: 'examupdateform'})(
           actions.startUpdatingExam({
             id, title, topics, date, course
           }),
+        toast('¡Examen actualizado!', 
+          {position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 3000}),
         dispatch(reset('examupdateform')),
         );
       },

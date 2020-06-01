@@ -15,8 +15,11 @@ import * as actions from '../../actions/books';
 import * as selectedActions from '../../actions/selectedBook';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
-import {Field, reduxForm} from 'redux-form';
+import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const BookUpdateForm = ({
   onSubmit,
   isLoading,
@@ -109,8 +112,11 @@ export default reduxForm({form: 'bookupdateform'})(
         dispatch(
           actions.startUpdatingingBook({
             id, title, description, date
-           
           }),
+        toast('¡Libro actualizado!', 
+        {position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 3000}),
+        dispatch(reset('bookupdateform')),
         );
       },
     }),

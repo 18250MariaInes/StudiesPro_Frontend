@@ -16,7 +16,10 @@ import * as selectedActions from '../../actions/selectedDelva';
 import LogoutButton from '../LogoutButton';
 import './styles.css';
 import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const UpdateDelvaForm = ({
   onSubmit,
   isLoading,
@@ -84,6 +87,9 @@ export default reduxForm({form: 'updatedelvaform'})(
           actions.startUpdatingDelva({
             id, name, date
           }),
+        toast('¡Delva actualizada!', 
+          {position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 3000}),
         dispatch(reset('updatedelvaform')),
         );
       },

@@ -17,7 +17,10 @@ import * as selectedActions from '../../actions/selectedProvider';
 import * as selectedActionsM from '../../actions/selectedMaterial';
 import './styles.css';
 import {reset, Field, reduxForm} from 'redux-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const UpdateMaterialForm = ({
   onSubmit,
   isLoading,
@@ -104,6 +107,9 @@ export default reduxForm({form: 'materialupdateform'})(
           actions.startUpdatingMaterial({
             id, name, description, price, provider
           }),
+        toast('¡Material actualizado!', 
+          {position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 3000}),
         dispatch(reset('materialupdateform')),
         );
       },
