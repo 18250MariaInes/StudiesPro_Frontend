@@ -144,20 +144,8 @@ import {
           }
         );
   
-        if (response.status === 200) {
+        if (response.status === 204) {
           yield put(actions.completeRemovingTeacher());
-          console.log("Entro 204");
-          // const {
-          //   entities: { teachers },
-          //   result,
-          // } = normalize(jsonResult, schemas.teachers);
-  
-          // yield put(
-          //   actions.completeFetchingteachers(
-          //     teachers,
-          //     result,
-          //   ),
-          // );
         } else {
           // const { non_field_errors } = yield response.json();
           // yield put(actions.failLogin(non_field_errors[0]));

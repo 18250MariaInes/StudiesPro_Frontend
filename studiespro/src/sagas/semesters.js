@@ -143,7 +143,7 @@ import {
           }
         );
   
-        if (response.status === 200) {
+        if (response.status === 204) {
           yield put(actions.completeRemovingSemester());
         } else {
           // const { non_field_errors } = yield response.json();

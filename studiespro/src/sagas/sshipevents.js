@@ -141,7 +141,7 @@ import {
           }
         );
   
-        if (response.status === 200) {
+        if (response.status === 204) {
           yield put(actions.completeRemovingSshipevent());
         } else {
           // const { non_field_errors } = yield response.json();

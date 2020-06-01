@@ -36,7 +36,7 @@ const byId = (state = {}, action) => {
       return newState;
     }
     case types.MATERIAL_REMOVE_STARTED: {
-      return omit(state, action.payload.id);
+      return omit(state, action.payload.id.id);
     }
     default: {
       return state;
@@ -57,7 +57,7 @@ const order = (state = [], action) => {
       return state.map(id => id === oldId ? material.id : id);
     }
     case types.MATERIAL_REMOVE_STARTED: {
-      return state.filter(id => id !== action.payload.id);
+      return state.filter(id => id !== action.payload.id.id);
     }
     default: {
       return state;
