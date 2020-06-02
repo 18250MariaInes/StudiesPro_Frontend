@@ -36,7 +36,7 @@ const SemesterUpdateForm = ({
     
     <form className="formS" onSubmit={handleSubmit} >
       
-      <h2 className="tituloforms">{'Update semestre'}</h2>
+      <h2 className="tituloforms">{'Actualizar semestre'}</h2>
       <p>
         <Field className="inputSemester"
           name="beginning"

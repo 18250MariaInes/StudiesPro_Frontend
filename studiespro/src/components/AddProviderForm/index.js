@@ -30,7 +30,7 @@ const ProviderForm = ({
   return (
     <div className="formP" onSubmit={handleSubmit} >
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformp">{'Crear un nuevo provider:'}</h2>
+      <h2 className="tituloformp">{'Crear un nuevo contacto'}</h2>
       <p>
         <Field className="inputProv"
           name="name"

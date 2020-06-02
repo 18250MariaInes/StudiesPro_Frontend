@@ -1,5 +1,5 @@
 .formE{
-    background-color: #53DDAD;
+    background-color: #539CDD;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,7 +14,7 @@
 
 .tituloforme{
     font-family: 'Tahoma';
-    color: #1C956B;
+    color: #1F629D;
     font-weight: bold;
 }
 
@@ -22,7 +22,7 @@
     border-radius: 5px;
     height: 35px;
     width: 70px;
-    background-color: #1C956B;
+    background-color: #1F629D;
     color: white;
     border-style: none;
 }
@@ -35,7 +35,7 @@
     border: none;
     color:white;
     outline: none;
-    border-bottom: 1px solid #1C956B;
+    border-bottom: 1px solid #1F629D;
     font-size: 1em;
     font-weight: 300;
     padding-bottom: 10px;

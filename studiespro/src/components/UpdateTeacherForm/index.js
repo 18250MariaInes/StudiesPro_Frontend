@@ -35,7 +35,7 @@ const TeacherUpdateForm = ({
   return (
     <div className="formTeacher" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformt">{'Update catedratico'}</h2>
+      <h2 className="tituloformt">{'Actualizar profesor'}</h2>
       <p>
         <Field className="inputTeach"
           name="name"

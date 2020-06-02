@@ -36,7 +36,7 @@ const SignUpForm = ({
         }
         <h1>Cuenta Nueva</h1>
         <p>
-          <Field className="FormField_Input"
+          <Field className="FormField_InputSign"
             name="name"
             type="text"
             placeholder="Nombre"
@@ -46,7 +46,7 @@ const SignUpForm = ({
         </p>
         <p>
           <Field
-            className="FormField_Input"
+            className="FormField_InputSign"
             name="lastname"
             type="text"
             placeholder="Apellido"
@@ -54,34 +54,34 @@ const SignUpForm = ({
           />
         </p>
         <p>
-          <Field className="FormField_Input"
+          <Field className="FormField_InputSign"
             name="email"
             type="text"
-            placeholder="Email"
+            placeholder="Correo electrónico"
             component="input"
           />
         </p>
         <p>
-          <Field className="FormField_Input"
+          <Field className="FormField_InputSign"
             name="carne"
             type="text"
-            placeholder="Carne"
+            placeholder="Carné"
             component="input"
           />
         </p>
         <p>
-          <Field className="FormField_Input"
+          <Field className="FormField_InputSign"
             name="sship"
             type="text"
-            placeholder="Sship"
+            placeholder="Cantidad de horas beca"
             component="input"
           />
         </p>
         <p>
-          <Field className="FormField_Input"
+          <Field className="FormField_InputSign"
             name="password"
             type="Password"
-            placeholder="Password"
+            placeholder="Contraseña"
             component="input"
           />
         </p>
@@ -91,7 +91,7 @@ const SignUpForm = ({
               <strong>{'Cargando...'}</strong>
             ) : (
               
-                <button className="SubmitButton" type="submit" >
+                <button className="SubmitButtonSign" type="submit" >
                       {'Crear'}
                 </button>
               

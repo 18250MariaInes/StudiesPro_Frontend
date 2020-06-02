@@ -16,6 +16,7 @@ import * as actions from '../../actions/auth';
 import './styles.css';
 import LogoutButton from '../LogoutButton';
 import {Field, reduxForm} from 'redux-form';
+import './logo-buho.PNG' ;
 
 const LoginForm = ({
   onSubmit,
@@ -46,7 +47,7 @@ const LoginForm = ({
           }
           <h1>¡Bienvenido!</h1>
           <p>
-            <Field className="FormField_Input"
+            <Field className="FormField_InputLogin"
               name="username"
               type="text"
               placeholder="Email"
@@ -54,7 +55,7 @@ const LoginForm = ({
             />
           </p>
           <p>
-            <Field className="FormField_Input"
+            <Field className="FormField_InputLogin"
               name="password"
               type="password"
               placeholder="Password"
@@ -66,7 +67,7 @@ const LoginForm = ({
               isLoading ? (
                 <strong>{'Cargando...'}</strong>
               ) : (
-                <button className="SubmitButton" type="submit" >
+                <button className="SubmitButtonLogin" type="submit" >
                   {'Login'}
                 </button>
               )

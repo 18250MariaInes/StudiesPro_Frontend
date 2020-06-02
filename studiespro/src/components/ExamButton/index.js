@@ -22,7 +22,7 @@ const ExamButton = ({ onClick, isHidden = false }) => (
         <Link to='/Exams'>
             <button className='exam-button' onClick={onClick}>
           
-                <h1 >Exams</h1>
+                <h1 >Exámenes</h1>
             
             </button>
         </Link>

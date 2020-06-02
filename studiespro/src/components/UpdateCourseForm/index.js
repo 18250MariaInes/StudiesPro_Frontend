@@ -33,7 +33,7 @@ const CourseUpdateForm = ({
     
     <form className="formC" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformc">{'Update Course'}</h2>
+      <h2 className="tituloformc">{'Actualizar Course'}</h2>
       <p>
         <Field className="inputCour"
           name="name"

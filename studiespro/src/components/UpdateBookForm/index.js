@@ -37,7 +37,7 @@ const BookUpdateForm = ({
     
     <form className="formB" onSubmit={handleSubmit} >
       
-      <h2 className="tituloformb">{'Update libro'}</h2>
+      <h2 className="tituloformb">{'Actualizar libro'}</h2>
       <p>
         <Field className="inputBook"
           name="title"

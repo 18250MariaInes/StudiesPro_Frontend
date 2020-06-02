@@ -34,7 +34,7 @@ const AssignmentUpdateForm = ({
   return (
     <form className="formP" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformp">{'Crear una nueva tarea'}</h2>
+      <h2 className="tituloformp">{'Actualizar tarea'}</h2>
       <p>
         <Field className="inputProv"
           name="title"

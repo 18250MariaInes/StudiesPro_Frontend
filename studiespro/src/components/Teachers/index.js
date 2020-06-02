@@ -14,12 +14,12 @@ const Teachers = ({ teacher, isLoading, onLoad }) => {
     
       {
         teacher.length === 0 && !isLoading && (
-          <p className="titulo">{'No hay catedráticos registrados'}</p>
+          <p className="titulo">{'No hay profesores registrados'}</p>
         )
       }
       {
         teacher.length > 0 && !isLoading && (
-          <p className="titulo">{'Catedráticos Registrados'}</p>
+          <p className="titulo">{'Profesores Registrados'}</p>
         )
       }
       {

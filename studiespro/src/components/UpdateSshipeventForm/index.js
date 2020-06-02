@@ -35,7 +35,7 @@ const SshipeventUpdateForm = ({
     
     <form className="formT" onSubmit={handleSubmit} >
       
-      <h2 className="tituloform">{'Update evento de hora beca'}</h2>
+      <h2 className="tituloform">{'Actualizar evento de horas beca'}</h2>
       <p>
         <Field className="inputSshipevent"
           name="name"

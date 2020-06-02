@@ -34,7 +34,7 @@ const ExamUpdateForm = ({
   return (
     <form className="formE" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloforme">{'Update exam'}</h2>
+      <h2 className="tituloforme">{'Actualizar examen'}</h2>
       <p>
         <Field className="inputExam"
           name="title"

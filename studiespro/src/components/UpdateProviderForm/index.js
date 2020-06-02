@@ -33,7 +33,7 @@ const UpdateProviderForm = ({
   return (
     <div className="formP" onSubmit={handleSubmit} >
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformp">{'Update provider'}</h2>
+      <h2 className="tituloformp">{'Actualizar contacto'}</h2>
       <p>
         <Field className="inputProv"
           name="name"

@@ -23,22 +23,22 @@ const Nav = ({
     { isAuthenticated? (
         <ul className="nav-links">
             <Link className="nav-link" to='/Teachers'>
-                <h1 className="home-title">Teachers</h1>
+                <h1 className="home-title">Profesores</h1>
             </Link>
             <Link className="nav-link" to='/Books'>
-                <h1 className="home-title">Books</h1>
+                <h1 className="home-title">Libros</h1>
             </Link>
             <Link className="nav-link" to='/Delvas'>
                 <h1 className="home-title">Delvas</h1>
             </Link>
             <Link className="nav-link" to='/Providers'>
-                <h1 className="home-title">Providers</h1>
+                <h1 className="home-title">Contactos</h1>
             </Link>
             <Link className="nav-link" to='/Materials'>
-                <h1 className="home-title">Materials</h1>
+                <h1 className="home-title">Materiales</h1>
             </Link>
             <Link className="nav-link" to='/Sshipevents'>
-                <h1 className="home-title">Events</h1>
+                <h1 className="home-title">Beca</h1>
             </Link>
             <Link className="nav-link" to='/' onClick={onClick}>
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAA6klEQVRIid2WPW4CMRCFv0UIJMLfBbhKWgqanIAbwKUQBUcACRpSc4hcIuVHkSVawS7YsItYnmS5mPF7nvF4bNSdj2FPABLVEMerJEmS3PJpxjifI2aTjVjye/F+Qs3bLsWIOdf6pk49qPM8g2XcpQzfb0q5VNvPEFLdqB+Q6QzXDlb9Aj6BATA8m1tAD+gA7ZzlW2ASKvQDjO4I8IRVaDFEt6cLgsCIpsAY6KZjAPT5S1s/3ciwYPkWmFRdDOtTMVQptFBbWUPZQgd1lmcoVagI9eh1MdmoR0QvKfT/wlZdeQ3g+0GOoA/kEb2Q9E4iEItTAAAAAElFTkSuQmCC"

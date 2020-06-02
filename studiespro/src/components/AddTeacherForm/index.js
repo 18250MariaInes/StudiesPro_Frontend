@@ -28,7 +28,7 @@ const TeacherForm = ({
   return (
     <div className="formTeacher" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformt">{'Crear un nuevo catedratico'}</h2>
+      <h2 className="tituloformt">{'Crear un nuevo profesor'}</h2>
       <p>
         <Field className="inputTeach"
           name="name"

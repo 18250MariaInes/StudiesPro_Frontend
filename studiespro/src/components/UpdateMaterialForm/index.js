@@ -34,7 +34,7 @@ const UpdateMaterialForm = ({
   return (
     <form className="formM" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformm">{'Crear un nuevo material'}</h2>
+      <h2 className="tituloformm">{'Actualizar material'}</h2>
       <p>
         <Field className="inputMat"
           name="name"        

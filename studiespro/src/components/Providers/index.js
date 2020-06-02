@@ -14,12 +14,12 @@ const Providers = ({ provider, isLoading, onLoad }) => {
     
       {
         provider.length === 0 && !isLoading && (
-          <p className="titulo">{'No hay providers registrados'}</p>
+          <p className="titulo">{'No hay contactos registrados'}</p>
         )
       }
       {
         provider.length > 0 && !isLoading && (
-          <p className="titulo">{'Proveedores Registrados'}</p>
+          <p className="titulo">{'Contactos Registrados'}</p>
         )
       }
       {

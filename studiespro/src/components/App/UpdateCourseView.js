@@ -18,7 +18,7 @@ function UpdateCourseView(){
     }
     return (
         <div className="add-course-wrapper" >
-            <h1 className="instrucciones">Selecciona un semestre, un catedratico e introduce el nombre del curso</h1>
+            <h1 className="instrucciones">Selecciona un semestre, un profesor e introduce el nombre del curso</h1>
             <div className="organizador_course" >
                 <Semesters/>
                 <Teachers/>

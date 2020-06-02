@@ -31,7 +31,7 @@ const UpdateDelvaForm = ({
   return (
     <form className="formD" onSubmit={handleSubmit}>
       {/*<LogoutButton/>*/}
-      <h2 className="tituloformD">{'Update Delva'}</h2>
+      <h2 className="tituloformD">{'Actualizar Delva'}</h2>
       <p>
         <Field className="inputBookD"
           name="name"
