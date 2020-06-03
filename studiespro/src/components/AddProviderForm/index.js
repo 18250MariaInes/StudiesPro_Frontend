@@ -90,7 +90,7 @@ export default reduxForm({form: 'providerform'})(
             email,
             student,
           }),
-        toast('¡Provider agregado!', 
+        toast('¡Proveedor agregado!', 
         {position: toast.POSITION.BOTTOM_RIGHT,
           autoClose: 3000}),
         dispatch(reset('providerform')),

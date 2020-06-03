@@ -16,7 +16,7 @@ import * as actions from '../../actions/auth';
 import './styles.css';
 import LogoutButton from '../LogoutButton';
 import {Field, reduxForm} from 'redux-form';
-import './logo-buho.PNG' ;
+
 
 const LoginForm = ({
   onSubmit,

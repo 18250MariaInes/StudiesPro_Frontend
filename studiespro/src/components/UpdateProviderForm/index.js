@@ -105,7 +105,7 @@ export default reduxForm({form: 'updateproviderform'})(
             address,
             email
           }),
-        toast('¡Provider actualizado!', 
+        toast('¡Proveedor actualizado!', 
           {position: toast.POSITION.BOTTOM_RIGHT,
             autoClose: 3000}),
         dispatch(reset('updateproviderform')),

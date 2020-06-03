@@ -16,7 +16,9 @@ import * as actions from '../../actions/auth';
 import './styles.css';
 import LogoutButton from '../LogoutButton';
 import {reset, Field, reduxForm} from 'redux-form';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 const SignUpForm = ({
   onSubmit,
   isLoading = false,
@@ -114,6 +116,9 @@ export default connect(
     form:'signupform',
     onSubmit({name, lastname, email, carne, sship, password},  dispatch){
       dispatch(actions.startRegistration(name, lastname, email, carne, sship, password),
+      toast('¡Cuenta creada!', 
+          {position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 3000}),
       dispatch(reset('signupform')),);
     },
   })(SignUpForm)

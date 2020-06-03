@@ -100,7 +100,7 @@ export default reduxForm({form: 'semesterupdateform'})(
           actions.startUpdatingSemester({
             id, beginning, end
           }),
-        toast('¡Libro agregado!', 
+        toast('¡Semestre Actualizado!', 
           {position: toast.POSITION.BOTTOM_RIGHT,
             autoClose: 3000}),
           dispatch(reset('semesterupdateform')),
