@@ -1,4 +1,4 @@
-# Proyecto final de Web Frontend
+# Proyecto final de Web Frontend React-Redux
 
 **Link de video demostrativo**
 link
